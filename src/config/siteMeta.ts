@@ -1,10 +1,12 @@
+import { profileData } from './profile'
+
 const siteMeta = {
-  title: 'Ashal Farhan',
-  description: 'My Next.js template',
+  title: profileData.name,
+  description: profileData.fullName,
   social: {
-    twitter: 'ashal_farhan',
+    twitter: profileData.twitterUsername,
   },
-  image: 'https://ik.imagekit.io/gncpb3rwf/dummy-blogs/sammy-wong-zBxjmfhjdaE-unsplash_DOe91biBOI.jpg',
+  image: '/images/avatar.jpg',
 }
 
 export default siteMeta

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { ReactNode } from 'react'
 import siteMeta from '../config/siteMeta'
 
 interface SeoProps {
@@ -7,9 +8,11 @@ interface SeoProps {
   favicon?: string
   canonical?: string
   image?: string
+  keywords?: string[]
+  children?: ReactNode
 }
 
-const Seo = ({ description = '', title = '', favicon = '', canonical = '', image }: SeoProps) => {
+const Seo = ({ description = '', title = '', favicon = '', canonical = '', image, children, keywords }: SeoProps) => {
   return (
     <Head>
       {/* Compatibility meta */}
@@ -20,6 +23,7 @@ const Seo = ({ description = '', title = '', favicon = '', canonical = '', image
       {/* <!-- Search Engine --> */}
       <meta name="description" content={description || siteMeta.description} />
       <meta name="image" content={image || siteMeta.image} />
+      {keywords && <meta name="keywords" content={keywords.join(', ')} />}
       {/* <!-- Schema.org for Google --> */}
       <meta itemProp="name" content={title || siteMeta.title} />
       <meta itemProp="description" content={description || siteMeta.description} />
@@ -41,6 +45,7 @@ const Seo = ({ description = '', title = '', favicon = '', canonical = '', image
       <meta property="twitter:image:src" content={siteMeta.image} />
       {canonical && <link property="canonical" href={canonical} />}
       <link rel="icon" href={favicon || '/favicon.ico'} />
+      {children}
     </Head>
   )
 }
