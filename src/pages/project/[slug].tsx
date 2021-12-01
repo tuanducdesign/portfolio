@@ -22,7 +22,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         />
         <div className="mt-8 flex space-x-4 bg-gray-100 p-2 rounded-md">
           {project.meta.technologies.map((t, idx) => (
-            <span key={t + idx}>
+            <span key={t + idx} className="hover:scale-150 transition-transform">
               <TechIcon name={t} />
             </span>
           ))}

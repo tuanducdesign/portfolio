@@ -1,4 +1,4 @@
-## A brief about my career
+## A Brief About My Career
 
 I do Frontend Development with a lot of passion, works for office by day, and do personal project and learning by night. High
 interest in learning new things related to the world of web development.

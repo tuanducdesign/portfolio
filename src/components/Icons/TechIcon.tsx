@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { SVGProps } from 'react'
 import Gatsby from './Gatsby'
+import Go from './Go'
 import Graphql from './Graphql'
 import NextJs from './NextJs'
 
@@ -25,6 +26,7 @@ export type IconName =
   | 'gatsby'
   | 'next_js'
   | 'graphql'
+  | 'go'
 
 type TechIconProps = { name: IconName; size?: number } & SVGProps<SVGSVGElement>
 
@@ -52,6 +54,8 @@ const TechIcon = ({ name, size = 24, ...props }: TechIconProps) => {
       return <NextJs width={size} height={size} {...props} />
     case 'graphql':
       return <Graphql width={size} height={size} {...props} />
+    case 'go':
+      return <Go width={size} height={size} {...props} />
     default:
       return <span />
   }

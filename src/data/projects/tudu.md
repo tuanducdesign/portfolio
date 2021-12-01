@@ -1,5 +1,5 @@
 ---
-title: Tudu App
+title: Tudu
 liveUrl: https://tudu-haans.netlify.app
 repoUrl: https://github.com/ashalfarhan/tudu-app
 thumbnail: /project6.png
@@ -10,6 +10,8 @@ technologies:
   - mongo_db
 ---
 
-A simple App that is actually for my learning using another library for building UI, Vue.js
+## Tudu
 
-Technologies used are Vue.js for frontend, Express.js, and Mongoose (ODM for Mongo DB)
+This is a simple todo app built with MEVN Stack, and my first time using [Vue](https://v3.vuejs.org) as my Frontend Framework.
+
+The stack is actually similar to my [Admin Dashboard](/project/merng-dashboard), but the differences are in Frontend Framework, and the API Technology that i'm using, this project using REST API.
