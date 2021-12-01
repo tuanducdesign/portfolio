@@ -13,4 +13,4 @@ This is my first time to build a Command Line Interface (CLI) App. This app is r
 
 So i don't have to worry about create a password, and also, this has a feature that allows you to exclude symbols or numbers, saving to a file.
 
-And it's really fun that i can learn a new programming language [Go](https://go.dev) (Golang). The reason why i'm choosing this language is that people said that Golang is good for system program, and i admit that Golang is really fast compared to Node.js and my previous company use this langunge to build their Backend Service.
+And it's really fun that i can learn a new programming language [Go](https://go.dev) (Golang). The reason why i'm choosing this language is that people said that Golang is good for system program, and i admit that Golang is really fast compared to Node.js and my previous company use this language to build their Backend Service.
