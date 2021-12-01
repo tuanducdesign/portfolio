@@ -10,7 +10,8 @@
     "ts:check": "tsc --noEmit",
     "format:write": "prettier --write src/**/*.{js,ts,jsx,tsx,css,md}",
     "format:check": "prettier --check src/**/*.{js,ts,jsx,tsx}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postbuild": "next-sitemap --config ./next-sitemap.config.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
@@ -35,6 +36,7 @@
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
+    "next-sitemap": "^1.6.203",
     "postcss": "^8.4.4",
     "prettier": "^2.5.0",
     "tailwindcss": "^2.2.19",

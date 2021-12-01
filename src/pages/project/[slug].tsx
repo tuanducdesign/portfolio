@@ -5,8 +5,8 @@ import Seo from '../../components/Seo'
 import { Project } from '../../types/model'
 import { getMarkdown } from '../../utils/getMarkdown'
 import { getAllProjectFiles } from '../../utils/projects'
-import TechIcon from '../../components/Icons/TechIcon'
 import Button from '../../components/Button'
+import TechStackBar from '../../components/TechStackBar'
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
@@ -20,18 +20,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
           height={520}
           className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl"
         />
-        <div className="mt-8 flex space-x-4 bg-gray-100 p-2 rounded-md">
-          {project.meta.technologies.map((t, idx) => (
-            <span key={t + idx} className="hover:scale-150 transition-transform">
-              <TechIcon name={t} />
-            </span>
-          ))}
-        </div>
+        <TechStackBar hoverable technologies={project.meta.technologies} />
         <article
           className="prose my-4 p-4 prose-lg md:prose-xl bg-gray-200 rounded-lg"
           dangerouslySetInnerHTML={{ __html: project.html }}
         />
-        <div className="max-w-2xl flex w-full space-x-8">
+        <div className="max-w-2xl flex w-full md:space-x-8 md:space-y-0 md:flex-row flex-col space-y-3">
           {Boolean(project.meta.liveUrl) && (
             <Button className="flex-auto" as="a" href={project.meta.liveUrl}>
               Demo

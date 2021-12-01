@@ -1,2 +1,9 @@
-user-agent: *
-disallow:
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ashal.me
+
+# Sitemaps
+Sitemap: https://ashal.me/sitemap.xml

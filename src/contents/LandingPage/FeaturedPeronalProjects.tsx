@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import TechIcon from '../../components/Icons/TechIcon'
+import TechStackBar from '../../components/TechStackBar'
 import { Project } from '../../types/model'
 
 const PersonalProjectCard = ({ project }: { project: Project }) => {
@@ -20,13 +20,7 @@ const PersonalProjectCard = ({ project }: { project: Project }) => {
           />
           <div>
             <h1 className="md:text-2xl text-lg p-1 font-bold">{project.meta.title}</h1>
-            <div className="flex space-x-4 bg-gray-100 p-2 rounded-md">
-              {project.meta.technologies.map((t, idx) => (
-                <span key={t + idx}>
-                  <TechIcon name={t} />
-                </span>
-              ))}
-            </div>
+            <TechStackBar technologies={project.meta.technologies} />
           </div>
         </a>
       </Link>

@@ -10,7 +10,7 @@ export function HeroSection() {
         <h1 className="md:text-6xl text-3xl font-bold leading-snug md:text-left text-center">
           Hi, I am <span className="text-blue-400">{profileData.name},</span> <br /> {profileData.highlight}
         </h1>
-        <div className="flex space-x-4">
+        <div className="flex md:space-x-4 md:flex-row space-y-3 md:space-y-0 flex-col w-full">
           <Button className="text-xl" as="a" href="#intro">
             Know More
           </Button>
