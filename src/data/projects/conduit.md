@@ -10,8 +10,6 @@ technologies:
   - postgres
 ---
 
-## Conduit
-
 Conduit is a [Real World](https://realworld-docs.netlify.app/docs/intro) challenge project to build a [Medium](https://medium.com) clone with different Frontend or Backend technologies. But this time I built the implementation for Go (Golang) with following technologies:
 
 - Some built-in/standard library e.g. `net/http`

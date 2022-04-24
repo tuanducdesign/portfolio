@@ -11,8 +11,6 @@ technologies:
   - mongo_db
 ---
 
-## Admin Dashboard
-
 This built using MERNG Stack, and my first time creating a Graphql API with [Apollo](https://apollographql.com), learning how authentication flow works with JSON Web Token (JWT), but i'm only using the access token, haven't implement the refresh token yet.
 
 Database used is Mongo DB, i'm using Mongo DB [Atlas](https://cloud.mongodb.com) as the Cloud Database, the reasons are:

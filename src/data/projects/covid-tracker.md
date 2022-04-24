@@ -7,8 +7,6 @@ technologies:
   - gatsby
 ---
 
-## Coronavirus Tracker
-
 A Coronavirus Dashboard Tracker, this will show you about the Coronavirus statistic in some countries in the universe 🚀.
 
 Technologies used are Gatsby, and consuming Disease API for the single source of truth.

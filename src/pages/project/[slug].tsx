@@ -3,22 +3,33 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { TechStackBar, Button, Seo, Layout } from '@site/components';
 import { Project } from '@site/types';
 import { getAllProjectFiles, getMarkdown } from '@site/utils';
+import { BiArrowBack } from 'react-icons/bi';
+import Router from 'next/router';
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <Layout>
       <Seo title={project.meta.title} keywords={project.meta.technologies.map((t) => t.replace('_', ' '))} />
       <div className="container mx-auto flex flex-col items-center py-12 md:px-0 px-4">
+        <div className="w-2/3 mb-4">
+          <span role="button" onClick={Router.back} className="inline-flex items-center p-4 gap-x-4">
+            <BiArrowBack />
+            <span>Back</span>
+          </span>
+          <div className="flex items-center">
+            <h1 className="text-3xl flex-1">{project.meta.title}</h1>
+            <TechStackBar technologies={project.meta.technologies} />
+          </div>
+        </div>
         <img
           src={'/images/projects' + project.meta.thumbnail}
-          alt="asdasdasd"
+          alt={project.meta.title}
           width={960}
           height={520}
-          className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl"
+          className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl rounded-md"
         />
-        <TechStackBar technologies={project.meta.technologies} />
         <article
-          className="prose my-4 p-4 prose-md md:prose-xl bg-gray-200 rounded-lg"
+          className="prose my-4 p-4 prose-lg prose-cyan text-white prose-headings:text-white rounded-lg prose-code:text-blue-300"
           dangerouslySetInnerHTML={{ __html: project.html }}
         />
         <div className="max-w-2xl flex w-full md:space-x-8 md:space-y-0 md:flex-row flex-col space-y-3">
@@ -51,7 +62,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params) return defaultRedirect;
   const { slug } = params;
   if (typeof slug !== 'string') return defaultRedirect;
-
   try {
     const project = (await getMarkdown(slug, true)) as Project;
     return {
