@@ -2,28 +2,20 @@ name: Main
 
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
 
 jobs:
   ci:
     name: Main CI
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x, 14.x]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node Environment ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: "yarn"
-      - name: Install all dependencies
-        run: yarn
+          node-version: 16.13
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
       - name: Code coverage check
         run: |
           yarn ts:check
