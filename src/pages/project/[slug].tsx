@@ -18,7 +18,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         />
         <TechStackBar hoverable technologies={project.meta.technologies} />
         <article
-          className="prose my-4 p-4 prose-lg md:prose-xl bg-gray-200 rounded-lg"
+          className="prose my-4 p-4 prose-md md:prose-xl bg-gray-200 rounded-lg"
           dangerouslySetInnerHTML={{ __html: project.html }}
         />
         <div className="max-w-2xl flex w-full md:space-x-8 md:space-y-0 md:flex-row flex-col space-y-3">

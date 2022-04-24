@@ -5,6 +5,8 @@ repoUrl: https://github.com/ashalfarhan/realworld
 thumbnail: /project10.jpg
 technologies:
   - go
+  - docker
+  - redis
 ---
 
 ## Conduit

@@ -11,6 +11,9 @@ import { Typescript } from './Typescript';
 import { Vue } from './Vue';
 import { ReactJs } from './ReactJs';
 import { Go } from './Go';
+import { Docker } from './Docker';
+import { Redis } from './Redis';
+import { Postgresql } from './Postgresql';
 
 export type IconName =
   | 'javascript'
@@ -24,6 +27,9 @@ export type IconName =
   | 'gatsby'
   | 'next_js'
   | 'graphql'
+  | 'docker'
+  | 'redis'
+  | 'postgres'
   | 'go';
 
 type TechIconProps = { name: IconName; size?: number } & SVGProps<SVGSVGElement>;
@@ -54,6 +60,12 @@ export const TechIcon = ({ name, size = 24, ...props }: TechIconProps) => {
       return <Graphql width={size} height={size} {...props} />;
     case 'go':
       return <Go width={size} height={size} {...props} />;
+    case 'docker':
+      return <Docker width={size} height={size} {...props} />;
+    case 'redis':
+      return <Redis width={size} height={size} {...props} />;
+    case 'postgres':
+      return <Postgresql width={size} height={size} {...props} />;
     default:
       return <span />;
   }
