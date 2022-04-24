@@ -5,7 +5,7 @@ import { Project } from '@site/types';
 
 const PersonalProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="ring-1 ring-offset-0 hover:ring-offset-1 ring-transparent p-2 hover:ring-white rounded-md transition-colors bg-gray-900">
+    <div className="ring-1 transition-all ring-offset-0 ring-offset-transparent hover:ring-offset-2 ring-transparent p-2 hover:ring-blue-400 rounded-md bg-gray-900">
       <Link href={'/project/' + project.meta.slug} passHref>
         <a>
           <Image
