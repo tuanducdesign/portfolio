@@ -27,8 +27,8 @@ const PersonalProjectCard = ({ project }: { project: Project }) => {
 
 export function FeaturedPersonalProjects({ projects }: { projects: Project[] }) {
   return (
-    <div className="container flex flex-col mx-auto py-4">
-      <h1 className="md:text-3xl font-bold text-xl mb-4">Personal Projects</h1>
+    <div className="container flex flex-col mx-auto py-4 px-2">
+      <h1 className="md:text-2xl font-bold text-xl mb-4">Personal Projects</h1>
       <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8">
         {projects.map((project) => (
           <PersonalProjectCard project={project} key={project.meta.id} />

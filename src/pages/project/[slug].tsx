@@ -10,13 +10,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
   return (
     <Layout>
       <Seo title={project.meta.title} keywords={project.meta.technologies.map((t) => t.replace('_', ' '))} />
-      <div className="container mx-auto flex flex-col items-center py-12 md:px-0 px-4">
-        <div className="w-2/3 mb-4">
+      <div className="container mx-auto flex flex-col items-center py-4 md:py-12 md:px-0 px-4">
+        <div className="md:w-2/3 w-full mb-4">
           <span role="button" onClick={Router.back} className="inline-flex items-center p-4 gap-x-4">
             <BiArrowBack />
             <span>Back</span>
           </span>
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row items-center">
             <h1 className="text-3xl flex-1">{project.meta.title}</h1>
             <TechStackBar technologies={project.meta.technologies} />
           </div>
