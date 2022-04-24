@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { Button } from '@site/components';
 import { profileData } from '@site/config';
@@ -22,7 +22,7 @@ export function HeroSection() {
         </div>
       </div>
       <div className="md:max-w-[360px] max-w-[200px]">
-        <Image src="/images/avatar.jpg" alt="Avatar" width={360} height={360} className="rounded-full" />
+        <img src="/images/avatar.jpg" alt="Avatar" width={360} height={360} className="rounded-full" />
       </div>
     </div>
   );
