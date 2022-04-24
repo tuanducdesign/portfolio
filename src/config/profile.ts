@@ -7,4 +7,4 @@ export const profileData = {
   githubUrl: 'https://github.com/ashalfarhan',
   codepenUrl: 'https://codepen.io/ashalfarhan8',
   linkedinUrl: 'https://linkedin/in/ashalfarhan',
-}
+};

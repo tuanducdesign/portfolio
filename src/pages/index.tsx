@@ -1,10 +1,8 @@
-import Seo from '../components/Seo'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { getMarkdown } from '../utils/getMarkdown'
-import { getAllProjects } from '../utils/projects'
-import { FeaturedPersonalProjects, HeroSection, LandingIntro } from '../contents/LandingPage'
-import { Project } from '../types/model'
-import Layout from '../components/Layout'
+import { Seo, Layout } from '@site/components';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { getAllProjects, getMarkdown } from '@site/utils';
+import { FeaturedPersonalProjects, HeroSection, LandingIntro } from '@site/contents';
+import { Project } from '@site/types';
 
 export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -14,13 +12,13 @@ export default function Home(props: InferGetStaticPropsType<typeof getStaticProp
       <LandingIntro data={props.aboutData} />
       <FeaturedPersonalProjects projects={props.projects} />
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps<{ aboutData: Pick<Project, 'html'>; projects: Project[] }> = async () => {
-  const projects = await getAllProjects()
-  const aboutData = await getMarkdown('about')
+  const projects = await getAllProjects();
+  const aboutData = await getMarkdown('about');
   return {
     props: { aboutData, projects },
-  }
-}
+  };
+};

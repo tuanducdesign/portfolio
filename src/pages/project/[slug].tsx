@@ -1,12 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { GetStaticPaths, GetStaticProps } from 'next'
-import Layout from '../../components/Layout'
-import Seo from '../../components/Seo'
-import { Project } from '../../types/model'
-import { getMarkdown } from '../../utils/getMarkdown'
-import { getAllProjectFiles } from '../../utils/projects'
-import Button from '../../components/Button'
-import TechStackBar from '../../components/TechStackBar'
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { TechStackBar, Button, Seo, Layout } from '@site/components';
+import { Project } from '@site/types';
+import { getAllProjectFiles, getMarkdown } from '@site/utils';
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
@@ -39,30 +35,31 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const files = getAllProjectFiles()
+  const files = getAllProjectFiles();
   return {
     paths: files.map((file) => ({ params: { slug: file.slice(0, -3) } })),
     fallback: false,
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const defaultRedirect = { redirect: { destination: '/', permanent: true } }
-  if (!params) return defaultRedirect
-  const { slug } = params
-  if (typeof slug !== 'string') return defaultRedirect
+  const defaultRedirect = { redirect: { destination: '/', permanent: true } };
+  if (!params) return defaultRedirect;
+  const { slug } = params;
+  if (typeof slug !== 'string') return defaultRedirect;
+
   try {
-    const project = (await getMarkdown(slug, true)) as Project
+    const project = (await getMarkdown(slug, true)) as Project;
     return {
       props: {
         project,
       },
-    }
-  } catch (error) {
-    return defaultRedirect
+    };
+  } catch {
+    return defaultRedirect;
   }
-}
+};

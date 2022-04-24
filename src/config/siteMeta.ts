@@ -1,4 +1,4 @@
-import { profileData } from './profile'
+import { profileData } from './profile';
 
 const siteMeta = {
   title: profileData.name,
@@ -7,6 +7,6 @@ const siteMeta = {
     twitter: profileData.twitterUsername,
   },
   image: '/images/avatar.jpg',
-}
+};
 
-export default siteMeta
+export { siteMeta };

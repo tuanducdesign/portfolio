@@ -1,7 +1,13 @@
-import clsx from 'clsx'
-import TechIcon, { IconName } from './Icons/TechIcon'
+import clsx from 'clsx';
+import { TechIcon, IconName } from './Icons';
 
-const TechStackBar = ({ technologies, hoverable = false }: { technologies: IconName[]; hoverable?: boolean }) => {
+export const TechStackBar = ({
+  technologies,
+  hoverable = false,
+}: {
+  technologies: IconName[];
+  hoverable?: boolean;
+}) => {
   return (
     <div className="mt-8 flex space-x-4 bg-gray-100 p-2 rounded-md">
       {technologies.map((t, idx) => (
@@ -10,7 +16,5 @@ const TechStackBar = ({ technologies, hoverable = false }: { technologies: IconN
         </span>
       ))}
     </div>
-  )
-}
-
-export default TechStackBar
+  );
+};

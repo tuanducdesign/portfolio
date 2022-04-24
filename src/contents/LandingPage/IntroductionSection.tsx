@@ -1,5 +1,5 @@
-import TechIcon from '../../components/Icons/TechIcon'
-import { Project } from '../../types/model'
+import { TechIcon } from '@site/components';
+import { Project } from '@site/types';
 
 export function LandingIntro({ data }: { data: Pick<Project, 'html'> }) {
   return (
@@ -17,5 +17,5 @@ export function LandingIntro({ data }: { data: Pick<Project, 'html'> }) {
       <TechIcon name="node_js" className="absolute md:block hidden bottom-24 left-24" size={32} />
       <TechIcon name="graphql" className="absolute md:block hidden bottom-24 right-24" size={32} />
     </div>
-  )
+  );
 }

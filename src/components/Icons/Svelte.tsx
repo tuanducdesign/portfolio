@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
-export default function Svelte(props: SVGProps<SVGSVGElement>) {
+export function Svelte(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <path
@@ -12,5 +12,5 @@ export default function Svelte(props: SVGProps<SVGSVGElement>) {
         fill="#fff"
       ></path>
     </svg>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
-export default function MongoDb(props: SVGProps<SVGSVGElement>) {
+export function MongoDb(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <path
@@ -100,5 +100,5 @@ export default function MongoDb(props: SVGProps<SVGSVGElement>) {
         d="M64.316 95.172l-.066-.011-.066.01.155-.559-.023.56z"
       ></path>
     </svg>
-  )
+  );
 }

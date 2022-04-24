@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
-export default function Go(props: SVGProps<SVGSVGElement>) {
+export function Go(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <g fill="#00acd7" fillRule="evenodd">
@@ -11,5 +11,5 @@ export default function Go(props: SVGProps<SVGSVGElement>) {
         ></path>
       </g>
     </svg>
-  )
+  );
 }

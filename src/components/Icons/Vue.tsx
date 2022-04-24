@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { SVGProps } from 'react';
 
-export default function Vue(props: SVGProps<SVGSVGElement>) {
+export function Vue(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 128 128" {...props}>
       <path
@@ -10,5 +10,5 @@ export default function Vue(props: SVGProps<SVGSVGElement>) {
       <path d="M25.997 9.393l23.002.009L64.035 34.36 79.018 9.404 102 9.398 64.15 75.053z" fill="#35495e"></path>
       <path d="M.91 9.569l25.067-.172 38.15 65.659L101.98 9.401l25.11.026-62.966 108.06z" fill="#41b883"></path>
     </svg>
-  )
+  );
 }

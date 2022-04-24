@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import Button from '../../components/Button'
-import { profileData } from '../../config/profile'
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@site/components';
+import { profileData } from '@site/config';
 
 export function HeroSection() {
   return (
@@ -25,5 +25,5 @@ export function HeroSection() {
         <Image src="/images/avatar.jpg" alt="Avatar" width={360} height={360} className="rounded-full" />
       </div>
     </div>
-  )
+  );
 }

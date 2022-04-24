@@ -1,13 +1,13 @@
-import clsx from 'clsx'
-import { AnchorHTMLAttributes, createElement, DetailedHTMLProps, HTMLAttributes } from 'react'
+import clsx from 'clsx';
+import { AnchorHTMLAttributes, createElement, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 type ButtonProps = {
-  as?: 'a' | 'button'
-  color?: 'primary' | 'secondary'
+  as?: 'a' | 'button';
+  color?: 'primary' | 'secondary';
 } & DetailedHTMLProps<
   HTMLAttributes<HTMLButtonElement> | AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLButtonElement | HTMLAnchorElement
->
+>;
 
 const Button = ({ children, as = 'button', color = 'primary', className, ...props }: ButtonProps) => {
   return createElement(
@@ -19,7 +19,7 @@ const Button = ({ children, as = 'button', color = 'primary', className, ...prop
       }),
     },
     children,
-  )
-}
+  );
+};
 
-export default Button
+export { Button };

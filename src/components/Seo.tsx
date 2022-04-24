@@ -1,18 +1,26 @@
-import Head from 'next/head'
-import { ReactNode } from 'react'
-import siteMeta from '../config/siteMeta'
+import Head from 'next/head';
+import { ReactNode } from 'react';
+import { siteMeta } from '@site/config';
 
 interface SeoProps {
-  description?: string
-  title?: string
-  favicon?: string
-  canonical?: string
-  image?: string
-  keywords?: string[]
-  children?: ReactNode
+  description?: string;
+  title?: string;
+  favicon?: string;
+  canonical?: string;
+  image?: string;
+  keywords?: string[];
+  children?: ReactNode;
 }
 
-const Seo = ({ description = '', title = '', favicon = '', canonical = '', image, children, keywords }: SeoProps) => {
+export const Seo = ({
+  description = '',
+  title = '',
+  favicon = '',
+  canonical = '',
+  image,
+  children,
+  keywords,
+}: SeoProps) => {
   return (
     <Head>
       {/* Compatibility meta */}
@@ -47,7 +55,5 @@ const Seo = ({ description = '', title = '', favicon = '', canonical = '', image
       <link rel="icon" href={favicon || '/favicon.ico'} />
       {children}
     </Head>
-  )
-}
-
-export default Seo
+  );
+};

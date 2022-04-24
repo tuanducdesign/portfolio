@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
-import { FaCodepen, FaGithub, FaLinkedinIn } from 'react-icons/fa'
-import { profileData } from '../../config/profile'
-import TechIcon from '../Icons/TechIcon'
+import { ReactNode } from 'react';
+import { FaCodepen, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { profileData } from '@site/config';
+import { TechIcon } from '../Icons';
 
-export default function Layout({ children }: { children: ReactNode }) {
+export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen max-w-[100vw] flex flex-col bg-gray-900 text-white">
       <main className="flex-1">{children}</main>
@@ -32,5 +32,5 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </footer>
     </div>
-  )
+  );
 }

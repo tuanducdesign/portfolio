@@ -1,14 +1,12 @@
-import Button from '../components/Button'
-import Layout from '../components/Layout'
-import Seo from '../components/Seo'
-import { profileData } from '../config/profile'
-import { getMarkdown } from '../utils/getMarkdown'
+import { Seo, Layout, Button } from '@site/components';
+import { profileData } from '@site/config';
+import { getMarkdown } from '@site/utils';
 
 type HirePageProps = {
   content: {
-    html: string
-  }
-}
+    html: string;
+  };
+};
 
 export default function HirePage({ content }: HirePageProps) {
   return (
@@ -29,12 +27,12 @@ export default function HirePage({ content }: HirePageProps) {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
-  const content = await getMarkdown('career')
+  const content = await getMarkdown('career');
   return {
     props: { content },
-  }
-}
+  };
+};

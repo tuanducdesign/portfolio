@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import TechStackBar from '../../components/TechStackBar'
-import { Project } from '../../types/model'
+import Image from 'next/image';
+import Link from 'next/link';
+import { TechStackBar } from '@site/components';
+import { Project } from '@site/types/model';
 
 const PersonalProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -25,8 +25,8 @@ const PersonalProjectCard = ({ project }: { project: Project }) => {
         </a>
       </Link>
     </div>
-  )
-}
+  );
+};
 
 export function FeaturedPersonalProjects({ projects }: { projects: Project[] }) {
   return (
@@ -38,5 +38,5 @@ export function FeaturedPersonalProjects({ projects }: { projects: Project[] }) 
         ))}
       </div>
     </div>
-  )
+  );
 }
