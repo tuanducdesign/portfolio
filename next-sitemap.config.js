@@ -1,4 +1,4 @@
-const siteUrl = 'https://ashal.me'
+const siteUrl = 'https://ashal.me';
 
 /** @type {import("next-sitemap").AdditionalPathsConfig} */
 module.exports = {
@@ -6,4 +6,4 @@ module.exports = {
   generateRobotsTxt: true,
   changefreq: 'monthly',
   priority: 0.9,
-}
+};
