@@ -1,9 +1,11 @@
-## A Brief About My Career
+## A brief about my career
 
-I do Frontend Development with a lot of passion, works for office by day, and do personal project and learning by night. Highly interested in learning new things related to the world of web development.
+Most of my experience as a Frontend Engineer is on the `Web` platform, but I'm also willing to learn about `Mobile` platform, I do learn some `Flutter` and `React Native`.
 
-I really love to write TypeScript, and library for building UI I often use is React.js. Also for state management that I'm using are Redux, Recoil, and React Query for Server state management.
+I really want to be a Frontend Architect, actually, someone who work as the core of the `Web Application`, working for a tool or internal library that can be used by other developer/engineer.
 
-Other technologies that make my life easier are Graphql, Next.js, Tailwind CSS, and Chakra-UI. And I'm still learning Backend development with Node.js and Go. Building a command line interface (CLI), a simple REST API, working with Database (PostgreSQL and Mongo DB), Docker for containerize my app and more.
+I'm also in love with `Open Source Software`, contribute to the project that I'm often use for bugfix or improvements. Create a starter/boilerplate project like [this one](https://github.com/ashalfarhan/gridsome-starter-chakra-ui) and other stuff as well if I have time to work on it.
 
-As for now I'm learning about ethereum and solidity for building a Smart Contract.
+Sometimes in the weekend, I spend my time for exploring new technologies or new fields that I've never touch, like `Backend Development` and `Smart Contract` like [this project](https://github.com/ashalfarhan/learn-eth).
+
+Hope that you understand about my growth plan from here 😊.

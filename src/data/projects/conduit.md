@@ -18,6 +18,7 @@ Conduit is a [Real World](https://realworld-docs.netlify.app/docs/intro) challen
 - JWT for simple authentication system.
 - To manage unit and integration test, I'm using [testify](https://github.com/stretchr/testify)
 - `Redis` for caching the posts data.
+- `Postgresql` for the Relational Database.
 - `Docker` and `Docker Compose` to manage requirements to run the apps (redis, and postgresql), so that I don't need to install those.
 
 In this project I've learn a lot about sql and how the Backend works with REST API, for instance I think this is my first time build a Backend service that needs to write raw sql, lol. In Node.js I can use something like mongoose to work with MongoDB, or and orm for Relational Database.
