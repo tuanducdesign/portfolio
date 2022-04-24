@@ -29,7 +29,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl rounded-md"
         />
         <article
-          className="prose my-4 p-4 prose-lg prose-cyan text-white prose-headings:text-white rounded-lg prose-code:text-blue-300"
+          className="prose my-8 prose-lg prose-cyan text-white prose-headings:text-white prose-code:text-blue-300"
           dangerouslySetInnerHTML={{ __html: project.html }}
         />
         <div className="max-w-2xl flex w-full md:space-x-8 md:space-y-0 md:flex-row flex-col space-y-3">
