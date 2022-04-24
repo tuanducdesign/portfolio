@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Static Code Check and Build
+    name: Static code analyzer and Build
     runs-on: ubuntu-latest
 
     steps:
@@ -20,10 +20,11 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
 
-      - name: Code coverage check
+      - name: Static code analyze check
         run: |
           yarn ts:check
           yarn format:check
           yarn lint
+
       - name: Build check
         run: yarn build
