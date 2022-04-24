@@ -12,10 +12,26 @@ export function LandingIntro({ data }: { data: Pick<Project, 'html'> }) {
         className="prose prose-lg md:prose-xl md:mx-auto my-12 mx-4 bg-gray-200 p-4 rounded-lg shadow-lg"
         dangerouslySetInnerHTML={{ __html: data.html }}
       />
-      <TechIcon name="typescript" className="absolute md:block hidden top-24 right-24" size={32} />
-      <TechIcon name="javascript" className="absolute md:block hidden top-24 left-24" size={32} />
-      <TechIcon name="node_js" className="absolute md:block hidden bottom-24 left-24" size={32} />
-      <TechIcon name="graphql" className="absolute md:block hidden bottom-24 right-24" size={32} />
+      <TechIcon
+        name="typescript"
+        className="absolute md:block hidden motion-safe:animate-bounce top-24 right-24"
+        size={32}
+      />
+      <TechIcon
+        name="javascript"
+        className="absolute md:block hidden motion-safe:animate-bounce top-24 left-24"
+        size={32}
+      />
+      <TechIcon
+        name="node_js"
+        className="absolute md:block hidden motion-safe:animate-bounce bottom-24 left-24"
+        size={32}
+      />
+      <TechIcon
+        name="graphql"
+        className="absolute md:block hidden motion-safe:animate-bounce bottom-24 right-24"
+        size={32}
+      />
     </div>
   );
 }

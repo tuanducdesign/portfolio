@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { TechStackBar } from '@site/components';
-import { Project } from '@site/types/model';
+import { Project } from '@site/types';
 
 const PersonalProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="hover:shadow-lg hover:scale-105 transition">
-      <Link href={'/project/' + project.meta.slug}>
+    <div className="border-2 p-4 rounded-md hover:scale-105 transition bg-gray-900">
+      <Link href={'/project/' + project.meta.slug} passHref>
         <a>
           <Image
             src={'/images/projects' + project.meta.thumbnail}
@@ -18,10 +18,7 @@ const PersonalProjectCard = ({ project }: { project: Project }) => {
             objectFit="contain"
             layout="responsive"
           />
-          <div>
-            <h1 className="md:text-2xl text-lg p-1 font-bold">{project.meta.title}</h1>
-            <TechStackBar technologies={project.meta.technologies} />
-          </div>
+          <TechStackBar title={project.meta.title} technologies={project.meta.technologies} />
         </a>
       </Link>
     </div>
@@ -30,8 +27,8 @@ const PersonalProjectCard = ({ project }: { project: Project }) => {
 
 export function FeaturedPersonalProjects({ projects }: { projects: Project[] }) {
   return (
-    <div className="container flex flex-col mx-auto md:p-24 p-8">
-      <h1 className="md:text-3xl font-bold text-xl">Personal Projects</h1>
+    <div className="container flex flex-col mx-auto py-4">
+      <h1 className="md:text-3xl font-bold text-xl mb-4">Personal Projects</h1>
       <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8">
         {projects.map((project) => (
           <PersonalProjectCard project={project} key={project.meta.id} />

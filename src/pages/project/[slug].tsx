@@ -16,7 +16,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           height={520}
           className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl"
         />
-        <TechStackBar hoverable technologies={project.meta.technologies} />
+        <TechStackBar technologies={project.meta.technologies} />
         <article
           className="prose my-4 p-4 prose-md md:prose-xl bg-gray-200 rounded-lg"
           dangerouslySetInnerHTML={{ __html: project.html }}
