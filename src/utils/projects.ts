@@ -1,9 +1,10 @@
-import { readdirSync } from 'fs';
-import { Project } from '@site/types/model';
+import fs from 'fs';
+import { Project } from '@site/types';
 import { dataDir, getMarkdown } from './getMarkdown';
+import path from 'path';
 
 export const getAllProjectFiles = () => {
-  return readdirSync(dataDir + '/projects');
+  return fs.readdirSync(path.join(dataDir, 'projects'));
 };
 
 export const getAllProjects = async () => {

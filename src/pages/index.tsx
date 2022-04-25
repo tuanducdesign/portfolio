@@ -1,16 +1,22 @@
-import { Seo, Layout } from '@site/components';
+import { Seo, Layout, ProjectCard, Intro, Hero } from '@site/components';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getAllProjects, getMarkdown } from '@site/utils';
-import { FeaturedPersonalProjects, HeroSection, LandingIntro } from '@site/contents';
 import { Project } from '@site/types';
 
-export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ aboutData, projects }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
-      <Seo title="Portfolio" />
-      <HeroSection />
-      <LandingIntro data={props.aboutData} />
-      <FeaturedPersonalProjects projects={props.projects} />
+      <Seo />
+      <Hero />
+      <Intro data={aboutData} />
+      <div className="container flex flex-col mx-auto py-4 px-2">
+        <h1 className="md:text-2xl font-bold text-xl mb-6">Personal Projects</h1>
+        <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8">
+          {projects.map((project) => (
+            <ProjectCard project={project} key={project.meta.id} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }

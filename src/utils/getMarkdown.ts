@@ -1,5 +1,5 @@
-import { readFile } from 'fs/promises';
-import { join } from 'path';
+import fs from 'fs/promises';
+import path from 'path';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import matter from 'gray-matter';
@@ -7,16 +7,16 @@ import { nanoid } from 'nanoid';
 
 const parser = remark().use(remarkHtml);
 
-export const dataDir = join(process.cwd(), 'src/data');
+export const dataDir = path.join(process.cwd(), 'src/data');
 
 export const getMarkdown = async (fileName: string, isProject?: boolean) => {
   let filePath;
   if (isProject) {
-    filePath = join(dataDir, 'projects', fileName + '.md');
+    filePath = path.join(dataDir, 'projects', fileName + '.md');
   } else {
-    filePath = join(dataDir, fileName + '.md');
+    filePath = path.join(dataDir, fileName + '.md');
   }
-  const file = await readFile(filePath, 'utf-8');
+  const file = await fs.readFile(filePath, 'utf-8');
   const { content, data } = matter(file);
   const html = await parser.process(content);
   return {
