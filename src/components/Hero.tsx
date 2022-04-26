@@ -21,7 +21,7 @@ export function Hero() {
         initial="initial"
         animate="visible"
         variants={textReveal}
-        className="flex flex-col md:space-y-8 gap-y-4 md:items-start items-center"
+        className="flex flex-col md:gap-y-4 gap-y-2 md:items-start items-center max-w-[640px]"
       >
         <div>
           <h1 className="md:text-6xl text-3xl font-bold md:text-left text-center">Hi! 👋</h1>
