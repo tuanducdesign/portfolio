@@ -6,6 +6,7 @@ import { motion, useReducedMotion, Variants } from 'framer-motion';
 
 export function Hero() {
   const reduce = useReducedMotion();
+
   const textReveal: Variants = {
     initial: { opacity: 0, y: reduce ? 0 : 25 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -14,7 +15,10 @@ export function Hero() {
     initial: { opacity: 0, scale: reduce ? 1 : 1.5 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
   };
-
+  const wavingHand: Variants = {
+    initial: { rotateZ: reduce ? 0 : 30, transformOrigin: 'bottom right' },
+    animate: { rotateZ: 0, transformOrigin: 'bottom right' },
+  };
   return (
     <div className="container mx-auto flex items-center md:justify-between justify-center px-16 min-h-[100vh] md:flex-row flex-col-reverse gap-y-4">
       <motion.div
@@ -24,7 +28,18 @@ export function Hero() {
         className="flex flex-col md:gap-y-4 gap-y-2 md:items-start items-center max-w-[640px]"
       >
         <div>
-          <h1 className="md:text-6xl text-3xl font-bold md:text-left text-center">Hi! 👋</h1>
+          <h1 className="md:text-6xl text-3xl font-bold md:text-left text-center">
+            Hi!&nbsp;
+            <motion.span
+              transition={{ repeat: 6, repeatType: 'mirror', repeatDelay: 0, duration: 0.2 }}
+              variants={wavingHand}
+              initial="initial"
+              animate="animate"
+              className="inline-block"
+            >
+              👋
+            </motion.span>
+          </h1>
           <p className="md:text-6xl text-2xl font-bold md:text-left text-center">
             I am <span className="text-blue-400">{profileData.name}.</span>
           </p>
