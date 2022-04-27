@@ -16,7 +16,8 @@ const Button = forwardRef(({ children, as = 'button', color = 'primary', classNa
     {
       ...props,
       className: clsx('border-2 px-4 transition font-bold py-2 text-center cursor-pointer', className, {
-        ['border-blue-300 hover:bg-blue-300 hover:text-black']: color === 'primary',
+        ['border-sky-400 hover:bg-sky-400 dark:border-sky-300 dark:hover:bg-sky-300 hover:text-black']:
+          color === 'primary',
       }),
       ref,
     },

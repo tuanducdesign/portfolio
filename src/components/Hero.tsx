@@ -31,7 +31,7 @@ export function Hero() {
           <h1 className="md:text-6xl text-3xl font-bold md:text-left text-center">
             Hi!&nbsp;
             <motion.span
-              transition={{ repeat: 6, repeatType: 'mirror', repeatDelay: 0, duration: 0.2 }}
+              transition={{ repeat: 6, repeatType: 'reverse', repeatDelay: 0, duration: 0.2 }}
               variants={wavingHand}
               initial="initial"
               animate="animate"
