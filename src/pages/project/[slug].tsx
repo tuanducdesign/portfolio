@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { TechStackBar, Button, Seo, Layout, Markdown } from '@site/components';
+import { Button, Seo, Layout, Markdown } from '@site/components';
 import { Project } from '@site/types';
 import { getAllProjectFiles, getMarkdown } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
@@ -21,10 +21,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             <BiArrowBack className="group-hover:-translate-x-4 transition-transform duration-500" />
             <span>Back</span>
           </span>
-          <div className="flex flex-col md:flex-row items-center">
-            <h1 className="text-3xl flex-1">{project.meta.title}</h1>
-            <TechStackBar technologies={project.meta.technologies} />
-          </div>
+          <h1 className="text-3xl flex-1">{project.meta.title}</h1>
         </div>
         <img
           src={'/images/projects' + project.meta.thumbnail}

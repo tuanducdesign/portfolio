@@ -8,7 +8,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     <div className="rounded-md dark:bg-gray-900 group">
       <Link href={'/project/' + project.meta.slug} passHref>
         <a>
-          <div className="group-hover:ring-offset-8 group-hover:ring-sky-500 ring-2 rounded-md ring-transparent dark:ring-offset-gray-900 transition-all">
+          <div className="group-hover:ring-offset-8 group-hover:ring-blue-400 dark:group-hover:ring-yellow-400 ring-2 rounded-md ring-transparent dark:ring-offset-gray-900 transition-all">
             <Image
               src={'/images/projects' + project.meta.thumbnail}
               alt={project.meta.title}

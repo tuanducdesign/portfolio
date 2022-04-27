@@ -41,7 +41,7 @@ export const TechIcon = ({ name, size = 24, ...props }: TechIconProps) => {
     case 'node_js':
       return <NodeJs width={size} height={size} {...props} />;
     case 'express_js':
-      return <ExpressJs width={size} height={size} {...props} />;
+      return <ExpressJs width={size} height={size} {...props} fill="currentColor" />;
     case 'mongo_db':
       return <MongoDb width={size} height={size} {...props} />;
     case 'svelte':
