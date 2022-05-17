@@ -6,6 +6,7 @@ import { getMarkdown } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
 import Router from 'next/router';
 import { getFiles } from '@site/utils/data';
+import { Container } from '@site/components/Container';
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
@@ -14,7 +15,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         title={project.meta.title}
         keywords={project.meta.technologies.map((t) => t.replace('_', ' '))}
       />
-      <div className="container mx-auto flex flex-col items-center py-4 md:py-12 md:px-0 px-4">
+      <Container className="flex flex-col items-center py-4 md:py-12 md:px-0 px-4">
         <div className="md:w-2/3 w-full mb-4">
           <span
             role="button"
@@ -47,7 +48,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             </Button>
           )}
         </div>
-      </div>
+      </Container>
     </Layout>
   );
 }

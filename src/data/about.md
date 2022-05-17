@@ -1,3 +1,5 @@
+## About me
+
 My name is `Ashal Farhan Wadjo`, you can call me Ashal, or Farhan, it depends if you already have a friend named Farhan or Ashal. But I'm comfortable with both.
 
 I was born in Sidoarjo, East Java, Indonesia. My last education is just high school, specifically `Vocational High School`, with `Airframe and Powerplant` Major ✈️ ⚙️.

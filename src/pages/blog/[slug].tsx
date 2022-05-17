@@ -1,4 +1,5 @@
-import { Layout, Markdown } from '@site/components';
+import { Layout, Markdown, Seo } from '@site/components';
+import { Container } from '@site/components/Container';
 import { Post, Project } from '@site/types';
 import { getFiles, getMarkdown } from '@site/utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -6,7 +7,10 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 export default function Blog({ post }: { post: Post }) {
   return (
     <Layout>
-      <Markdown html={post.html} />
+      <Seo title={post.meta.title} description={post.meta.description} keywords={post.meta.tags} />
+      <Container className="flex justify-center flex-col my-8">
+        <Markdown html={post.html} className="mx-auto" />
+      </Container>
     </Layout>
   );
 }
