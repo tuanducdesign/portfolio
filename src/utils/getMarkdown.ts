@@ -4,9 +4,9 @@ import { remark } from 'remark';
 import remarkHtml from 'remark-html';
 import matter from 'gray-matter';
 import { nanoid } from 'nanoid';
+import prism from 'remark-prism';
 
-const parser = remark().use(remarkHtml);
-
+export const parser = remark().use(remarkHtml, { sanitize: false }).use(prism);
 export const dataDir = path.join(process.cwd(), 'src/data');
 
 export const getMarkdown = async (fileName: string, isProject?: boolean) => {

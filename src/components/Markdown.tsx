@@ -3,10 +3,7 @@ import clsx from 'clsx';
 export const Markdown = ({ html = '', className = '' }) => {
   return (
     <article
-      className={clsx(
-        'prose prose-lg md:prose-xl prose-sky dark:text-white dark:prose-headings:text-white prose-code:text-blue-400 dark:prose-code:text-blue-300',
-        className,
-      )}
+      className={clsx('prose prose-sky dark:prose-invert prose-lg md:prose-xl', className)}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
