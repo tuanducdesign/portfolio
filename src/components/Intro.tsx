@@ -5,19 +5,19 @@ import { Markdown } from './Markdown';
 const aboutTechs = [
   {
     name: 'typescript' as const,
-    className: 'absolute md:block hidden motion-safe:animate-bounce top-24 right-24',
+    className: 'absolute md:block hidden top-24 right-24',
   },
   {
     name: 'javascript' as const,
-    className: 'absolute md:block hidden motion-safe:animate-bounce top-24 left-24',
+    className: 'absolute md:block hidden top-24 left-24',
   },
   {
     name: 'node_js' as const,
-    className: 'absolute md:block hidden motion-safe:animate-bounce bottom-24 left-24',
+    className: 'absolute md:block hidden bottom-24 left-24',
   },
   {
     name: 'graphql' as const,
-    className: 'absolute md:block hidden motion-safe:animate-bounce bottom-24 right-24',
+    className: 'absolute md:block hidden bottom-24 right-24',
   },
 ];
 

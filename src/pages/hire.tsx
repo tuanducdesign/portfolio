@@ -18,7 +18,12 @@ export default function HirePage({ content }: HirePageProps) {
           <Button className="flex-auto" as="a" href={`mailto:${profileData.email}`}>
             Mail Me
           </Button>
-          <Button className="flex-auto" as="a" href={'/resume.pdf'} download={`${profileData.fullName}-Resume`}>
+          <Button
+            className="flex-auto"
+            as="a"
+            href={'/resume.pdf'}
+            download={`${profileData.fullName}-Resume`}
+          >
             My Resume
           </Button>
         </div>

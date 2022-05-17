@@ -3,7 +3,10 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getAllProjects, getMarkdown } from '@site/utils';
 import { Project } from '@site/types';
 
-export default function Home({ aboutData, projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({
+  aboutData,
+  projects,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Seo />
@@ -21,7 +24,10 @@ export default function Home({ aboutData, projects }: InferGetStaticPropsType<ty
   );
 }
 
-export const getStaticProps: GetStaticProps<{ aboutData: Pick<Project, 'html'>; projects: Project[] }> = async () => {
+export const getStaticProps: GetStaticProps<{
+  aboutData: Pick<Project, 'html'>;
+  projects: Project[];
+}> = async () => {
   const projects = await getAllProjects();
   const aboutData = await getMarkdown('about');
   return {

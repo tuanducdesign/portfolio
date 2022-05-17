@@ -43,7 +43,9 @@ export function Hero() {
           <p className="md:text-6xl text-2xl font-bold md:text-left text-center">
             I am <span className="text-blue-400">{profileData.name}.</span>
           </p>
-          <p className="md:text-2xl text-lg text-gray-500 md:text-left text-center">{profileData.highlight}</p>
+          <p className="md:text-2xl text-lg text-gray-500 md:text-left text-center">
+            {profileData.highlight}
+          </p>
         </div>
         <div className="flex md:space-x-4 md:flex-row space-y-3 md:space-y-0 flex-col w-full">
           <Button className="text-xl" as="a" href="#intro">
