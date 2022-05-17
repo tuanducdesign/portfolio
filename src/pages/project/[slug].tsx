@@ -2,9 +2,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Button, Seo, Layout, Markdown } from '@site/components';
 import { Project } from '@site/types';
-import { getAllProjectFiles, getMarkdown } from '@site/utils';
+import { getMarkdown } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
 import Router from 'next/router';
+import { getFiles } from '@site/utils/data';
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
@@ -26,6 +27,13 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </span>
           <h1 className="text-4xl flex-1 text-center">{project.meta.title}</h1>
         </div>
+        <img
+          src={'/images/projects' + project.meta.thumbnail}
+          alt={project.meta.title}
+          width={960}
+          height={520}
+          className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl rounded-md mb-4"
+        />
         <Markdown html={project.html} className="mb-8" />
         <div className="max-w-2xl flex w-full md:space-x-8 md:space-y-0 md:flex-row flex-col space-y-3">
           {Boolean(project.meta.liveUrl) && (
@@ -45,7 +53,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const files = getAllProjectFiles();
+  const files = getFiles('projects');
   return {
     paths: files.map((file) => ({ params: { slug: file.slice(0, -3) } })),
     fallback: false,
@@ -58,7 +66,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
   if (typeof slug !== 'string') return defaultRedirect;
   try {
-    const project = (await getMarkdown(slug, true)) as Project;
+    const project = await getMarkdown<Project>({
+      slug,
+      dir: 'projects',
+    });
     return {
       props: {
         project,

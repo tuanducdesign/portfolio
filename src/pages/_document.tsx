@@ -14,7 +14,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-500">
+      <body className="bg-white-text text-black-primary dark:bg-black-primary dark:text-white-text transition-colors duration-500">
         <Main />
         <NextScript />
       </body>

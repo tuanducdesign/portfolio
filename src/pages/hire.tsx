@@ -33,7 +33,9 @@ export default function HirePage({ content }: HirePageProps) {
 }
 
 export const getStaticProps = async () => {
-  const content = await getMarkdown('career');
+  const content = await getMarkdown({
+    slug: 'career',
+  });
   return {
     props: { content },
   };

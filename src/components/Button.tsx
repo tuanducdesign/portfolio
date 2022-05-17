@@ -26,7 +26,7 @@ const Button = forwardRef(
           'border-2 px-4 transition font-bold py-2 text-center cursor-pointer',
           className,
           {
-            ['border-sky-400 hover:bg-sky-400 dark:border-sky-300 dark:hover:bg-sky-300 hover:text-black']:
+            ['border-blue-text hover:bg-blue-text dark:border-blue-text dark:hover:bg-blue-text hover:text-white-text dark:hover:text-black-primary rounded-lg']:
               color === 'primary',
           },
         ),

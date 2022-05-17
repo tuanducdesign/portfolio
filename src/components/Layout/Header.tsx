@@ -3,6 +3,7 @@ import { Button } from '../Button';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
+import { Container } from '../Container';
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -12,11 +13,11 @@ export const Header = () => {
   };
 
   return (
-    <header className="flex sticky top-0 z-50 backdrop-blur-sm border-b dark:border-b-gray-700 border-b-gray-200">
-      <div className="container mx-auto flex justify-between py-2 md:px-12 px-2">
+    <header className="flex sticky top-0 z-50 backdrop-blur-sm border-b border-b-slate-700">
+      <Container className="flex justify-between py-2 px-2">
         <Link href="/" passHref>
           <a
-            className="font-bold text-3xl italic text-black dark:text-white inline-flex items-center"
+            className="font-bold text-3xl italic text-black-primary dark:text-white-text inline-flex items-center"
             title="Home"
           >
             <svg
@@ -43,7 +44,7 @@ export const Header = () => {
             <FiSun size={18} />
           </div>
         </Button>
-      </div>
+      </Container>
     </header>
   );
 };
