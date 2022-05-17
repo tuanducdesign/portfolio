@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "ts:check": "tsc --noEmit",
-    "format:write": "prettier --write ./src/**/*.{ts,tsx,css,md}",
-    "format:check": "prettier --check ./src/**/*.{ts,tsx}",
+    "format:write": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
     "prepare": "husky install",
     "postbuild": "next-sitemap --config ./next-sitemap.config.js"
   },
