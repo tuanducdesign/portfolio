@@ -1,8 +1,7 @@
-import { Seo, Layout, ProjectCard, Intro, Hero } from '@site/components';
+import { Container, Seo, Layout, ProjectCard, Intro, Hero } from '@site/components';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getAllProjects, getMarkdown } from '@site/utils';
 import { Project } from '@site/types';
-import { Container } from '@site/components/Container';
 
 export default function Home({
   aboutData,

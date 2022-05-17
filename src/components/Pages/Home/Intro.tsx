@@ -1,6 +1,5 @@
 import { Project } from '@site/types';
-import { Markdown } from '@site/components';
-import { Container } from '@site/components/Container';
+import { Container, Markdown } from '@site/components';
 
 export function Intro({ data }: { data: Pick<Project, 'html'> }) {
   return (

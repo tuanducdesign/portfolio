@@ -20,6 +20,7 @@ export type PostMeta = {
   title: string;
   description: string;
   tags: string[];
+  publishedAt: string;
 };
 
 export type Project = MarkdownResult<ProjectMeta>;

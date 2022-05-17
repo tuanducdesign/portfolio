@@ -1,13 +1,20 @@
 import clsx from 'clsx';
+import { forwardRef } from 'react';
 
-export const Markdown = ({ html = '', className = '' }) => {
+// eslint-disable-next-line react/display-name
+export const Markdown = forwardRef<
+  HTMLElement,
+  JSX.IntrinsicElements['article'] & { html: string }
+>(({ html = '', className = '', ...props }, ref) => {
   return (
     <article
+      {...props}
       className={clsx(
         'prose prose-sky dark:prose-invert md:prose-lg max-w-full md:max-w-prose',
         className,
       )}
       dangerouslySetInnerHTML={{ __html: html }}
+      ref={ref}
     />
   );
-};
+});

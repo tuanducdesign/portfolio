@@ -1,5 +1,4 @@
-import { Layout, Seo } from '@site/components';
-import { Container } from '@site/components/Container';
+import { Container, Layout, Seo } from '@site/components';
 import { Post } from '@site/types';
 import { getAllPosts } from '@site/utils';
 import Link from 'next/link';

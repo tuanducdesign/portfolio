@@ -1,15 +1,44 @@
-import { Layout, Markdown, Seo } from '@site/components';
-import { Container } from '@site/components/Container';
+import { Container, Layout, Markdown, Seo } from '@site/components';
+import { useTimeRead } from '@site/hooks';
 import { Post, Project } from '@site/types';
 import { getFiles, getMarkdown } from '@site/utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Link from 'next/link';
 
-export default function Blog({ post }: { post: Post }) {
+export default function BlogPostPage({ post }: { post: Post }) {
+  const [articleRef, minute] = useTimeRead();
   return (
     <Layout>
       <Seo title={post.meta.title} description={post.meta.description} keywords={post.meta.tags} />
-      <Container className="flex justify-center flex-col my-8">
-        <Markdown html={post.html} className="mx-auto" />
+      <Container className="flex justify-center flex-col my-8 max-w-prose">
+        <div className="mb-4 flex flex-col gap-2">
+          <h1 className="font-bold text-4xl">{post.meta.title}</h1>
+          <hr />
+          <span className="text-gray-text font-semibold">
+            Published at: {new Date(post.meta.publishedAt).toDateString()} - {minute} min read
+          </span>
+          <ul className="flex gap-2">
+            {post.meta.tags.map((tag, idx) => (
+              <li key={tag + idx} className="p-1">
+                <Link
+                  href={{
+                    pathname: '/blog',
+                    query: {
+                      tags: tag,
+                    },
+                  }}
+                  passHref
+                >
+                  <a>
+                    <span className="text-yellow-border dark:text-blue-text">#</span>
+                    <span>{tag}</span>
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Markdown html={post.html} className="mx-auto prose-a:break-words" ref={articleRef} />
       </Container>
     </Layout>
   );

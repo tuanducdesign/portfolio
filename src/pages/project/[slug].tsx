@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Button, Seo, Layout, Markdown } from '@site/components';
+import { Container, Button, Seo, Layout, Markdown } from '@site/components';
 import { Project } from '@site/types';
-import { getMarkdown } from '@site/utils';
+import { getFiles, getMarkdown } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
 import Router from 'next/router';
-import { getFiles } from '@site/utils/data';
-import { Container } from '@site/components/Container';
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (

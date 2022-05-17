@@ -34,7 +34,11 @@ export const Header = () => {
             </svg>
           </a>
         </Link>
-        <Button className="rounded-lg px-4 max-w-[32px] overflow-hidden" onClick={toggleDarkMode}>
+        <Button
+          title="Switch Theme"
+          className="rounded-lg px-4 max-w-[32px] overflow-hidden"
+          onClick={toggleDarkMode}
+        >
           <div
             className={clsx('flex gap-x-2 w-16 transition-all', [
               isDark ? '-translate-x-2' : '-translate-x-9',

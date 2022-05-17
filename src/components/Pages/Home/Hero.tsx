@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import { Button } from '@site/components';
+import { Container, Button } from '@site/components';
 import { profileData } from '@site/config';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
-import { Container } from '@site/components/Container';
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -61,6 +60,11 @@ export function Hero() {
           <Link href="/hire" passHref>
             <Button className="text-xl" as="a">
               Hire Me
+            </Button>
+          </Link>
+          <Link href="/blog" passHref>
+            <Button className="text-xl" as="a">
+              Blog
             </Button>
           </Link>
         </motion.div>
