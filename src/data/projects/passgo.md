@@ -2,7 +2,7 @@
 title: Passgo
 liveUrl: #
 repoUrl: https://github.com/ashalfarhan/passgo
-thumbnail: /project9.jpg
+thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project9_-Slq5rX9o.jpg
 technologies:
   - go
 ---

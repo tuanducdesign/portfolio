@@ -13,8 +13,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
         title={project.meta.title}
         keywords={project.meta.technologies.map((t) => t.replace('_', ' '))}
       />
-      <Container className="flex flex-col items-center py-4 md:py-12 md:px-0 px-4">
-        <div className="md:w-2/3 w-full mb-4">
+      <Container className="flex flex-col items-center py-4 md:py-12 md:px-0 px-4 max-w-prose">
+        <div className="w-full mb-4">
           <span
             role="button"
             title="Go Back"
@@ -24,17 +24,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
             <BiArrowBack className="group-hover:-translate-x-4 transition-transform duration-500" />
             <span>Back</span>
           </span>
-          <h1 className="text-4xl flex-1 text-center">{project.meta.title}</h1>
+          <h1 className="text-4xl flex-1">{project.meta.title}</h1>
         </div>
-        <img
-          src={'/images/projects' + project.meta.thumbnail}
-          alt={project.meta.title}
-          width={960}
-          height={520}
-          className="md:min-w-[840px] md:min-h-[520px] md:max-w-4xl rounded-md mb-4"
-        />
         <Markdown html={project.html} className="mb-8" />
-        <div className="max-w-2xl flex w-full md:space-x-8 md:space-y-0 md:flex-row flex-col space-y-3">
+        <div className="flex w-full md:gap-x-8 md:gap-y-0 md:flex-row flex-col gap-y-3">
           {Boolean(project.meta.liveUrl) && (
             <Button className="flex-auto" as="a" href={project.meta.liveUrl}>
               Demo

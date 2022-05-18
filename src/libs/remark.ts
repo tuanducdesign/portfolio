@@ -6,7 +6,6 @@ import rehypeHighlight from 'rehype-highlight';
 import gfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { AnchorIconAST } from '@site/components';
 
 export const markdownParser = unified()
   .use(gfm)
@@ -15,13 +14,7 @@ export const markdownParser = unified()
   .use(rehype)
   .use(rehypeSlug)
   .use(rehypeAutolinkHeadings, {
-    behavior: 'append',
-    content: (node) => {
-      if (node.properties) {
-        node.properties.class = 'group scroll-mt-16';
-      }
-      return AnchorIconAST;
-    },
+    behavior: 'wrap',
   })
   // @ts-expect-error Temp ignore
   .use(stringify)

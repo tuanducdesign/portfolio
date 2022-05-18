@@ -2,7 +2,7 @@
 title: Coronavirus Tracker
 liveUrl: https://covid-tracker-haans.netlify.app
 repoUrl: https://github.com/ashalfarhan/covid-map
-thumbnail: /project5.png
+thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project5_2f9nyuSGO.png
 technologies:
   - gatsby
 ---

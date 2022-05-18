@@ -2,7 +2,7 @@
 title: Admin Dashboard
 liveUrl: https://dashboard-haans.netlify.app
 repoUrl: https://github.com/ashalfarhan/merng-dashboard
-thumbnail: /project7.png
+thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project7_IdDAe8ghN.png
 technologies:
   - react_js
   - express_js

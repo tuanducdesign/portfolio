@@ -1,4 +1,4 @@
-## A brief about my career
+# A brief about my career
 
 Most of my experience as a Frontend Engineer is on the `Web` platform, but I'm also willing to learn about `Mobile` platform, I do learn some `Flutter` and `React Native`.
 

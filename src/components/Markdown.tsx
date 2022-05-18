@@ -9,10 +9,7 @@ export const Markdown = forwardRef<
   return (
     <article
       {...props}
-      className={clsx(
-        'prose prose-sky dark:prose-invert md:prose-lg max-w-full md:max-w-prose',
-        className,
-      )}
+      className={clsx('prose prose-sky dark:prose-invert md:prose-lg', className)}
       dangerouslySetInnerHTML={{ __html: html }}
       ref={ref}
     />

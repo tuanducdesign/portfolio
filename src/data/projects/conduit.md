@@ -2,7 +2,7 @@
 title: Conduit
 liveUrl: #
 repoUrl: https://github.com/ashalfarhan/realworld
-thumbnail: /project10.jpg
+thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project10_fe9qwZSYT.jpg
 technologies:
   - go
   - docker
