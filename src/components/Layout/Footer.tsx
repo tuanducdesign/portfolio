@@ -6,13 +6,13 @@ export const Footer = () => {
   return (
     <footer className="p-8 flex items-center justify-center flex-col space-y-4 border-t border-t-slate-700">
       <div className="flex space-x-8">
-        <a href={profileData.codepenUrl}>
+        <a href={profileData.codepenUrl} target="_blank" title="Codepen Profile" rel="noreferrer">
           <FaCodepen size="24" />
         </a>
-        <a href={profileData.githubUrl}>
+        <a href={profileData.githubUrl} target="_blank" title="Github Profile" rel="noreferrer">
           <FaGithub size="24" />
         </a>
-        <a href={profileData.linkedinUrl}>
+        <a href={profileData.linkedinUrl} target="_blank" title="Linkedin Profile" rel="noreferrer">
           <FaLinkedinIn size="24" />
         </a>
       </div>
