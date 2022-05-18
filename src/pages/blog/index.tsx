@@ -1,8 +1,15 @@
 import { Container, Layout, PostCard, Seo } from '@site/components';
 import { Post } from '@site/types';
 import { getAllPosts } from '@site/utils';
+import { useReducedMotion, motion, Variants } from 'framer-motion';
 
 export default function BlogPages({ posts }: { posts: Post[] }) {
+  const reduce = useReducedMotion();
+
+  const textReveal: Variants = {
+    initial: { opacity: 0, y: reduce ? 0 : 25 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
   return (
     <Layout>
       <Seo
@@ -11,12 +18,18 @@ export default function BlogPages({ posts }: { posts: Post[] }) {
         keywords={['coding', 'react', 'article', 'ashal farhan', 'blog', 'nextjs']}
       />
       <Container className="max-w-4xl mx-auto">
-        <div className="min-h-[480px] text-center flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold">Welcome to my blog!</h1>
-          <p className="text-gray-text font-semibold text-xl mt-2">
+        <motion.div
+          initial="initial"
+          animate="visible"
+          className="min-h-[480px] text-center flex flex-col items-center justify-center"
+        >
+          <motion.h1 variants={textReveal} className="text-4xl font-bold">
+            Welcome to my blog! ✍️
+          </motion.h1>
+          <motion.p variants={textReveal} className="text-gray-text font-semibold text-xl mt-2">
             Here I will share my knowledge and experience as a Frontend Engineer.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         <div className="mb-12">
           <h1 className="ml-4 font-bold text-3xl mb-4" id="featured">
             Featured
