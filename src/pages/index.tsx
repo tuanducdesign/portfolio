@@ -1,12 +1,14 @@
 import { Container, Seo, Layout, ProjectCard, Intro, Hero } from '@site/components';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getAllProjects, getMarkdown } from '@site/utils';
 import { Project } from '@site/types';
 
 export default function Home({
   aboutData,
   projects,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: {
+  aboutData: Pick<Project, 'html'>;
+  projects: Project[];
+}) {
   return (
     <Layout>
       <Seo />
@@ -24,10 +26,7 @@ export default function Home({
   );
 }
 
-export const getStaticProps: GetStaticProps<{
-  aboutData: Pick<Project, 'html'>;
-  projects: Project[];
-}> = async () => {
+export const getStaticProps = async () => {
   const projects = await getAllProjects();
   const aboutData = await getMarkdown({
     slug: 'about',
