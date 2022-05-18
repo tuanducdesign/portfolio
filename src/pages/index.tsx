@@ -11,7 +11,9 @@ export default function Home({
 }) {
   return (
     <Layout>
-      <Seo />
+      <Seo description="Ashal Farhan Portfolio">
+        <link rel="preconnect" href="https://ik.imagekit.io" />
+      </Seo>
       <Hero />
       <Intro data={aboutData} />
       <Container className="flex flex-col py-10 px-2">

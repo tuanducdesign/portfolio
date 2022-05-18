@@ -12,6 +12,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
       <Seo
         title={project.meta.title}
         keywords={project.meta.technologies.map((t) => t.replace('_', ' '))}
+        description={project.meta.title}
+        image={project.meta.thumbnail}
       />
       <Container className="flex flex-col items-center py-4 md:py-12 md:px-0 px-4 max-w-prose">
         <div className="w-full mb-4">
