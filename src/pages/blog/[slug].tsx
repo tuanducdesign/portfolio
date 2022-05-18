@@ -38,11 +38,7 @@ export default function BlogPostPage({ post }: { post: Post }) {
             ))}
           </ul>
         </div>
-        <Markdown
-          html={post.html}
-          className="mx-auto prose-a:break-words !prose-base"
-          ref={articleRef}
-        />
+        <Markdown html={post.html} className="mx-auto" ref={articleRef} />
       </Container>
     </Layout>
   );
