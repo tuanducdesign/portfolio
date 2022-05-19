@@ -1,7 +1,7 @@
 ---
 title: An article with a lot of images!
 description: Demonstrate CLS issue on the web, by comparing image with width and height and the one with plain image
-publishedAt: '2022-19-02'
+publishedAt: '2022-02-19'
 tags:
   - frontend
   - css
