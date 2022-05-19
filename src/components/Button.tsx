@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import clsx from 'clsx';
 import {
   AnchorHTMLAttributes,
@@ -38,3 +37,8 @@ const Button = forwardRef(
 );
 
 export { Button };
+
+/* 
+eslint
+  react/display-name: 0
+*/

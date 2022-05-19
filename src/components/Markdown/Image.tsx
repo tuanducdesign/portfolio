@@ -9,7 +9,6 @@ function getAdditionalProps({ src }: { src: string }) {
   };
 }
 
-/* eslint-disable @next/next/no-img-element */
 export const Image = ({ className, alt, ...props }: JSX.IntrinsicElements['img']) => {
   return (
     <img
@@ -20,3 +19,8 @@ export const Image = ({ className, alt, ...props }: JSX.IntrinsicElements['img']
     />
   );
 };
+
+/*
+eslint 
+   @next/next/no-img-element: 0
+*/

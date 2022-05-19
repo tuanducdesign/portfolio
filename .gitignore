@@ -36,4 +36,5 @@ yarn-error.log*
 # sitemap
 public/sitemap*.xml
 
+# ts stuff
 *.tsbuildinfo

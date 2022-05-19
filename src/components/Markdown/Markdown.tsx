@@ -7,6 +7,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { Code } from './Code';
 import { Image } from './Image';
+import { Pre } from './Pre';
 
 const remarkPlugins: Options['remarkPlugins'] = [remarkGfm];
 const rehypePlugins: Options['rehypePlugins'] = [
@@ -24,6 +25,7 @@ const rehypePlugins: Options['rehypePlugins'] = [
 const components: Options['components'] = {
   code: Code,
   img: Image,
+  pre: Pre,
 };
 
 export const Markdown = ({
