@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import omit from 'lodash.omit';
 
 function getAdditionalProps({ src }: { src: string }) {
   const sizes = [560, 840, 1100, 1650];
@@ -12,7 +13,7 @@ function getAdditionalProps({ src }: { src: string }) {
 export const Image = ({ className, alt, ...props }: JSX.IntrinsicElements['img']) => {
   return (
     <img
-      {...props}
+      {...omit(props, 'node')}
       className={clsx('mx-auto rounded-md', className)}
       alt={alt || 'An image'}
       {...getAdditionalProps({ src: props.src ?? '' })}

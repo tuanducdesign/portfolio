@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import ReactMarkdown, { Options } from 'react-markdown';
+import ReactMarkdown, { type Options } from 'react-markdown';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
