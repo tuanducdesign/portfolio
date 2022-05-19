@@ -11,4 +11,3 @@ export * from './Svelte';
 export * from './TechIcon';
 export * from './Typescript';
 export * from './Vue';
-export * from './AnchorAST';
