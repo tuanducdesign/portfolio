@@ -1,14 +1,11 @@
 import { Container, Seo, Layout, ProjectCard, Intro, Hero } from '@site/components';
-import { getAllProjects, getMarkdown } from '@site/utils';
-import { Project } from '@site/types';
+import { getAllProjects, getContent } from '@site/utils';
+import { InferGetStaticPropsType } from 'next';
 
 export default function Home({
   aboutData,
   projects,
-}: {
-  aboutData: Pick<Project, 'html'>;
-  projects: Project[];
-}) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Seo description="Ashal Farhan Portfolio">
@@ -29,8 +26,8 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const projects = await getAllProjects();
-  const aboutData = await getMarkdown({
+  const projects = getAllProjects();
+  const aboutData = getContent({
     slug: 'about',
   });
   return {

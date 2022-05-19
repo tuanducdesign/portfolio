@@ -1,12 +1,11 @@
 import { Container, Layout, Markdown, Seo } from '@site/components';
-import { useTimeRead } from '@site/hooks';
-import { Post, Project } from '@site/types';
-import { getFiles, getMarkdown } from '@site/utils';
+import type { Post, Project } from '@site/types';
+import { getFiles, getContent } from '@site/utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 
 export default function BlogPostPage({ post }: { post: Post }) {
-  const [articleRef, minute] = useTimeRead();
+  // const [articleRef, minute] = useTimeRead();
   return (
     <Layout>
       <Seo title={post.meta.title} description={post.meta.description} keywords={post.meta.tags} />
@@ -15,7 +14,7 @@ export default function BlogPostPage({ post }: { post: Post }) {
           <h1 className="font-bold text-4xl">{post.meta.title}</h1>
           <hr />
           <span className="text-gray-text font-semibold">
-            Published at: {new Date(post.meta.publishedAt).toDateString()} - {minute} min read
+            Published at: {new Date(post.meta.publishedAt).toDateString()} - {0} min read
           </span>
           <ul className="flex gap-2">
             {post.meta.tags.map((tag, idx) => (
@@ -38,7 +37,7 @@ export default function BlogPostPage({ post }: { post: Post }) {
             ))}
           </ul>
         </div>
-        <Markdown html={post.html} className="mx-auto" ref={articleRef} />
+        <Markdown content={post.content} className="mx-auto" />
       </Container>
     </Layout>
   );
@@ -58,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
   if (typeof slug !== 'string') return defaultRedirect;
   try {
-    const post = await getMarkdown<Project>({
+    const post = getContent<Project>({
       slug,
       dir: 'posts',
     });

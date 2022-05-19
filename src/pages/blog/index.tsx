@@ -46,7 +46,7 @@ export default function BlogPages({ posts }: { posts: Post[] }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
   return {
     props: { posts },
   };

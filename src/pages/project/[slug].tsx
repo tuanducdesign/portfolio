@@ -1,12 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { Container, Button, Seo, Layout, Markdown } from '@site/components';
 import { Project } from '@site/types';
-import { getFiles, getMarkdown } from '@site/utils';
+import { getFiles, getContent } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
 import Router from 'next/router';
 
-export default function ProjectDetail({ project }: { project: Project }) {
+export default function ProjectDetail({ project }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Seo
@@ -28,7 +27,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </span>
           <h1 className="text-4xl flex-1">{project.meta.title}</h1>
         </div>
-        <Markdown html={project.html} className="mb-8" />
+        <Markdown content={project.content} className="mb-8" />
         <div className="flex w-full md:gap-x-8 md:gap-y-0 md:flex-row flex-col gap-y-3">
           {Boolean(project.meta.liveUrl) && (
             <Button className="flex-auto" as="a" href={project.meta.liveUrl}>
@@ -46,7 +45,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths = () => {
   const files = getFiles('projects');
   return {
     paths: files.map((file) => ({ params: { slug: file.slice(0, -3) } })),
@@ -54,13 +53,13 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const defaultRedirect = { redirect: { destination: '/', permanent: true } };
   if (!params) return defaultRedirect;
   const { slug } = params;
   if (typeof slug !== 'string') return defaultRedirect;
   try {
-    const project = await getMarkdown<Project>({
+    const project = getContent<Project>({
       slug,
       dir: 'projects',
     });
