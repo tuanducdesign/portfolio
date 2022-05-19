@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { getMarkdown } from './getMarkdown';
 
-const base = path.join(process.cwd(), 'src/data');
+const base = path.join(process.cwd(), 'content');
 
 export function getFiles(dir = '') {
   return fs.readdirSync(path.join(base, dir));
