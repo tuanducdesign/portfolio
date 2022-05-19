@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { forwardRef } from 'react';
 import ReactMarkdown, { type Options } from 'react-markdown';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
@@ -28,24 +29,28 @@ const components: Options['components'] = {
   pre: Pre,
 };
 
-export const Markdown = ({
-  content = '',
-  className = '',
-}: {
-  className?: string;
-  content: string;
-}) => {
+export const Markdown = forwardRef<
+  HTMLDivElement,
+  JSX.IntrinsicElements['div'] & { content: string }
+>(({ content = '', className = '' }, ref) => {
   return (
-    <ReactMarkdown
-      remarkPlugins={remarkPlugins}
-      rehypePlugins={rehypePlugins}
-      components={components}
-      className={clsx(
-        'prose prose-sky dark:prose-invert max-w-full md:max-w-prose prose-a:break-words',
-        className,
-      )}
-    >
-      {content}
-    </ReactMarkdown>
+    <div ref={ref}>
+      <ReactMarkdown
+        remarkPlugins={remarkPlugins}
+        rehypePlugins={rehypePlugins}
+        components={components}
+        className={clsx(
+          'prose prose-sky dark:prose-invert max-w-full md:max-w-prose prose-a:break-words',
+          className,
+        )}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
   );
-};
+});
+
+/*
+eslint
+  react/display-name: 0
+*/
