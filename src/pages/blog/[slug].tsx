@@ -16,7 +16,7 @@ export default function BlogPostPage({ post }: { post: Post }) {
           <h1 className="font-bold text-4xl">{post.meta.title}</h1>
           <hr />
           <span className="text-gray-text font-semibold">
-            Published at: {new Date(post.meta.publishedAt).toDateString()} - {minute} min read
+            {new Date(post.meta.publishedAt).toDateString()} - {minute} min read
           </span>
           <ul className="flex gap-2">
             {post.meta.tags.map((tag, idx) => (

@@ -10,8 +10,6 @@ tags:
   - api
 ---
 
-![An Image](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/misael-moreno-ttLeeAdG-gE-unsplash_U8F0ROcPyo.jpg){height=3285}
-
 <img src="https://ik.imagekit.io/gncpb3rwf/dummy-blogs/misael-moreno-ttLeeAdG-gE-unsplash_U8F0ROcPyo.jpg" height="3285" alt="An Image" width="4251"  />
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra.
@@ -24,7 +22,7 @@ Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. F
 
 Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla.
 
-![Some Image](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/sammy-wong-zBxjmfhjdaE-unsplash_DOe91biBOI.jpg)
+<img src="https://ik.imagekit.io/gncpb3rwf/dummy-blogs/sammy-wong-zBxjmfhjdaE-unsplash_DOe91biBOI.jpg" width="5670" height="4028" alt="Some Image"  />
 
 Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula.
 
