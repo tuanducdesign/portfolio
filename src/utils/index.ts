@@ -1,2 +1,2 @@
-export * from './getMarkdown';
+export * from './content';
 export * from './data';
