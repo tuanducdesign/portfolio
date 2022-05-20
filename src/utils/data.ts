@@ -1,14 +1,6 @@
 import { loadImageKit } from '@site/libs';
 import { Post, Project } from '@site/types';
-import fs from 'fs';
-import path from 'path';
-import { getContent } from './content';
-
-const base = path.join(process.cwd(), 'content');
-
-export function getFiles(dir = '') {
-  return fs.readdirSync(path.join(base, dir));
-}
+import { getContent, getFiles } from './content';
 
 export async function getBlurPlaceholder(src: string) {
   const url = loadImageKit({
@@ -25,16 +17,6 @@ export async function getBlurPlaceholder(src: string) {
     base64,
     mime,
   };
-}
-
-export function getFileContent({
-  dir = '',
-  filename,
-}: {
-  filename: string;
-  dir?: string;
-}) {
-  return fs.readFileSync(path.join(base, dir, filename), 'utf-8');
 }
 
 export async function getProject(slug: string) {
