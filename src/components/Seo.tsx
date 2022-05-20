@@ -56,7 +56,7 @@ export const Seo = ({
         property="twitter:description"
         content={description || siteMeta.description}
       />
-      {/* <meta property="twitter:image:src" content={siteMeta.image} /> */}
+      <meta property="twitter:image:src" content={image || siteMeta.image} />
       {canonical && <link property="canonical" href={canonical} />}
       <link rel="icon" href={favicon || '/favicon.svg'} />
       {children}
