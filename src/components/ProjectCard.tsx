@@ -25,7 +25,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 },
               })}
               loading="lazy"
-              className="w-full object-contain"
+              className="w-full object-contain rounded-md"
             />
           </div>
           <TechStackBar
