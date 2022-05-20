@@ -32,7 +32,10 @@ export type IconName =
   | 'postgres'
   | 'go';
 
-type TechIconProps = { name: IconName; size?: number } & SVGProps<SVGSVGElement>;
+type TechIconProps = {
+  name: IconName;
+  size?: number;
+} & SVGProps<SVGSVGElement>;
 
 export const TechIcon = ({ name, size = 24, ...props }: TechIconProps) => {
   switch (name) {
@@ -41,7 +44,9 @@ export const TechIcon = ({ name, size = 24, ...props }: TechIconProps) => {
     case 'node_js':
       return <NodeJs width={size} height={size} {...props} />;
     case 'express_js':
-      return <ExpressJs width={size} height={size} {...props} fill="currentColor" />;
+      return (
+        <ExpressJs width={size} height={size} {...props} fill="currentColor" />
+      );
     case 'mongo_db':
       return <MongoDb width={size} height={size} {...props} />;
     case 'svelte':

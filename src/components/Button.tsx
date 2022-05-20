@@ -16,7 +16,16 @@ type ButtonProps = {
 >;
 
 const Button = forwardRef(
-  ({ children, as = 'button', color = 'primary', className, ...props }: ButtonProps, ref) => {
+  (
+    {
+      children,
+      as = 'button',
+      color = 'primary',
+      className,
+      ...props
+    }: ButtonProps,
+    ref,
+  ) => {
     return createElement(
       as,
       {

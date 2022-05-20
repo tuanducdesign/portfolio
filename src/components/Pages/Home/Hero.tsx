@@ -25,7 +25,12 @@ export function Hero() {
         <h1 className="md:text-6xl text-4xl font-bold md:text-left text-center w-full">
           Hi!&nbsp;
           <motion.span
-            transition={{ repeat: 6, repeatType: 'reverse', repeatDelay: 0, duration: 0.2 }}
+            transition={{
+              repeat: 6,
+              repeatType: 'reverse',
+              repeatDelay: 0,
+              duration: 0.2,
+            }}
             variants={wavingHand}
             initial="initial"
             animate="animate"
@@ -34,7 +39,8 @@ export function Hero() {
             👋
           </motion.span>
           <span className="md:inline block">
-            &nbsp;I&apos;m <span className="text-blue-text">{profileData.name}</span>
+            &nbsp;I&apos;m{' '}
+            <span className="text-blue-text">{profileData.name}</span>
           </span>
         </h1>
         <motion.p
