@@ -13,13 +13,13 @@ export function getFiles(dir = '') {
 export async function getBlurPlaceholder(src: string) {
   const url = loadImageKit({
     src,
-    width: 10,
-    blur: 80,
+    width: 1000,
+    blur: 10,
     quality: 10,
   });
   const res = await fetch(url);
-  const blob = await res.blob();
-  const base64 = Buffer.from(await blob.arrayBuffer()).toString('base64');
+  const arrayBuffer = await res.arrayBuffer();
+  const base64 = Buffer.from(arrayBuffer).toString('base64');
   const mime = res.headers.get('Content-Type') ?? 'image/webp';
   return {
     base64,
@@ -42,16 +42,18 @@ export async function getProject(slug: string) {
     slug,
     dir: 'projects',
   });
-  // const { base64, mime } = await getBlurPlaceholder(content.meta.thumbnail);
-  // content.meta.placeholder = `data:${mime};base64,${base64}`;
   return content;
 }
 
-export async function getPost(slug: string) {
+export async function getPost(slug: string, placeholder = false) {
   const content = getContent<Post>({
     slug,
     dir: 'posts',
   });
+  if (placeholder) {
+    const { base64, mime } = await getBlurPlaceholder(content.meta.cover.path);
+    content.meta.placeholder = `data:${mime};base64,${base64}`;
+  }
   return content;
 }
 
@@ -60,5 +62,5 @@ export function getAllProjects() {
 }
 
 export function getAllPosts() {
-  return Promise.all(getFiles('posts').map(getPost));
+  return Promise.all(getFiles('posts').map(post => getPost(post)));
 }

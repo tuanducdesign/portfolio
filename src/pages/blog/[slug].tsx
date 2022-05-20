@@ -1,4 +1,10 @@
-import { Container, Layout, Markdown, Seo } from '@site/components';
+import {
+  BlurrableImage,
+  Container,
+  Layout,
+  Markdown,
+  Seo,
+} from '@site/components';
 import { getImgProps } from '@site/helpers';
 import { useTimeRead } from '@site/hooks';
 import type { Post } from '@site/types';
@@ -20,21 +26,6 @@ export default function BlogPostPage({ post }: { post: Post }) {
         <div className="mb-4 flex flex-col gap-2">
           <h1 className="font-bold text-4xl">{post.meta.title}</h1>
           <hr />
-          <img
-            {...getImgProps({
-              src: post.meta.cover.path,
-              sizes: [
-                '(max-width: 520px) 100vw',
-                '(min-width: 521px) and (max-width: 764px) 80vw',
-                (post.meta.cover.width ?? 480) + 'px',
-              ],
-              widths: [post.meta.cover.width ?? 480, 840, 1100],
-            })}
-            alt={post.meta.title}
-            width={post.meta.cover.width}
-            height={post.meta.cover.height}
-            className="aspect-auto rounded-md"
-          />
           <span className="text-gray-text font-semibold">
             {new Date(post.meta.publishedAt).toDateString()} - {minute} min read
           </span>
@@ -60,6 +51,27 @@ export default function BlogPostPage({ post }: { post: Post }) {
               </li>
             ))}
           </ul>
+          <BlurrableImage
+            placeholder={post.meta.placeholder}
+            className="aspect-h-4 aspect-w-3 md:aspect-w-3 md:aspect-h-2"
+            img={
+              <img
+                {...getImgProps({
+                  src: post.meta.cover.path,
+                  sizes: [
+                    '(max-width: 520px) 100vw',
+                    '(min-width: 521px) and (max-width: 764px) 80vw',
+                    (post.meta.cover.width ?? 480) + 'px',
+                  ],
+                  widths: [post.meta.cover.width ?? 480, 840, 1100],
+                })}
+                alt={post.meta.title}
+                width={post.meta.cover.width}
+                height={post.meta.cover.height}
+                className="rounded-md object-cover object-center"
+              />
+            }
+          />
         </div>
         <Markdown
           ref={articleRef as Ref<HTMLDivElement>}
@@ -83,7 +95,7 @@ export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<{ slug: string }>) => {
   const { slug = '' } = params || {};
-  const post = await getPost(slug);
+  const post = await getPost(slug, true);
   return {
     props: {
       post,

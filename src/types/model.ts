@@ -22,6 +22,7 @@ export type PostMeta = {
   description: string;
   tags: string[];
   publishedAt: string;
+  placeholder: string;
   cover: {
     path: string;
     width?: number;
