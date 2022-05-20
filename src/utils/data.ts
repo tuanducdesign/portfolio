@@ -20,7 +20,7 @@ export async function getBlurPlaceholder(src: string) {
 }
 
 export async function getProject(slug: string) {
-  const content = getContent<Project>({
+  const content = await getContent<Project>({
     slug,
     dir: 'projects',
   });
@@ -28,7 +28,7 @@ export async function getProject(slug: string) {
 }
 
 export async function getPost(slug: string, placeholder = false) {
-  const content = getContent<Post>({
+  const content = await getContent<Post>({
     slug,
     dir: 'posts',
   });

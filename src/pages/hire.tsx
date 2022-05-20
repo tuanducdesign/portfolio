@@ -34,7 +34,7 @@ export default function HirePage({
 }
 
 export const getStaticProps = async () => {
-  const content = getContent({
+  const content = await getContent({
     slug: 'career',
   });
   return {

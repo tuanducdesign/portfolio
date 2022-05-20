@@ -1,7 +1,13 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import { Container, Button, Seo, Layout, Markdown } from '@site/components';
+import {
+  Container,
+  Button,
+  Seo,
+  Layout,
+  Markdown,
+  ArrowLeft,
+} from '@site/components';
 import { getFiles, getProject } from '@site/utils';
-import { BiArrowBack } from 'react-icons/bi';
 import Link from 'next/link';
 
 export default function ProjectDetail({
@@ -11,7 +17,7 @@ export default function ProjectDetail({
     <Layout>
       <Seo
         title={project.meta.title}
-        keywords={project.meta.technologies.map(t => t.replace('_', ' '))}
+        keywords={project.meta.technologies}
         description={project.meta.title}
         image={project.meta.thumbnail}
       />
@@ -22,7 +28,7 @@ export default function ProjectDetail({
               title="Go Back"
               className="inline-flex items-center gap-x-4 mb-8 group"
             >
-              <BiArrowBack className="group-hover:-translate-x-2 transition-transform duration-300" />
+              <ArrowLeft className="group-hover:-translate-x-2 transition-transform duration-300" />
               <span>Back</span>
             </a>
           </Link>

@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { nanoid } from 'nanoid';
 import { MarkdownResult } from '@site/types';
+import { parseMarkdown } from '@site/libs';
 
 const base = path.join(process.cwd(), 'content');
 
@@ -20,7 +21,7 @@ export function getFileContent({
   return fs.readFileSync(path.join(base, dir, filename), 'utf-8');
 }
 
-export function getContent<T extends MarkdownResult = MarkdownResult>({
+export async function getContent<T extends MarkdownResult = MarkdownResult>({
   dir = '',
   slug,
 }: {
@@ -35,9 +36,11 @@ export function getContent<T extends MarkdownResult = MarkdownResult>({
     filename: slug,
   });
   const { content, data } = matter(file);
+  const html = await parseMarkdown(content);
   slug = slug.slice(0, -3);
   return {
-    content,
+    content: html.toString(),
     meta: { ...data, slug, id: nanoid() },
+    readingTime: html.data.readingTime ?? 0,
   } as T;
 }

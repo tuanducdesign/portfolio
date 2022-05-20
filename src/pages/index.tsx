@@ -36,7 +36,7 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const projects = await getAllProjects();
-  const aboutData = getContent({
+  const aboutData = await getContent({
     slug: 'about',
   });
   return {

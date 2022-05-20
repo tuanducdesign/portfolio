@@ -1,5 +1,4 @@
-import { FaCodepen, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { TechIcon } from '../Icons';
+import { CodepenIcon, GithubIcon, LinkedInIcon, NextJs } from '../Icons';
 import { profileData } from '@site/config';
 
 export const Footer = () => {
@@ -12,7 +11,7 @@ export const Footer = () => {
           title="Codepen Profile"
           rel="noreferrer"
         >
-          <FaCodepen size="24" />
+          <CodepenIcon />
         </a>
         <a
           href={profileData.githubUrl}
@@ -20,7 +19,7 @@ export const Footer = () => {
           title="Github Profile"
           rel="noreferrer"
         >
-          <FaGithub size="24" />
+          <GithubIcon />
         </a>
         <a
           href={profileData.linkedinUrl}
@@ -28,14 +27,14 @@ export const Footer = () => {
           title="Linkedin Profile"
           rel="noreferrer"
         >
-          <FaLinkedinIn size="24" />
+          <LinkedInIcon />
         </a>
       </div>
       <div className="h-[1px] dark:bg-white-text bg-black-primary w-1/4" />
       <div className="flex items-center justify-center flex-col text-sm">
         <div className="flex space-x-2 items-center">
           <span>&copy; {new Date().getFullYear()} - Built with</span>
-          <TechIcon name="next_js" className="dark:fill-white" />
+          <NextJs width={24} className="dark:fill-white" />
         </div>
       </div>
     </footer>

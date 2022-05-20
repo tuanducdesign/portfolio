@@ -4,10 +4,10 @@ liveUrl: https://dashboard-haans.netlify.app
 repoUrl: https://github.com/ashalfarhan/merng-dashboard
 thumbnail: /projects/dashboard-illustration_Gqs3ea9xo.jpg
 technologies:
-  - react_js
-  - express_js
+  - reactjs
+  - expressjs
   - graphql
-  - node_js
+  - nodejs
   - mongo_db
 ---
 

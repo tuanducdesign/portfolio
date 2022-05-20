@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { TechStackBar } from '@site/components';
 import { Project } from '@site/types';
 import { getImgProps } from '@site/helpers';
 
@@ -28,10 +27,11 @@ export const ProjectCard = ({ project }: { project: Project }) => {
               className="w-full object-contain rounded-md"
             />
           </div>
-          <TechStackBar
-            title={project.meta.title}
-            technologies={project.meta.technologies}
-          />
+          <div className="p-2">
+            <div className="mt-2 font-bold flex-1 text-lg">
+              {project.meta.title}
+            </div>
+          </div>
         </a>
       </Link>
     </div>
