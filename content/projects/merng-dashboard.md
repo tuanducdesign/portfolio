@@ -2,7 +2,7 @@
 title: MERNG Dashboard
 liveUrl: https://dashboard-haans.netlify.app
 repoUrl: https://github.com/ashalfarhan/merng-dashboard
-thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project7_IdDAe8ghN.png
+thumbnail: /projects/dashboard-illustration_Gqs3ea9xo.jpg
 technologies:
   - react_js
   - express_js

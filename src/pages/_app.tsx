@@ -6,7 +6,11 @@ import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={['light', 'dark']} attribute="class" defaultTheme="dark">
+    <ThemeProvider
+      themes={['light', 'dark']}
+      attribute="class"
+      defaultTheme="dark"
+    >
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-0TZP917KRV"

@@ -2,7 +2,7 @@
 title: Rock, Paper, Scissors
 liveUrl: https://ashal-rps.surge.sh
 repoUrl: https://github.com/ashalfarhan/fm15-rps
-thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project8_MQJwGKNmf.jpg?
+thumbnail: /projects/project8_MQJwGKNmf.jpg
 technologies:
   - svelte
 ---

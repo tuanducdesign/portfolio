@@ -1,20 +1,21 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { Container, Button, Seo, Layout, Markdown } from '@site/components';
-import { Project } from '@site/types';
-import { getFiles, getContent } from '@site/utils';
+import { getFiles, getProject } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
 import Router from 'next/router';
 
-export default function ProjectDetail({ project }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function ProjectDetail({
+  project,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Seo
         title={project.meta.title}
-        keywords={project.meta.technologies.map((t) => t.replace('_', ' '))}
+        keywords={project.meta.technologies.map(t => t.replace('_', ' '))}
         description={project.meta.title}
         image={project.meta.thumbnail}
       />
-      <Container className="flex flex-col items-center py-4 md:py-12 md:px-0 px-4 max-w-prose">
+      <Container className="py-4 md:py-12 md:px-0 px-4 max-w-prose">
         <div className="w-full mb-4">
           <span
             role="button"
@@ -27,6 +28,18 @@ export default function ProjectDetail({ project }: InferGetStaticPropsType<typeo
           </span>
           <h1 className="text-4xl flex-1">{project.meta.title}</h1>
         </div>
+        {/* <Image
+          src={project.meta.thumbnail}
+          width={1100}
+          height={640}
+          alt={project.meta.title}
+          loader={loadImageKit}
+          placeholder="blur"
+          blurDataURL={project.meta.placeholder}
+          objectFit="cover"
+          layout="responsive"
+          priority
+        /> */}
         <Markdown content={project.content} className="mb-8" />
         <div className="flex w-full md:gap-x-8 md:gap-y-0 md:flex-row flex-col gap-y-3">
           {Boolean(project.meta.liveUrl) && (
@@ -48,27 +61,19 @@ export default function ProjectDetail({ project }: InferGetStaticPropsType<typeo
 export const getStaticPaths = () => {
   const files = getFiles('projects');
   return {
-    paths: files.map((file) => ({ params: { slug: file.slice(0, -3) } })),
+    paths: files.map(file => ({ params: { slug: file.slice(0, -3) } })),
     fallback: false,
   };
 };
 
-export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
-  const defaultRedirect = { redirect: { destination: '/', permanent: true } };
-  if (!params) return defaultRedirect;
-  const { slug } = params;
-  if (typeof slug !== 'string') return defaultRedirect;
-  try {
-    const project = getContent<Project>({
-      slug,
-      dir: 'projects',
-    });
-    return {
-      props: {
-        project,
-      },
-    };
-  } catch {
-    return defaultRedirect;
-  }
+export const getStaticProps = async ({
+  params,
+}: GetStaticPropsContext<{ slug: string }>) => {
+  const { slug = '' } = params || {};
+  const project = await getProject(slug);
+  return {
+    props: {
+      project,
+    },
+  };
 };

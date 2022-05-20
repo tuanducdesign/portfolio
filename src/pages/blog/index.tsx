@@ -1,11 +1,12 @@
 import { Container, Layout, PostCard, Seo } from '@site/components';
-import { Post } from '@site/types';
 import { getAllPosts } from '@site/utils';
 import { useReducedMotion, motion, Variants } from 'framer-motion';
+import { InferGetStaticPropsType } from 'next';
 
-export default function BlogPages({ posts }: { posts: Post[] }) {
+export default function BlogPages({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const reduce = useReducedMotion();
-
   const textReveal: Variants = {
     initial: { opacity: 0, y: reduce ? 0 : 25 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -15,7 +16,14 @@ export default function BlogPages({ posts }: { posts: Post[] }) {
       <Seo
         title="Blog"
         description="Ashal's personal blog about Coding"
-        keywords={['coding', 'react', 'article', 'ashal farhan', 'blog', 'nextjs']}
+        keywords={[
+          'coding',
+          'react',
+          'article',
+          'ashal farhan',
+          'blog',
+          'nextjs',
+        ]}
       />
       <Container className="max-w-4xl mx-auto">
         <motion.div
@@ -26,8 +34,12 @@ export default function BlogPages({ posts }: { posts: Post[] }) {
           <motion.h1 variants={textReveal} className="text-4xl font-bold">
             Welcome to my blog! ✍️
           </motion.h1>
-          <motion.p variants={textReveal} className="text-gray-text font-semibold text-xl mt-2">
-            Here I will share my knowledge and experience as a Frontend Engineer.
+          <motion.p
+            variants={textReveal}
+            className="text-gray-text font-semibold text-xl mt-2"
+          >
+            Here I will share my knowledge and experience as a Frontend
+            Engineer.
           </motion.p>
         </motion.div>
         <div className="mb-12">
@@ -35,7 +47,7 @@ export default function BlogPages({ posts }: { posts: Post[] }) {
             Featured
           </h1>
           <div className="flex flex-col gap-8">
-            {posts.map((post) => (
+            {posts.map(post => (
               <PostCard meta={post.meta} key={post.meta.id} />
             ))}
           </div>
@@ -46,7 +58,7 @@ export default function BlogPages({ posts }: { posts: Post[] }) {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return {
     props: { posts },
   };

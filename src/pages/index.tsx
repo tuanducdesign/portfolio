@@ -1,4 +1,11 @@
-import { Container, Seo, Layout, ProjectCard, Intro, Hero } from '@site/components';
+import {
+  Container,
+  Seo,
+  Layout,
+  ProjectCard,
+  Intro,
+  Hero,
+} from '@site/components';
 import { getAllProjects, getContent } from '@site/utils';
 import { InferGetStaticPropsType } from 'next';
 
@@ -14,9 +21,11 @@ export default function Home({
       <Hero />
       <Intro data={aboutData} />
       <Container className="flex flex-col py-10 px-2">
-        <h1 className="md:text-2xl font-bold text-xl mb-6">Personal Projects</h1>
+        <h1 className="md:text-2xl font-bold text-xl mb-6">
+          Personal Projects
+        </h1>
         <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8">
-          {projects.map((project) => (
+          {projects.map(project => (
             <ProjectCard project={project} key={project.meta.id} />
           ))}
         </div>
@@ -26,7 +35,7 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const projects = getAllProjects();
+  const projects = await getAllProjects();
   const aboutData = getContent({
     slug: 'about',
   });

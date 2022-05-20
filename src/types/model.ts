@@ -13,6 +13,7 @@ export type ProjectMeta = {
   liveUrl?: string;
   repoUrl: string;
   thumbnail: string;
+  placeholder: string;
   technologies: IconName[];
 };
 
@@ -21,6 +22,11 @@ export type PostMeta = {
   description: string;
   tags: string[];
   publishedAt: string;
+  cover: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
 };
 
 export type Project = MarkdownResult<ProjectMeta>;

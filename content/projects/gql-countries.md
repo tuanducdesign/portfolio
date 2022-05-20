@@ -2,7 +2,7 @@
 title: GQL Countries
 liveUrl: https://gql-countries.herokuapp.com
 repoUrl: https://github.com/ashalfarhan/gql-countries
-thumbnail: https://ik.imagekit.io/gncpb3rwf/projects/project11_MelRt5dkB.jpg
+thumbnail: /projects/project11_MelRt5dkB.jpg
 technologies:
   - graphql
   - node_js

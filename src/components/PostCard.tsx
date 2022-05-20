@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const PostCard = ({ meta }: Pick<Post, 'meta'>) => {
   return (
     <Link href={'/blog/' + meta.slug} passHref>
-      <a className="p-4 rounded-lg cursor-pointer hover:ring-offset-4 hover:ring-blue-text dark:hover:ring-yellow-border ring-2 ring-transparent dark:ring-offset-black-primary transition-all">
+      <a className="md:p-4 p-2 rounded-lg cursor-pointer hover:ring-offset-4 hover:ring-blue-text dark:hover:ring-yellow-border ring-2 ring-transparent dark:ring-offset-black-primary transition-all">
         <h1 className="font-bold text-xl">{meta.title}</h1>
         <p className="text-gray-400">{meta.description}</p>
         <ul className="flex gap-2">
