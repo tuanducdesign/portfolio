@@ -2,7 +2,7 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { Container, Button, Seo, Layout, Markdown } from '@site/components';
 import { getFiles, getProject } from '@site/utils';
 import { BiArrowBack } from 'react-icons/bi';
-import Router from 'next/router';
+import Link from 'next/link';
 
 export default function ProjectDetail({
   project,
@@ -17,29 +17,17 @@ export default function ProjectDetail({
       />
       <Container className="py-4 md:py-12 md:px-0 px-4 max-w-prose">
         <div className="w-full mb-4">
-          <span
-            role="button"
-            title="Go Back"
-            onClick={Router.back}
-            className="inline-flex items-center gap-x-4 mb-8 group"
-          >
-            <BiArrowBack className="group-hover:-translate-x-4 transition-transform duration-500" />
-            <span>Back</span>
-          </span>
+          <Link href="/" passHref>
+            <a
+              title="Go Back"
+              className="inline-flex items-center gap-x-4 mb-8 group"
+            >
+              <BiArrowBack className="group-hover:-translate-x-2 transition-transform duration-300" />
+              <span>Back</span>
+            </a>
+          </Link>
           <h1 className="text-4xl flex-1">{project.meta.title}</h1>
         </div>
-        {/* <Image
-          src={project.meta.thumbnail}
-          width={1100}
-          height={640}
-          alt={project.meta.title}
-          loader={loadImageKit}
-          placeholder="blur"
-          blurDataURL={project.meta.placeholder}
-          objectFit="cover"
-          layout="responsive"
-          priority
-        /> */}
         <Markdown content={project.content} className="mb-8" />
         <div className="flex w-full md:gap-x-8 md:gap-y-0 md:flex-row flex-col gap-y-3">
           {Boolean(project.meta.liveUrl) && (

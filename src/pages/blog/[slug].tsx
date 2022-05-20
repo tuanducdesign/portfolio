@@ -5,26 +5,45 @@ import {
   Markdown,
   Seo,
 } from '@site/components';
+import { IoChevronBackSharp } from 'react-icons/io5';
 import { getImgProps } from '@site/helpers';
 import { useTimeRead } from '@site/hooks';
-import type { Post } from '@site/types';
 import { getFiles, getPost } from '@site/utils';
-import type { GetStaticPaths, GetStaticPropsContext } from 'next';
+import type {
+  GetStaticPaths,
+  GetStaticPropsContext,
+  InferGetStaticPropsType,
+} from 'next';
 import Link from 'next/link';
 import type { Ref } from 'react';
+import { loadImageKit } from '@site/libs';
 
-export default function BlogPostPage({ post }: { post: Post }) {
+export default function BlogPostPage({
+  post,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const [articleRef, minute] = useTimeRead();
   return (
     <Layout>
       <Seo
         title={post.meta.title}
         description={post.meta.description}
+        image={loadImageKit({ src: post.meta.cover.path })}
         keywords={post.meta.tags}
       />
       <Container className="flex justify-center flex-col my-8 max-w-prose">
         <div className="mb-4 flex flex-col gap-2">
-          <h1 className="font-bold text-4xl">{post.meta.title}</h1>
+          <div className="mt-6 md:mt-12 mb-2">
+            <Link href="/blog" passHref>
+              <a
+                title="Go Back"
+                className="inline-flex items-center gap-x-4 group"
+              >
+                <IoChevronBackSharp className="group-hover:-translate-x-2 transition-transform duration-300" />
+                <span>Back to blog</span>
+              </a>
+            </Link>
+          </div>
+          <h1 className="font-bold text-2xl md:text-4xl">{post.meta.title}</h1>
           <hr />
           <span className="text-gray-text font-semibold">
             {new Date(post.meta.publishedAt).toDateString()} - {minute} min read
@@ -53,7 +72,7 @@ export default function BlogPostPage({ post }: { post: Post }) {
           </ul>
           <BlurrableImage
             placeholder={post.meta.placeholder}
-            className="aspect-h-4 aspect-w-3 md:aspect-w-3 md:aspect-h-2"
+            className="aspect-h-4 aspect-w-3 md:aspect-w-3 md:aspect-h-2 md:-mx-24 my-6"
             img={
               <img
                 {...getImgProps({
