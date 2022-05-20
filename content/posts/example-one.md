@@ -14,8 +14,6 @@ tags:
   - api
 ---
 
-<img src="https://ik.imagekit.io/gncpb3rwf/dummy-blogs/misael-moreno-ttLeeAdG-gE-unsplash_U8F0ROcPyo.jpg" height="3285" alt="An Image" width="4251"  />
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra.
 
 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula. In eu dui molestie, molestie lectus eu, semper lectus.

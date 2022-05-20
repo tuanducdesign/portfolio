@@ -13,8 +13,6 @@ tags:
   - frontend
 ---
 
-<img src="https://ik.imagekit.io/gncpb3rwf/dummy-blogs/mathew-schwartz-GNSRazeH00I-unsplash_he67OwOoob.jpg" width="5463" height="3642" alt="Another Image" />
-
 # Lorem Ipsum 1
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

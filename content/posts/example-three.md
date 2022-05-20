@@ -12,8 +12,6 @@ tags:
   - html
 ---
 
-<img src="https://ik.imagekit.io/gncpb3rwf/dummy-blogs/kiarash-mansouri-fzoSNcxqtp8-unsplash_93Ejez5_G.jpg" width="6000" height="4000" alt="First Image" />
-
 This article to showcase about images based content, so hang on, check the network tab and make sure this is responsive.
 
 ## Image with specifying `width` and `height`
