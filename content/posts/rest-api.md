@@ -2,6 +2,10 @@
 title: I've made a RESTful HTTP client which will make your life much easier
 description: Most of you reading this are probably already familiar and using
 publishedAt: '2022-01-01'
+cover:
+  path: /posts/samson-ZGjbiukp_-A-unsplash_YBOy7aIIW.jpg
+  width: 5184
+  height: 3456
 tags:
   - typescript
   - npm
@@ -20,7 +24,9 @@ Let's see a basic usage example:
 ```js
 import forest from '4rest';
 
-export const instance = forest.create({ axiosSettings: { baseURL: 'http://localhost:5000' } });
+export const instance = forest.create({
+  axiosSettings: { baseURL: 'http://localhost:5000' },
+});
 ```
 
 2. Then we create a Forest Service using the instance we just made.

@@ -1,6 +1,11 @@
 ---
 title: Learn How to Pre-render Pages Using Static Generation with Next.js
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.
+publishedAt: '2022-04-20'
+cover:
+  path: /posts/rids-M6ule9BFwYg-unsplash_F5yKto23p.jpg
+  width: 3024
+  height: 4032
 tags:
   - nextjs
   - react

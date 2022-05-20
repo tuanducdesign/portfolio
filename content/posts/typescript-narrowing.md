@@ -2,6 +2,10 @@
 title: TypeScript Narrowing
 description: A simple guide how to implement Narrowing in TypeScript with Discriminated Unions
 publishedAt: '2022-05-17'
+cover:
+  path: /posts/deva-darshan-v0zwX1aPlHI-unsplash__1__HADmF4NhF.jpg
+  width: 2782
+  height: 3477
 tags:
   - react
   - typescript
@@ -179,18 +183,21 @@ export function todoReducer(state: TodoState, action: TodoAction): TodoState {
     case 'addTodo':
       return {
         ...state,
-        todos: [...state.todos, { id: nanoid(), done: false, name: action.payload }],
+        todos: [
+          ...state.todos,
+          { id: nanoid(), done: false, name: action.payload },
+        ],
       };
     case 'removeTodo':
       return {
         ...state,
-        todos: [...state.todos.filter((val) => val.id !== action.payload)],
+        todos: [...state.todos.filter(val => val.id !== action.payload)],
       };
     case 'toggleTodo':
       return {
         ...state,
         todos: [
-          ...state.todos.map((val) => ({
+          ...state.todos.map(val => ({
             ...val,
             done: val.id === action.payload ? !val.done : val.done,
           })),
@@ -218,7 +225,11 @@ Then create the `CreateTodoForm.tsx` component for creating a new todo
 // CreateTodoForm.tsx
 import { FormEvent, useState } from 'react';
 
-export function CreateTodoForm({ onSubmit }: { onSubmit: (name: string) => void }) {
+export function CreateTodoForm({
+  onSubmit,
+}: {
+  onSubmit: (name: string) => void;
+}) {
   const [name, setName] = useState('');
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -229,7 +240,11 @@ export function CreateTodoForm({ onSubmit }: { onSubmit: (name: string) => void 
     <form onSubmit={handleSubmit}>
       <label>
         <span>Name: </span>
-        <input onChange={(e) => setName(e.target.value)} value={name} type="text" />
+        <input
+          onChange={e => setName(e.target.value)}
+          value={name}
+          type="text"
+        />
       </label>
       <button type="submit">Create</button>
     </form>
@@ -255,15 +270,19 @@ export default function App() {
   return (
     <div className="App">
       <h1>Todo List</h1>
-      <CreateTodoForm onSubmit={(name) => dispatch({ type: 'addTodo', payload: name })} />
+      <CreateTodoForm
+        onSubmit={name => dispatch({ type: 'addTodo', payload: name })}
+      />
       <ul>
-        {state.todos.map((todo) => (
+        {state.todos.map(todo => (
           <li key={todo.id}>
             <span>{todo.name}</span>
             <input
               type="checkbox"
               checked={todo.done}
-              onChange={() => dispatch({ type: 'toggleTodo', payload: todo.id })}
+              onChange={() =>
+                dispatch({ type: 'toggleTodo', payload: todo.id })
+              }
             />
             <button
               // Try to remove the property 'payload' below when calling dispatch

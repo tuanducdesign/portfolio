@@ -2,6 +2,10 @@
 title: Introducing Depot — A faster way to build Docker images
 description: We have spent a lot of time building and deploying Docker images.
 publishedAt: '2022-01-01'
+cover:
+  path: /posts/imran-suleiman-Ie6fZZSqRvc-unsplash_X_HXrEYlY.jpg
+  width: 6000
+  height: 4000
 tags:
   - devops
   - docker

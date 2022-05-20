@@ -1,7 +1,7 @@
 import { Container, Layout, PostCard, Seo } from '@site/components';
 import { getAllPosts } from '@site/utils';
-import { useReducedMotion, motion, Variants } from 'framer-motion';
-import { InferGetStaticPropsType } from 'next';
+import { useReducedMotion, motion, type Variants } from 'framer-motion';
+import type { InferGetStaticPropsType } from 'next';
 
 export default function BlogPages({
   posts,

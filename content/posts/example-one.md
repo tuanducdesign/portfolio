@@ -3,6 +3,10 @@ title: Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 description: Impedit nihil praesentium reiciendis
   delectus atque quaerat quo aliquid placeat adipisci corrupti repudiandae quibusdam ratione.
 publishedAt: '2022-01-01'
+cover:
+  path: /posts/matteo-catanese-PI8Hk-3ZcCU-unsplash_2o8Ida7F2.jpg
+  width: 6000
+  height: 4000
 tags:
   - backend
   - docker
