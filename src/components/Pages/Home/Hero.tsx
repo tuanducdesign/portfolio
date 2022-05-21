@@ -15,7 +15,7 @@ export function Hero() {
     animate: { rotateZ: 0, transformOrigin: 'bottom right' },
   };
   return (
-    <Container className="flex items-center justify-center min-h-[92vh]">
+    <Container className="flex items-center justify-center h-[calc(100vh_-_3.5rem)]">
       <motion.div
         initial="initial"
         animate="visible"
@@ -57,9 +57,9 @@ export function Hero() {
           variants={textReveal}
           className="flex md:gap-x-4 md:flex-row gap-y-3 md:gap-y-0 flex-col w-full relative top-4"
         >
-          <Button className="text-xl" as="a" href="#intro">
+          {/* <Button className="text-xl" as="a" href="#intro">
             Know More
-          </Button>
+          </Button> */}
           <Link href="/hire" passHref>
             <Button className="text-xl" as="a">
               Hire Me

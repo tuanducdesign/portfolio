@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { Container } from '../Container';
 import { BrandIcon, ThemeIcon } from '../Icons';
+import { Button } from '../Button';
 
 export const Header = () => {
   const { resolvedTheme, setTheme } = useTheme();
@@ -10,8 +11,8 @@ export const Header = () => {
     setTheme(isDark ? 'light' : 'dark');
   };
   return (
-    <header className="flex sticky top-0 z-50 backdrop-blur-sm border-b border-b-slate-700">
-      <Container className="flex justify-between items-center py-2 px-2">
+    <header className="flex sticky top-0 z-50 backdrop-blur-sm border-b border-b-slate-700 h-14">
+      <Container className="flex justify-between items-center px-2 md:px-0">
         <Link href="/" passHref>
           <a
             className="font-bold text-3xl italic text-black-primary dark:text-white-text inline-flex items-center"
@@ -20,13 +21,14 @@ export const Header = () => {
             <BrandIcon />
           </a>
         </Link>
-        <button
+        <Button
           title="Switch Theme"
-          className="rounded-lg flex items-center justify-center p-2"
+          color="unstyled"
+          className="flex items-center justify-center !p-2"
           onClick={toggleDarkMode}
         >
           <ThemeIcon theme={resolvedTheme} />
-        </button>
+        </Button>
       </Container>
     </header>
   );

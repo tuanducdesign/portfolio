@@ -3,24 +3,24 @@ import {
   Seo,
   Layout,
   ProjectCard,
-  Intro,
+  // Intro,
   Hero,
 } from '@site/components';
-import { getAllProjects, getContent } from '@site/utils';
+import {
+  getAllProjects,
+  // getContent
+} from '@site/utils';
 import { InferGetStaticPropsType } from 'next';
 
 export default function Home({
-  aboutData,
   projects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
-      <Seo description="Ashal Farhan Portfolio">
-        <link rel="preconnect" href="https://ik.imagekit.io" />
-      </Seo>
+      <Seo description="Ashal Farhan Portfolio" />
       <Hero />
-      <Intro data={aboutData} />
-      <Container className="flex flex-col py-10 px-2">
+      {/* <Intro data={aboutData} /> */}
+      <Container className="flex flex-col mb-10 px-2">
         <h1 className="md:text-2xl font-bold text-xl mb-6">
           Personal Projects
         </h1>
@@ -36,10 +36,13 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const projects = await getAllProjects();
-  const aboutData = await getContent({
-    slug: 'about',
-  });
+  // const aboutData = await getContent({
+  //   slug: 'about',
+  // });
   return {
-    props: { aboutData, projects },
+    props: {
+      // aboutData,
+      projects,
+    },
   };
 };

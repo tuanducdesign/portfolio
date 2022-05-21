@@ -1,19 +1,18 @@
 import clsx from 'clsx';
-import {
-  AnchorHTMLAttributes,
-  createElement,
-  DetailedHTMLProps,
-  forwardRef,
-  HTMLAttributes,
-} from 'react';
+import { createElement, forwardRef, ReactNode, Ref } from 'react';
+
+type ButtonAsProps = {
+  as?: 'button';
+} & JSX.IntrinsicElements['button'];
+
+type AnchorAsProps = {
+  as: 'a';
+} & JSX.IntrinsicElements['a'];
 
 type ButtonProps = {
-  as?: 'a' | 'button';
-  color?: 'primary' | 'secondary';
-} & DetailedHTMLProps<
-  HTMLAttributes<HTMLButtonElement> | AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLButtonElement | HTMLAnchorElement
->;
+  color?: 'primary' | 'unstyled';
+  leftIcon?: ReactNode;
+} & (ButtonAsProps | AnchorAsProps);
 
 const Button = forwardRef(
   (
@@ -24,17 +23,17 @@ const Button = forwardRef(
       className,
       ...props
     }: ButtonProps,
-    ref,
+    ref: Ref<HTMLButtonElement | HTMLAnchorElement>,
   ) => {
-    return createElement(
+    const element = createElement(
       as,
       {
         ...props,
         className: clsx(
-          'border-2 px-4 transition font-bold py-2 text-center cursor-pointer',
+          'transition px-4 py-2 text-center cursor-pointer',
           className,
           {
-            ['border-blue-text hover:bg-blue-text dark:border-blue-text dark:hover:bg-blue-text hover:text-white-text dark:hover:text-black-primary rounded-lg']:
+            ['font-bold border-2 border-blue-text hover:bg-blue-text dark:border-blue-text dark:hover:bg-blue-text hover:text-white-text dark:hover:text-black-primary rounded-lg']:
               color === 'primary',
           },
         ),
@@ -42,6 +41,7 @@ const Button = forwardRef(
       },
       children,
     );
+    return element;
   },
 );
 
