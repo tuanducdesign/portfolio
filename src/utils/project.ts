@@ -9,10 +9,6 @@ export async function getProject({
   withContent = false,
 }: {
   slug: string;
-  /**
-   * Wheter to parse the markdown or not
-   * @default false
-   */
   withContent?: boolean;
 }) {
   const raw = getFileContent({

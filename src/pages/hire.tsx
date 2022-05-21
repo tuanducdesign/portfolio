@@ -36,7 +36,7 @@ export default function HirePage({
 
 export const getStaticProps = async () => {
   const raw = getFileContent({
-    filename: 'hire',
+    filename: 'career',
   });
   const content = await parseMarkdown(raw);
   return {
