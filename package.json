@@ -12,7 +12,7 @@
     "format:write": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
     "prepare": "husky install",
-    "postbuild": "next-sitemap --config ./next-sitemap.config.js"
+    "postbuild": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",
