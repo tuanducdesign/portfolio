@@ -37,10 +37,13 @@ export async function getContent<T extends MarkdownResult = MarkdownResult>({
   });
   const { content, data } = matter(file);
   const html = await parseMarkdown(content);
-  slug = slug.slice(0, -3);
   return {
-    content: html.toString(),
-    meta: { ...data, slug, id: nanoid() },
-    readingTime: html.data.readingTime ?? 0,
+    content: html,
+    meta: {
+      ...data,
+      // normalize filename to slug again
+      slug: slug.slice(0, -3),
+      id: nanoid(),
+    },
   } as T;
 }

@@ -1,6 +1,6 @@
 export type MarkdownResult<T = Record<string, unknown>> = {
   content: string;
-  readingTime: number;
+
   meta: {
     slug: string;
     id: string;
@@ -32,4 +32,4 @@ export type PostMeta = {
 
 export type Project = MarkdownResult<ProjectMeta>;
 
-export type Post = MarkdownResult<PostMeta>;
+export type Post = MarkdownResult<PostMeta> & { readingTime: number };

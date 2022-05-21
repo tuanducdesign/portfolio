@@ -1,4 +1,3 @@
-import 'highlight.js/styles/atom-one-dark.css';
 import '../styles/global.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';

@@ -27,16 +27,22 @@ export async function getProject(slug: string) {
   return content;
 }
 
+const WPM = 250;
+
 export async function getPost(slug: string, placeholder = false) {
-  const content = await getContent<Post>({
+  const post = await getContent<Post>({
     slug,
     dir: 'posts',
   });
   if (placeholder) {
-    const { base64, mime } = await getBlurPlaceholder(content.meta.cover.path);
-    content.meta.placeholder = `data:${mime};base64,${base64}`;
+    const { base64, mime } = await getBlurPlaceholder(post.meta.cover.path);
+    post.meta.placeholder = `data:${mime};base64,${base64}`;
   }
-  return content;
+
+  const words = post.content.replace(/<[^>]+>/g, '').split(' ');
+  const readTime = Math.ceil(words.length / WPM);
+  post.readingTime = readTime;
+  return post;
 }
 
 export function getAllProjects() {
