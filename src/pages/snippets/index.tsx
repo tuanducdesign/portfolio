@@ -1,6 +1,9 @@
 import { Container, Layout, Seo } from '@site/components';
+import { getTechIcon } from '@site/helpers';
 import { getAllSnippets } from '@site/utils';
+import clsx from 'clsx';
 import type { InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
 
 export default function SnippetsPage({
   snippets,
@@ -10,7 +13,14 @@ export default function SnippetsPage({
       <Seo
         title="Code Snippets"
         description="Ashal Farhan code snippets and cheatsheet"
-        keywords={['code', 'programming', 'webdev', 'development', 'coding']}
+        keywords={[
+          'code',
+          'programming',
+          'webdev',
+          'development',
+          'coding',
+          'snippets',
+        ]}
       >
         <link
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
@@ -22,18 +32,32 @@ export default function SnippetsPage({
           rel="stylesheet"
         />
       </Seo>
-      <Container className="max-w-prose my-12">
-        <h1 className="font-bold text-5xl">Code Snippets</h1>
+      <Container className="max-w-2xl w-full my-12 px-4">
+        <h1 className="font-bold text-4xl">Code Snippets</h1>
         <p className="text-gray-400 mt-2">
           These are collection of code snippets I&apos;ve used and saved. For
           the most is Frontend Web related, but soon I will add another.
         </p>
-        <div>
+        <div className="grid md:grid-cols-2 gap-8 mt-4">
           {snippets.map(snippet => (
-            <div key={snippet.meta.id} className="p-4">
-              <h3>{snippet.meta.title}</h3>
-              <p>{snippet.meta.description}</p>
-            </div>
+            <Link
+              href={'/snippets/' + snippet.meta.slug}
+              key={snippet.meta.id}
+              passHref
+            >
+              <a className="rounded-lg p-4 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors relative">
+                <i
+                  className={clsx(
+                    getTechIcon(snippet.meta.tag),
+                    'text-2xl mb-2 absolute top-2 right-2',
+                  )}
+                />
+                <h3 className="font-bold text-xl">{snippet.meta.title}</h3>
+                <p className="text-sm text-gray-400">
+                  {snippet.meta.description}
+                </p>
+              </a>
+            </Link>
           ))}
         </div>
       </Container>
