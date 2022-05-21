@@ -108,7 +108,11 @@ export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<{ slug: string }>) => {
   const { slug = '' } = params || {};
-  const post = await getPost(slug, true);
+  const post = await getPost({
+    slug,
+    placeholder: true,
+    withContent: true,
+  });
   return {
     props: {
       post,

@@ -64,7 +64,7 @@ export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<{ slug: string }>) => {
   const { slug = '' } = params || {};
-  const project = await getProject(slug);
+  const project = await getProject({ slug, withContent: true });
   return {
     props: {
       project,

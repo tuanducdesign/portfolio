@@ -12,20 +12,16 @@ const internalLinks = [
     label: 'About',
   },
   {
-    href: '#', // TODO: add the page
-    label: 'NewsLetter',
-  },
-  {
     href: '/blog',
     label: 'Blog',
+  },
+  {
+    href: '/snippets', // TODO: add the page
+    label: 'Snippets',
   },
 ];
 
 const profileLinks = [
-  {
-    href: `https://github.com/${profile.dev.github}`,
-    label: 'Github',
-  },
   {
     href: `https://twitter.com/${profile.personal.twitter}`,
     label: 'Twitter',
@@ -42,12 +38,12 @@ const devLinks = [
     label: 'Dev.to',
   },
   {
-    href: '#', // TODO: add the page
-    label: 'Snippets',
-  },
-  {
     href: `https://wakatime.com/@${profile.dev.wakatime}`,
     label: 'WakaTime',
+  },
+  {
+    href: `https://github.com/${profile.dev.github}`,
+    label: 'Github',
   },
 ];
 
