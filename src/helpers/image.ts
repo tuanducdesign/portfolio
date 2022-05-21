@@ -6,9 +6,17 @@ export function getImgProps({
   sizes,
   transform = {},
 }: {
+  /**
+   * Pass the `src` here
+   * - Url can be absolute or relative to the root imagekit endpoint
+   * - `src` will be returned again
+   */
   src: string;
   widths: number[];
   sizes: string[];
+  /**
+   * Used to transform the image, will be passed to `loadImageKit`
+   */
   transform?: ImageKitTransfrom;
 }) {
   const averageSize = Math.ceil(
