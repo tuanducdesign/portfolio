@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import { siteMeta } from '@site/config';
+import { profile, siteMeta } from '@site/config';
 
 interface SeoProps {
   description?: string;
@@ -49,7 +49,7 @@ export const Seo = ({
       <meta property="twitter:card" content="summary_large_image" />
       <meta
         property="twitter:creator"
-        content={`@${siteMeta.social.twitter}`}
+        content={`@${profile.personal.twitter}`}
       />
       <meta property="twitter:title" content={title || siteMeta.title} />
       <meta

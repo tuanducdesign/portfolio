@@ -1,5 +1,5 @@
 import { Seo, Layout, Button, Markdown } from '@site/components';
-import { profileData } from '@site/config';
+import { profile } from '@site/config';
 import { getContent } from '@site/utils';
 import { InferGetStaticPropsType } from 'next';
 
@@ -15,15 +15,15 @@ export default function HirePage({
           <Button
             className="flex-auto"
             as="a"
-            href={`mailto:${profileData.email}`}
+            href={`mailto:${profile.personal.email}`}
           >
             Mail Me
           </Button>
           <Button
             className="flex-auto"
             as="a"
-            href={'/resume.pdf'}
-            download={`${profileData.fullName}-Resume`}
+            href="/resume.pdf"
+            download={`${profile.fullName}-Resume`}
           >
             My Resume
           </Button>

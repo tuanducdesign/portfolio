@@ -1,12 +1,9 @@
-import { profileData } from './profile';
+import { profile } from './profile';
 
 const siteMeta = {
-  title: profileData.name,
-  description: profileData.fullName,
-  social: {
-    twitter: profileData.twitterUsername,
-  },
-  image: '/images/avatar.jpg',
+  title: profile.name,
+  description: profile.fullName,
+  image: '/favicon.svg',
 };
 
 export { siteMeta };

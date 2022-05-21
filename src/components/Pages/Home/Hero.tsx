@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Container, Button } from '@site/components';
-import { profileData } from '@site/config';
+import { profile } from '@site/config';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
 
 export function Hero() {
@@ -40,7 +40,7 @@ export function Hero() {
           </motion.span>
           <span className="md:inline block">
             &nbsp;I&apos;m{' '}
-            <span className="text-blue-text">{profileData.name}</span>
+            <span className="text-blue-text">{profile.name}</span>
           </span>
         </h1>
         <motion.p
@@ -49,7 +49,7 @@ export function Hero() {
           variants={textReveal}
           className="md:text-2xl font-semibold text-lg text-gray-text md:text-left text-center max-w-[720px]"
         >
-          {profileData.highlight}
+          {profile.highlight}
         </motion.p>
         <motion.div
           initial="initial"

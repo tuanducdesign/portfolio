@@ -1,42 +1,96 @@
-import { CodepenIcon, GithubIcon, LinkedInIcon, NextJs } from '../Icons';
-import { profileData } from '@site/config';
+import { profile } from '@site/config';
+import Link from 'next/link';
+import { Container } from '../Container';
+
+const internalLinks = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '#', // TODO: add the page
+    label: 'About',
+  },
+  {
+    href: '#', // TODO: add the page
+    label: 'NewsLetter',
+  },
+  {
+    href: '/blog',
+    label: 'Blog',
+  },
+];
+
+const profileLinks = [
+  {
+    href: `https://github.com/${profile.dev.github}`,
+    label: 'Github',
+  },
+  {
+    href: `https://twitter.com/${profile.personal.twitter}`,
+    label: 'Twitter',
+  },
+  {
+    href: `https://linkedin.com/in/${profile.personal.linkedin}`,
+    label: 'LinkedIn',
+  },
+];
+
+const devLinks = [
+  {
+    href: `https://dev.to/${profile.dev.devTo}`,
+    label: 'Dev.to',
+  },
+  {
+    href: '#', // TODO: add the page
+    label: 'Snippets',
+  },
+  {
+    href: `https://wakatime.com/@${profile.dev.wakatime}`,
+    label: 'WakaTime',
+  },
+];
 
 export const Footer = () => {
   return (
-    <footer className="p-8 flex items-center justify-center flex-col space-y-4 border-t border-t-slate-700">
-      <div className="flex space-x-8">
-        <a
-          href={profileData.codepenUrl}
-          target="_blank"
-          title="Codepen Profile"
-          rel="noreferrer"
-        >
-          <CodepenIcon />
-        </a>
-        <a
-          href={profileData.githubUrl}
-          target="_blank"
-          title="Github Profile"
-          rel="noreferrer"
-        >
-          <GithubIcon />
-        </a>
-        <a
-          href={profileData.linkedinUrl}
-          target="_blank"
-          title="Linkedin Profile"
-          rel="noreferrer"
-        >
-          <LinkedInIcon />
-        </a>
-      </div>
-      <div className="h-[1px] dark:bg-white-text bg-black-primary w-1/4" />
-      <div className="flex items-center justify-center flex-col text-sm">
-        <div className="flex space-x-2 items-center">
-          <span>&copy; {new Date().getFullYear()} - Built with</span>
-          <NextJs width={24} className="dark:fill-white" />
+    <footer className="border-t border-t-slate-700 mb-6 md:mb-12">
+      <Container className="max-w-2xl w-full grid md:grid-cols-3 gap-4 px-6 md:p-4 mt-8 text-gray-500 dark:text-gray-400">
+        <div className="flex flex-col gap-4">
+          {internalLinks.map(link => (
+            <Link href={link.href} key={link.href + link.label} passHref>
+              <a className="hover:text-gray-700 dark:hover:text-gray-500">
+                {link.label}
+              </a>
+            </Link>
+          ))}
         </div>
-      </div>
+        <div className="flex flex-col gap-4">
+          {profileLinks.map(link => (
+            <a
+              className="hover:text-gray-700 dark:hover:text-gray-500"
+              href={link.href}
+              key={link.href + link.label}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-col gap-4">
+          {devLinks.map(link => (
+            <a
+              className="hover:text-gray-700 dark:hover:text-gray-500"
+              href={link.href}
+              key={link.href + link.label}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </Container>
     </footer>
   );
 };
