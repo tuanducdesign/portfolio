@@ -6,7 +6,6 @@ import {
   Seo,
 } from '@site/components';
 import { getFiles, getSnippet } from '@site/utils';
-import clsx from 'clsx';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 
@@ -19,12 +18,8 @@ export default function SnippetPage({
         title={snippet.meta.title}
         description={snippet.meta.description}
         keywords={snippet.meta.tags}
-      >
-        <link
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-          rel="stylesheet"
-        />
-      </Seo>
+        image={snippet.meta.icon}
+      />
       <Container className="max-w-prose my-12">
         <Link href="/snippets" passHref>
           <a title="Go Back" className="inline-flex items-center gap-x-4 group">
@@ -32,12 +27,17 @@ export default function SnippetPage({
             <span>Back</span>
           </a>
         </Link>
-        <div className="flex mt-2">
+        <div className="flex mt-2 items-start">
           <div className="flex-1">
             <h1 className="font-bold text-3xl">{snippet.meta.title}</h1>
             <p className="text-gray-400 mt-2">{snippet.meta.description}</p>
           </div>
-          <i className={clsx(snippet.meta.icon, 'text-4xl')} />
+          <img
+            src={snippet.meta.icon}
+            width={36}
+            height={36}
+            alt={snippet.meta.tags.join(', ')}
+          />
         </div>
         <hr />
         <Markdown content={snippet.content} className="mt-8" />

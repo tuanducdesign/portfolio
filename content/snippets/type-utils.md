@@ -1,7 +1,7 @@
 ---
 title: TypeScript Type Utility
-description: Utility generic type
-icon: devicon-typescript-plain colored
+description: Generic utility type
+icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg
 tags:
   - typescript
 ---

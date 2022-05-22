@@ -1,7 +1,7 @@
 ---
 title: Hello world in Go
 description: Get started with Go (Golang)
-icon: devicon-go-original-wordmark colored
+icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg
 tags:
   - go
 ---

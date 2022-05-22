@@ -1,14 +1,12 @@
 ---
 title: CSS Spin Animation
 description: Simple CSS animation
-icon: devicon-css3-plain colored
+icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg
 tags:
   - css
 ---
 
 ```css
-/* style.css */
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -18,7 +16,7 @@ tags:
   }
 }
 
-.loader {
+.loading-spinner {
   animation: spin 0.5s linear infinite;
 }
 ```
