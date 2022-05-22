@@ -14,7 +14,7 @@ Check the version
 $ python --version
 ```
 
-> If you got error outputed to the terminal, try to use python3
+> If you get an error in your terminal, try to use python3 instead.
 
 ```sh
 $ python3 --version

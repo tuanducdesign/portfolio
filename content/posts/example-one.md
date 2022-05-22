@@ -1,46 +1,33 @@
 ---
-title: Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-description: Impedit nihil praesentium reiciendis
-  delectus atque quaerat quo aliquid placeat adipisci corrupti repudiandae quibusdam ratione.
-publishedAt: '2022-01-01'
+title: An article with a lot of images!
+description: Demonstrate CLS issue on the web, by comparing image with width and height and the one with plain image
+publishedAt: '2022-02-19'
 cover:
-  path: /posts/matteo-catanese-PI8Hk-3ZcCU-unsplash_2o8Ida7F2.jpg
-  width: 6000
-  height: 4000
+  path: /posts/josh-hild-0Rl-SWbjMgE-unsplash_mAeeRV6D3.jpg
+  width: 4240
+  height: 2832
 tags:
-  - backend
-  - docker
-  - golang
-  - api
+  - frontend
+  - css
+  - html
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra.
+This article to showcase about images based content, check the network tab waterfall to see when the image loads. Verify
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula. In eu dui molestie, molestie lectus eu, semper lectus.
+## Image should be using the basic Markdown syntax
 
-## Next on the pipeline
+This images picked up from [unsplash](https://unsplash.com)
 
-Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+Here's how you embed an image to a markdown:
 
-Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla.
+```md
+![Alt text](https://your-image-url.com/my-image.png)
+```
 
-<img src="https://ik.imagekit.io/gncpb3rwf/dummy-blogs/sammy-wong-zBxjmfhjdaE-unsplash_DOe91biBOI.jpg" width="5670" height="4028" alt="Some Image"  />
+### First Image
 
-Aenean pharetra quis lacus at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula.
+![Break](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/single-earth-IQPyN5-nePw-unsplash_MgtmBxHzZ.jpg)
 
-In eu dui molestie, molestie lectus eu, semper lectus. Proin at justo lacinia, auctor nisl et, consequat ante. Donec sit amet nisi arcu. Morbi efficitur auctor metus, id mollis lorem pellentesque id. Nullam posuere maximus dui et fringilla. Nulla non volutpat leo.
+### Second Image
 
-A list looks like this:
-
-- First item in the list
-- Second item in the list lorem ipsum dolor sit amet nunc felis dolor lorem ipsum sit amet
-- Third item in the list
-
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula.
-
-This is markdown flavored
-
-# Todo
-
-- [ ] Copy to clipboard from codeblock
-- [ ] Link to github issues, PR
+![Another](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/ryan-ancill-J0EpwlXUmfM-unsplash_y8x3hg_K9.jpg)

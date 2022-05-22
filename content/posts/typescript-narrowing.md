@@ -11,7 +11,7 @@ tags:
   - typescript
 ---
 
-In this post I'm going to show you how to use [Discriminated Unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions) in TypeScript, and the realworld usecase. Discriminated Unions is really useful when we working with complex object structure.
+In this post I'm going to show you how to use [Discriminated Unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions) in TypeScript, and the realworld use case. Discriminated Unions is really useful when we working with complex object structure.
 
 ## Example
 
@@ -39,7 +39,7 @@ function callAbility(animal: Animal) {
 }
 ```
 
-It looks like TypeSript still doesn't know what todo there. At this point we feel like we know more about our values than the type checker does. To simplify this issue, we can just use a `non-null assertion` (a `!` after `null` or `undefined` property) to tell TypeScript that `"Nope, this will never be undefined or null."`
+It looks like TypeScript still doesn't know what todo there. At this point we feel like we know more about our values than the type checker does. To simplify this issue, we can just use a `non-null assertion` (a `!` after `null` or `undefined` property) to tell TypeScript that `"Nope, this will never be undefined or null."`
 
 ```ts
 function callAbility(animal: Animal) {
