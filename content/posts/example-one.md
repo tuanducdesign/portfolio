@@ -12,11 +12,11 @@ tags:
   - html
 ---
 
-This article to showcase about images based content, check the network tab waterfall to see when the image loads. Verify
+This article to showcase about images based content, check the network tab waterfall to see when the image loads. Verify that all of these images are responsive.
 
-## Image should be using the basic Markdown syntax
+> These images are picked up from [unsplash](https://unsplash.com)
 
-This images picked up from [unsplash](https://unsplash.com)
+## Syntax
 
 Here's how you embed an image to a markdown:
 
@@ -31,3 +31,15 @@ Here's how you embed an image to a markdown:
 ### Second Image
 
 ![Another](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/ryan-ancill-J0EpwlXUmfM-unsplash_y8x3hg_K9.jpg)
+
+### Third Image
+
+![Third Image](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/david-marcu-Y9XSgd9akjI-unsplash_cL8958foIk.jpg)
+
+### Another Images
+
+![Another Image](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/kiarash-mansouri-fzoSNcxqtp8-unsplash_93Ejez5_G.jpg)
+
+![An Eagle](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/sammy-wong-zBxjmfhjdaE-unsplash_DOe91biBOI.jpg)
+
+![Mountain](https://ik.imagekit.io/gncpb3rwf/dummy-blogs/misael-moreno-ttLeeAdG-gE-unsplash_U8F0ROcPyo.jpg)
