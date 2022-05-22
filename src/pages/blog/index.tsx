@@ -1,4 +1,5 @@
 import { Container, Layout, PostCard, Seo } from '@site/components';
+import { buildImageKitURL } from '@site/libs';
 import { getFiles, getPost } from '@site/utils';
 import { useReducedMotion, motion, type Variants } from 'framer-motion';
 import type { InferGetStaticPropsType } from 'next';
@@ -24,6 +25,9 @@ export default function BlogPages({
           'blog',
           'nextjs',
         ]}
+        image={buildImageKitURL({
+          src: '/misc/glenn-carstens-peters-npxXWgQ33ZQ-unsplash_7H3jgLOx_.jpg',
+        })}
       />
       <Container className="max-w-4xl mx-auto">
         <motion.div
