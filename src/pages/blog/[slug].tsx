@@ -1,6 +1,6 @@
 import {
+  BackButton,
   BlurrableImage,
-  ChevronLeft,
   Container,
   Layout,
   Markdown,
@@ -28,18 +28,8 @@ export default function BlogPostPage({
         keywords={post.meta.tags}
       />
       <Container className="flex justify-center flex-col my-8 max-w-prose">
-        <div className="mb-4 flex flex-col gap-2">
-          <div className="mt-6 md:mt-12 mb-2">
-            <Link href="/blog" passHref>
-              <a
-                title="Go Back"
-                className="inline-flex items-center gap-x-4 group"
-              >
-                <ChevronLeft className="group-hover:-translate-x-2 transition-transform duration-300" />
-                <span>Back to blog</span>
-              </a>
-            </Link>
-          </div>
+        <div className="my-8 flex flex-col gap-2">
+          <BackButton />
           <h1 className="font-bold text-2xl md:text-4xl">{post.meta.title}</h1>
           <hr />
           <span className="text-gray-text font-semibold">

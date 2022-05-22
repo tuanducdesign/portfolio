@@ -6,6 +6,7 @@ export type PostMeta = {
   tags: string[];
   publishedAt: string;
   placeholder: string;
+  featured: boolean;
   cover: {
     path: string;
     width?: number;

@@ -1,13 +1,6 @@
-import {
-  ChevronLeft,
-  Container,
-  Layout,
-  Markdown,
-  Seo,
-} from '@site/components';
+import { BackButton, Container, Layout, Markdown, Seo } from '@site/components';
 import { getFiles, getSnippet } from '@site/utils';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import Link from 'next/link';
 
 export default function SnippetPage({
   snippet,
@@ -21,12 +14,7 @@ export default function SnippetPage({
         image={snippet.meta.icon}
       />
       <Container className="max-w-prose my-12">
-        <Link href="/snippets" passHref>
-          <a title="Go Back" className="inline-flex items-center gap-x-4 group">
-            <ChevronLeft className="group-hover:-translate-x-2 transition-transform duration-300" />
-            <span>Back</span>
-          </a>
-        </Link>
+        <BackButton />
         <div className="flex mt-2 items-start">
           <div className="flex-1">
             <h1 className="font-bold text-3xl">{snippet.meta.title}</h1>

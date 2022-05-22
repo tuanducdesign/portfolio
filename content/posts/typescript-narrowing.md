@@ -2,6 +2,7 @@
 title: TypeScript Narrowing
 description: A simple guide how to implement Narrowing in TypeScript with Discriminated Unions
 publishedAt: '2022-05-17'
+featured: true
 cover:
   path: /posts/deva-darshan-v0zwX1aPlHI-unsplash__1__HADmF4NhF.jpg
   width: 2782
