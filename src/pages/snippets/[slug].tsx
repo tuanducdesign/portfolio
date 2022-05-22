@@ -5,7 +5,6 @@ import {
   Markdown,
   Seo,
 } from '@site/components';
-import { getTechIcon } from '@site/helpers';
 import { getFiles, getSnippet } from '@site/utils';
 import clsx from 'clsx';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
@@ -19,7 +18,7 @@ export default function SnippetPage({
       <Seo
         title={snippet.meta.title}
         description={snippet.meta.description}
-        keywords={[snippet.meta.tag]}
+        keywords={snippet.meta.tags}
       >
         <link
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
@@ -38,7 +37,7 @@ export default function SnippetPage({
             <h1 className="font-bold text-3xl">{snippet.meta.title}</h1>
             <p className="text-gray-400 mt-2">{snippet.meta.description}</p>
           </div>
-          <i className={clsx(getTechIcon(snippet.meta.tag), 'text-4xl')} />
+          <i className={clsx(snippet.meta.icon, 'text-4xl')} />
         </div>
         <hr />
         <Markdown content={snippet.content} className="mt-8" />

@@ -1,7 +1,9 @@
 ---
 title: Hello world in Python
 description: Get started with Python
-tag: python
+icon: devicon-python-plain colored
+tags:
+  - python
 ---
 
 If you're on Unix like system (`macOS`, `linux`) then python interpreter should already installed.

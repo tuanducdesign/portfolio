@@ -1,5 +1,4 @@
 import { Container, Layout, Seo } from '@site/components';
-import { getTechIcon } from '@site/helpers';
 import { getAllSnippets } from '@site/utils';
 import clsx from 'clsx';
 import type { InferGetStaticPropsType } from 'next';
@@ -48,7 +47,7 @@ export default function SnippetsPage({
               <a className="rounded-lg p-4 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors relative">
                 <i
                   className={clsx(
-                    getTechIcon(snippet.meta.tag),
+                    snippet.meta.icon,
                     'text-2xl mb-2 absolute top-2 right-2',
                   )}
                 />

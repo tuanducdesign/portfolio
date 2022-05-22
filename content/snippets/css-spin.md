@@ -1,10 +1,10 @@
 ---
 title: CSS Spin Animation
 description: Simple CSS animation
-tag: css
+icon: devicon-css3-plain colored
+tags:
+  - css
 ---
-
-This can be useful to be applied on loader.
 
 ```css
 /* style.css */

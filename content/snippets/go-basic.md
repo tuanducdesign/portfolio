@@ -1,7 +1,9 @@
 ---
 title: Hello world in Go
 description: Get started with Go (Golang)
-tag: go
+icon: devicon-go-original-wordmark colored
+tags:
+  - go
 ---
 
 Don't forget to download the Go compiler [here](https://go.dev/dl).
