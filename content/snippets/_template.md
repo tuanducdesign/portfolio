@@ -1,9 +1,6 @@
 ---
-title: My Snippet
-description: My snippet description
-icon: # Copy the className from https://devicon.dev
-tags: # Any programming language or technology
-  - html
-  - css
-  - webdev
+title: # Required.
+description: # Required.
+icon: # Required. Copy the className from https://devicon.dev
+tags: # Required. Array of string tech or language.
 ---

@@ -11,7 +11,7 @@
 
 ## Overview
 
-- `content` The content directory for storing the markdown, each sub directory will have template dedicated:
+- `content` The content directory for storing the markdown, each sub directory will have `_template` dedicated:
   - `content/posts` directory for blog post
   - `content/projects` directory for personal project overview
   - `content/snippet` directory for personal code snippets
