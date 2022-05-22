@@ -18,7 +18,7 @@ $ go version
 
 ## Syntax
 
-Go must have a single main function for of the entry of a program.
+Go must have a single main function for the entry of a program.
 
 ```go
 // hello.go
