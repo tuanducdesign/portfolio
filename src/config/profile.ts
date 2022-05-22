@@ -7,7 +7,6 @@ export const profile = {
     github: 'ashalfarhan',
     devTo: 'ashalfarhan',
     wakatime: 'ashalfarhan',
-    codepen: 'ashalfarhan8',
   },
   personal: {
     twitter: 'ashal_farhan',

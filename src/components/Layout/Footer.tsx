@@ -16,7 +16,7 @@ const internalLinks = [
     label: 'Blog',
   },
   {
-    href: '/snippets', // TODO: add the page
+    href: '/snippets',
     label: 'Snippets',
   },
 ];
@@ -35,7 +35,7 @@ const profileLinks = [
 const devLinks = [
   {
     href: `https://dev.to/${profile.dev.devTo}`,
-    label: 'Dev.to',
+    label: 'dev.to',
   },
   {
     href: `https://wakatime.com/@${profile.dev.wakatime}`,
@@ -43,7 +43,7 @@ const devLinks = [
   },
   {
     href: `https://github.com/${profile.dev.github}`,
-    label: 'Github',
+    label: 'GitHub',
   },
 ];
 

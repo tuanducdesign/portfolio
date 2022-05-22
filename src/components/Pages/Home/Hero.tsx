@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Container, Button } from '@site/components';
 import { profile } from '@site/config';
-import { motion, useReducedMotion, Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 
 export function Hero() {
   const reduce = useReducedMotion();

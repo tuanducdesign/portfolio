@@ -1,4 +1,5 @@
 import { Container, Layout, Seo } from '@site/components';
+import { buildImageKitURL } from '@site/libs';
 import { getAllSnippets } from '@site/utils';
 import clsx from 'clsx';
 import type { InferGetStaticPropsType } from 'next';
@@ -20,6 +21,9 @@ export default function SnippetsPage({
           'coding',
           'snippets',
         ]}
+        image={buildImageKitURL({
+          src: '/projects/project9_-Slq5rX9o.jpg',
+        })}
       >
         <link
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
@@ -34,8 +38,7 @@ export default function SnippetsPage({
       <Container className="max-w-2xl w-full my-12 px-4">
         <h1 className="font-bold text-4xl">Code Snippets</h1>
         <p className="text-gray-400 mt-2">
-          These are collection of code snippets I&apos;ve used and saved. For
-          the most is Frontend Web related, but soon I will add another.
+          These are collection of code snippets I&apos;ve used and saved.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mt-4">
           {snippets.map(snippet => (

@@ -1,6 +1,6 @@
 import { Container, Seo, Layout, ProjectCard, Hero } from '@site/components';
-import { getFiles, getProject } from '@site/utils';
-import { InferGetStaticPropsType } from 'next';
+import { getAllProjects } from '@site/utils';
+import type { InferGetStaticPropsType } from 'next';
 
 export default function Home({
   projects,
@@ -24,13 +24,7 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const slugs = getFiles('projects');
-  const promises = slugs.map(slug => {
-    return getProject({
-      slug,
-    });
-  });
-  const projects = await Promise.all(promises);
+  const projects = await getAllProjects();
   return {
     props: {
       projects,
