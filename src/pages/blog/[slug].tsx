@@ -14,7 +14,7 @@ import type {
   InferGetStaticPropsType,
 } from 'next';
 import Link from 'next/link';
-import { loadImageKit } from '@site/libs';
+import { buildImageKitURL } from '@site/libs';
 
 export default function BlogPostPage({
   post,
@@ -24,7 +24,7 @@ export default function BlogPostPage({
       <Seo
         title={post.meta.title}
         description={post.meta.description}
-        image={loadImageKit({ src: post.meta.cover.path })}
+        image={buildImageKitURL({ src: post.meta.cover.path })}
         keywords={post.meta.tags}
       />
       <Container className="flex justify-center flex-col my-8 max-w-prose">

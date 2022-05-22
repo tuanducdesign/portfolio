@@ -1,6 +1,6 @@
 const IMAGEKIT_BASE_URL = 'https://ik.imagekit.io/gncpb3rwf';
 
-export type ImageKitTransfrom = {
+export type ImageKitTransform = {
   width?: string | number;
   height?: string | number;
   format?: string;
@@ -9,7 +9,7 @@ export type ImageKitTransfrom = {
   quality?: number | string;
 };
 
-export const loadImageKit = ({
+export const buildImageKitURL = ({
   src,
   width,
   height,
@@ -19,7 +19,7 @@ export const loadImageKit = ({
   aspectRatio,
 }: {
   src: string;
-} & ImageKitTransfrom) => {
+} & ImageKitTransform) => {
   if (src.startsWith(IMAGEKIT_BASE_URL)) {
     src = src.slice(IMAGEKIT_BASE_URL.length);
   }

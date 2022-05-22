@@ -1,4 +1,4 @@
-import { ImageKitTransfrom, loadImageKit } from '@site/libs';
+import { ImageKitTransform, buildImageKitURL } from '@site/libs';
 
 export function getImgProps({
   src,
@@ -15,16 +15,16 @@ export function getImgProps({
   widths: number[];
   sizes: string[];
   /**
-   * Used to transform the image, will be passed to `loadImageKit`
+   * Used to transform the image, will be passed to `buildImageKitURL`
    */
-  transform?: ImageKitTransfrom;
+  transform?: ImageKitTransform;
 }) {
   const averageSize = Math.ceil(
     widths.reduce((prev, next) => prev + next) / widths.length,
   );
   return {
     sizes: sizes.join(', '),
-    src: loadImageKit({
+    src: buildImageKitURL({
       src,
       width: averageSize,
       quality: 'auto',
@@ -35,7 +35,7 @@ export function getImgProps({
     srcSet: widths
       .map(width =>
         [
-          loadImageKit({
+          buildImageKitURL({
             src,
             width,
             quality: 'auto',

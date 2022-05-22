@@ -1,7 +1,7 @@
-import { loadImageKit } from '@site/libs';
+import { buildImageKitURL } from '@site/libs';
 
 export async function getBlurPlaceholder(src: string) {
-  const url = loadImageKit({
+  const url = buildImageKitURL({
     src,
     width: 1000,
     blur: 10,
