@@ -23,7 +23,7 @@ jobs:
       - name: Static code analyze check
         run: |
           yarn ts:check
-          yarn format:check
+          yarn fmt:check
           yarn lint
 
       - name: Build check
