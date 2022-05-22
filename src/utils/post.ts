@@ -21,9 +21,6 @@ export async function getPost({
     dir: 'posts',
   });
   const { content, data } = matter(raw);
-  if (slug.endsWith('.md')) {
-    slug = slug.slice(0, -3);
-  }
   const result = {
     meta: {
       ...data,
@@ -33,8 +30,7 @@ export async function getPost({
   } as Post;
 
   if (placeholder) {
-    const { base64, mime } = await getBlurPlaceholder(result.meta.cover.path);
-    result.meta.placeholder = `data:${mime};base64,${base64}`;
+    result.meta.placeholder = await getBlurPlaceholder(result.meta.cover.path);
   }
 
   if (withContent) {
@@ -42,6 +38,7 @@ export async function getPost({
     const words = result.content.replace(/<[^>]+>/g, '').split(' ');
     result.readingTime = Math.ceil(words.length / WPM);
   }
+
   return result;
 }
 

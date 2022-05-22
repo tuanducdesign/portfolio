@@ -16,9 +16,6 @@ export async function getProject({
     dir: 'projects',
   });
   const { content, data } = matter(raw);
-  if (slug.endsWith('.md')) {
-    slug = slug.slice(0, -3);
-  }
   const result = {
     meta: {
       ...data,

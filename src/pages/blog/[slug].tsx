@@ -99,7 +99,7 @@ export default function BlogPostPage({
 export const getStaticPaths: GetStaticPaths = () => {
   const files = getFiles('posts');
   return {
-    paths: files.map(file => ({ params: { slug: file.slice(0, -3) } })),
+    paths: files.map(slug => ({ params: { slug } })),
     fallback: false,
   };
 };

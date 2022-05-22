@@ -1,5 +1,5 @@
 import { Container, Layout, PostCard, Seo } from '@site/components';
-import { getAllPosts } from '@site/utils';
+import { getFiles, getPost } from '@site/utils';
 import { useReducedMotion, motion, type Variants } from 'framer-motion';
 import type { InferGetStaticPropsType } from 'next';
 
@@ -58,7 +58,13 @@ export default function BlogPages({
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts();
+  const slugs = getFiles('posts');
+  const promises = slugs.map(slug => {
+    return getPost({
+      slug,
+    });
+  });
+  const posts = await Promise.all(promises);
   return {
     props: { posts },
   };

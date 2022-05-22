@@ -55,7 +55,7 @@ export default function ProjectDetail({
 export const getStaticPaths = () => {
   const files = getFiles('projects');
   return {
-    paths: files.map(file => ({ params: { slug: file.slice(0, -3) } })),
+    paths: files.map(slug => ({ params: { slug } })),
     fallback: false,
   };
 };

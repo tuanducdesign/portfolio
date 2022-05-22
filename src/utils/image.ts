@@ -11,8 +11,5 @@ export async function getBlurPlaceholder(src: string) {
   const arrayBuffer = await res.arrayBuffer();
   const base64 = Buffer.from(arrayBuffer).toString('base64');
   const mime = res.headers.get('Content-Type') ?? 'image/webp';
-  return {
-    base64,
-    mime,
-  };
+  return `data:${mime};base64,${base64}`;
 }

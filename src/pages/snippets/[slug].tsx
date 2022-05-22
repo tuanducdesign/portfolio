@@ -50,7 +50,7 @@ export default function SnippetPage({
 export const getStaticPaths = () => {
   const files = getFiles('snippets');
   return {
-    paths: files.map(file => ({ params: { slug: file.slice(0, -3) } })),
+    paths: files.map(slug => ({ params: { slug } })),
     fallback: false,
   };
 };
