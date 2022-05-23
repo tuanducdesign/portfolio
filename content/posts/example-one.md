@@ -19,7 +19,7 @@ This article to showcase about images based content, check the network tab water
 
 ## Syntax
 
-Here's how you embed an image to a markdown:
+Here's how you embed an image in a markdown:
 
 ```md
 ![Alt text](https://your-image-url.com/my-image.png)
