@@ -15,11 +15,9 @@
   - `content/posts` directory for blog post
   - `content/projects` directory for personal project overview
   - `content/snippet` directory for personal code snippets
-- `scripts` self explanatory
 - `src`
-  - `components`
   - `config` Site configuration from personal information/profile.
-  - `styles` Just a single `css` that just import `tailwindcss`
+  - `styles` Just a single `css` that import `tailwindcss` directives
   - `utils` Utility for `server side`.
   - `helpers` Helper modules for `client side`.
   - `libs` Wrapper/Abstraction for external lib to this app.
