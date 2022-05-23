@@ -6,6 +6,15 @@ module.exports = {
       center: true,
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            'blockquote > p::before, p::after': {
+              content: 'none',
+            },
+          },
+        },
+      },
       colors: {
         'yellow-border': '#E6AF2E',
         'black-primary': '#161a1d',

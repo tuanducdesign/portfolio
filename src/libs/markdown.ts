@@ -1,6 +1,5 @@
 export async function parseMarkdown(content: string) {
-  const { inlineCodePlugin, optimizeImagePlugin, clipboardCodeBlock } =
-    await import('./plugins');
+  const { inlineCodePlugin, optimizeImagePlugin } = await import('./plugins');
   // @ts-expect-error this lib doesnt built with ts
   const { default: autoHeadings } = await import('markdown-it-github-headings');
   // @ts-expect-error this lib doesnt built with ts
@@ -27,7 +26,6 @@ export async function parseMarkdown(content: string) {
       label: true,
     })
     .use(inlineCodePlugin)
-    .use(clipboardCodeBlock)
     .use(optimizeImagePlugin);
 
   return md.render(content);

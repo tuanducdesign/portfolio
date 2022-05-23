@@ -33,10 +33,3 @@ export const optimizeImagePlugin: PluginSimple = md => {
     return defaultRender(tokens, idx, options, env, self);
   };
 };
-
-export const clipboardCodeBlock: PluginSimple = md => {
-  const defaultRender = md.renderer.rules.code_block || fallbackRender;
-  md.renderer.rules.code_block = (tokens, idx, options, env, self) => {
-    return defaultRender(tokens, idx, options, env, self);
-  };
-};
