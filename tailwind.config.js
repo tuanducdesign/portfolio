@@ -9,7 +9,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            'blockquote > p::before, p::after': {
+            'blockquote > p::before': {
               content: 'none',
             },
           },
