@@ -1,5 +1,6 @@
 ---
 title: Rock, Paper, Scissors
+description: Minimalist game built with Svelte
 liveUrl: https://ashal-rps.surge.sh
 repoUrl: https://github.com/ashalfarhan/fm15-rps
 thumbnail: /projects/project8_MQJwGKNmf.jpg

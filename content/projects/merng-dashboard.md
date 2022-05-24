@@ -1,5 +1,6 @@
 ---
 title: MERNG Dashboard
+description: An Admin Dashboard Web Application
 liveUrl: https://dashboard-haans.netlify.app
 repoUrl: https://github.com/ashalfarhan/merng-dashboard
 thumbnail: /projects/dashboard-illustration_Gqs3ea9xo.jpg
@@ -25,7 +26,7 @@ This is my first time creating a `GraphQL` API, learning how authentication flow
 
 Instead of hosting my own Database, I prefer to choose [Mongo DB Atlas](https://cloud.mongodb.com) as the Cloud Database, the reasons are:
 
-1. This is my first time doing Backend World, and at that time, I don't know how to deal with database migration at all. So Cloud Database like [Mongo DB Atlas](https://cloud.mongodb.com) is the best option I think.
+1. This is my first time doing Backend stuff, and at that time, I don't know how to deal with database at all. So Cloud Database like [Mongo DB Atlas](https://cloud.mongodb.com) is the best option I think.
 2. It's `free`
 
 ## Technologies

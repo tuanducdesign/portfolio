@@ -11,7 +11,7 @@ export const inlineCodePlugin: PluginSimple = md => {
   md.renderer.rules.code_inline = (tokens, idx, options, env, self) => {
     tokens[idx].attrJoin(
       'class',
-      'text-blue-text dark:bg-gray-800 bg-gray-200 rounded-md p-[1px] transition-colors',
+      'text-primary dark:bg-gray-800 bg-gray-200 rounded-md p-[1px] transition-colors',
     );
     return defaultRender(tokens, idx, options, env, self);
   };

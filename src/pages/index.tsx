@@ -19,13 +19,13 @@ export default function Home({
       <Hero />
       <Container className="flex flex-col mb-10">
         <h1 className="md:text-3xl font-bold text-2xl">Featured Posts</h1>
-        <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8 my-6">
+        <div className="grid md:grid-cols-3 md:gap-8 grid-cols-1 gap-4 my-6 mb-16">
           {posts.map(post => (
             <PostCard meta={post.meta} key={post.meta.id} />
           ))}
         </div>
         <h1 className="md:text-3xl font-bold text-2xl">Personal Projects</h1>
-        <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8 my-6">
+        <div className="grid md:grid-cols-2 md:gap-8 grid-cols-1 gap-4 my-6">
           {projects.map(project => (
             <ProjectCard project={project} key={project.meta.id} />
           ))}

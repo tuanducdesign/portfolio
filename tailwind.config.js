@@ -1,3 +1,5 @@
+const { yellow, slate } = require('tailwindcss/colors');
+
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{jsx,tsx,ts}'],
@@ -16,11 +18,13 @@ module.exports = {
         },
       },
       colors: {
-        'yellow-border': '#E6AF2E',
-        'black-primary': '#161a1d',
-        'white-text': '#FBFBFB',
-        'blue-text': '#60A5FA',
-        'gray-text': 'rgb(107, 114, 128)',
+        'dark-primary': '#161a1d',
+        'light-primary': '#FBFBFB',
+        primary: '#60A5FA',
+        secondary: yellow[500],
+        // Neutral color: description, footer.
+        neutral: slate[500],
+        'neutral-light': slate[400],
       },
     },
   },

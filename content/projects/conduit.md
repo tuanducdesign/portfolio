@@ -1,5 +1,6 @@
 ---
 title: Conduit
+description: Medium.com clone built with Golang
 liveUrl: #
 repoUrl: https://github.com/ashalfarhan/realworld
 thumbnail: /projects/project10_fe9qwZSYT.jpg

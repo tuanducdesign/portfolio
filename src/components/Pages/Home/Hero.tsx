@@ -39,15 +39,15 @@ export function Hero() {
             👋
           </motion.span>
           <span className="md:inline block">
-            &nbsp;I&apos;m{' '}
-            <span className="text-blue-text">{profile.name}</span>
+            &nbsp;I&apos;m&nbsp;
+            <span className="text-primary">{profile.name}</span>
           </span>
         </h1>
         <motion.p
           initial="initial"
           animate="visible"
           variants={textReveal}
-          className="md:text-2xl font-semibold text-lg text-gray-text md:text-left text-center max-w-[720px]"
+          className="md:text-2xl font-semibold text-lg text-neutral md:text-left text-center max-w-[720px]"
         >
           {profile.highlight}
         </motion.p>

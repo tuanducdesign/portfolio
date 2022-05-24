@@ -16,6 +16,14 @@ import type {
 import Link from 'next/link';
 import { buildImageKitURL } from '@site/libs';
 
+// import { profile } from '@site/config';
+// function getTwitterShareLink({ title, slug }: { title: string; slug: string }) {
+//   return `https://twitter.com/intent/tweet?${new URLSearchParams({
+//     url: `https://ashal.me/blog/${slug}`,
+//     text: `I just read "${title}" by @${profile.personal.twitter}`,
+//   })}`;
+// }
+
 export default function BlogPostPage({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -32,7 +40,7 @@ export default function BlogPostPage({
           <BackButton />
           <h1 className="font-bold text-2xl md:text-4xl">{post.meta.title}</h1>
           <hr />
-          <span className="text-gray-text font-semibold">
+          <span className="text-neutral font-semibold">
             {new Date(post.meta.publishedAt).toDateString()} -&nbsp;
             {post.readingTime} min read
           </span>
@@ -49,9 +57,7 @@ export default function BlogPostPage({
                   passHref
                 >
                   <a>
-                    <span className="text-yellow-border dark:text-blue-text">
-                      #
-                    </span>
+                    <span className="text-secondary dark:text-primary">#</span>
                     <span>{tag}</span>
                   </a>
                 </Link>

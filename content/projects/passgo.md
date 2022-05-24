@@ -1,5 +1,6 @@
 ---
-title: Passgo
+title: passgo
+description: Dead simple password generator built with Golang
 liveUrl: #
 repoUrl: https://github.com/ashalfarhan/passgo
 thumbnail: /projects/project9_-Slq5rX9o.jpg

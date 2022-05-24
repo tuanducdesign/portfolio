@@ -47,6 +47,7 @@ export function getAllPosts() {
   const posts = slugs.map(slug => {
     return getPost({
       slug,
+      placeholder: true,
     });
   });
   return Promise.all(posts);

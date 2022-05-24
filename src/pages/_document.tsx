@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link rel="preconnect" href="https://ik.imagekit.io" />
       </Head>
-      <body className="bg-white-text text-black-primary dark:bg-black-primary dark:text-white-text transition-colors duration-500">
+      <body className="bg-light-primary text-dark-primary dark:bg-dark-primary dark:text-light-primary transition-colors duration-500">
         <Main />
         <NextScript />
       </body>

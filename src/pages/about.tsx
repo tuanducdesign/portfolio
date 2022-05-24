@@ -1,4 +1,4 @@
-import { Layout, Markdown, Seo } from '@site/components';
+import { Container, Layout, Markdown, Seo } from '@site/components';
 import { parseMarkdown } from '@site/libs';
 import { getFileContent } from '@site/utils';
 import type { InferGetStaticPropsType } from 'next';
@@ -9,7 +9,12 @@ export default function AboutPage({
   return (
     <Layout>
       <Seo title="About" />
-      <Markdown content={content} className="mx-auto my-20" />
+      <Container>
+        <Markdown
+          content={content}
+          className="max-w-prose mx-auto my-16 md:my-20"
+        />
+      </Container>
     </Layout>
   );
 }

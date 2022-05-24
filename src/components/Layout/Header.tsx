@@ -15,7 +15,7 @@ export const Header = () => {
       <Container className="flex justify-between items-center px-2 md:px-0">
         <Link href="/" passHref>
           <a
-            className="font-bold text-3xl italic text-black-primary dark:text-white-text inline-flex items-center"
+            className="font-bold text-3xl italic text-dark-primary dark:text-light-primary inline-flex items-center"
             title="Home"
           >
             <BrandIcon />

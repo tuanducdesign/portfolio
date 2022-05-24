@@ -1,5 +1,6 @@
 ---
 title: GQL Countries
+description: restcountries clone built with GraphQL
 liveUrl: https://gql-countries.herokuapp.com
 repoUrl: https://github.com/ashalfarhan/gql-countries
 thumbnail: /projects/project11_MelRt5dkB.jpg
