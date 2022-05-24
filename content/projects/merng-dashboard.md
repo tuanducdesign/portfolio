@@ -8,15 +8,36 @@ technologies:
   - expressjs
   - graphql
   - nodejs
-  - mongo_db
+  - mongodb
 ---
 
-This built using MERNG Stack, which stands for (**M**ongo DB, **E**xpress, **R**eact, **N**ode, **G**raphql). Also my first time creating a Graphql API with [Apollo](https://apollographql.com), learning how authentication flow works with JSON Web Token (`JWT`), but I'm only using the access token, haven't implement the refresh token yet.
+## Overview
 
-Database used is Mongo DB, i'm using Mongo DB [Atlas](https://cloud.mongodb.com) as the Cloud Database, the reasons are:
+MERNG Dashboard is a simple Admin Dashboard Web Application built with `MERNG` stack which stands for:
 
-1. Mongo DB is a `No SQL Database` that works really well with JavaScript (Node.js in this case), and with the help of [Mongoose](https://mongoosejs.com) as Document Modeling and that will make my work a lot easier, because I don't have to worry about creating id whenever creating a collection, and inserting them, and parsing from string to ObjectId, and also there are a lot of method that mongoose provided and it helps me to done this faster.
+- MongoDB
+- Express
+- React
+- Node.js
+- GraphQL
 
-2. This is my first time doing Backend World, and at that time, I don't know how to deal with database migration, at all. So Cloud Database like Mongo DB Atlas is the best option I think.
+This is my first time creating a `GraphQL` API, learning how authentication flow works with JSON Web Token (`JWT`).
 
-This App is mostly written with `TypeScript`, and I really enjoy working on this project. And also learning how to work with i18n in the Frontend Side.
+Instead of hosting my own Database, I prefer to choose [Mongo DB Atlas](https://cloud.mongodb.com) as the Cloud Database, the reasons are:
+
+1. This is my first time doing Backend World, and at that time, I don't know how to deal with database migration at all. So Cloud Database like [Mongo DB Atlas](https://cloud.mongodb.com) is the best option I think.
+2. It's `free`
+
+## Technologies
+
+- GraphQL Library: [Apollo](https://apollographql.com)
+- UI Component Library: [Chakra UI](https://chakra-ui.com/)
+- Form management: [`react-hook-form`](https://react-hook-form.com/)
+- I18n: [`react-intl`](https://github.com/formatjs/formatjs)
+- GraphQL Schema to TypeScript type generator: [`graphql-codegen`](https://www.graphql-code-generator.com/)
+- Object schema validation:
+  - Frontend [`yup`](https://github.com/jquense/yup)
+  - Backend [`class-validator`](https://github.com/typestack/class-validator)
+- GraphQL schema and resolvers abstraction from TypeScript classes and decorators: [`type-graphql`](https://github.com/MichalLytek/type-graphql)
+
+> This App is mostly written in `TypeScript`

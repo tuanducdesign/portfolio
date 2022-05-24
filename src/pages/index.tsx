@@ -18,13 +18,13 @@ export default function Home({
       <Seo description="Ashal Farhan Portfolio" />
       <Hero />
       <Container className="flex flex-col mb-10">
-        <h1 className="md:text-2xl font-bold text-xl">Featured Posts</h1>
+        <h1 className="md:text-3xl font-bold text-2xl">Featured Posts</h1>
         <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8 my-6">
           {posts.map(post => (
             <PostCard meta={post.meta} key={post.meta.id} />
           ))}
         </div>
-        <h1 className="md:text-2xl font-bold text-xl">Personal Projects</h1>
+        <h1 className="md:text-3xl font-bold text-2xl">Personal Projects</h1>
         <div className="grid md:grid-cols-2 md:gap-12 grid-cols-1 grid-flow-row gap-8 my-6">
           {projects.map(project => (
             <ProjectCard project={project} key={project.meta.id} />

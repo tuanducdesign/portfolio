@@ -44,7 +44,7 @@ function createUrlTag(page, subpath) {
       <url>
           <loc>${SITE_URL + subpath + urlPath}</loc>
           <lastmod>${new Date().toISOString()}</lastmod>
-          <changefreq>monthly</changefreq>
+          <changefreq>daily</changefreq>
           <priority>1.0</priority>
       </url>`;
 }

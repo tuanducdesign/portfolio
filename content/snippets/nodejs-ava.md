@@ -1,6 +1,6 @@
 ---
-title: Unit Testing with ava
-description: Step by step how to setup unit testing in a node.js project with ava test runner
+title: Node.js testing with ava
+description: Setup testing in a node.js project with ava
 icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg
 tags:
   - nodejs

@@ -7,6 +7,11 @@ technologies:
   - svelte
 ---
 
-This project is actually a challenge from [Frontend Mentor](https://frontendmentor.io), but they said that i can use this in my portfolio.
+## Overview
 
-This is my first time building a game, and using [Svelte](https://svelte.dev) as my Frontend Framework
+This is a simple web based rock, papeer scissors game. And a challenge from [Frontend Mentor](https://frontendmentor.io).
+
+## Technologies
+
+- Framwwork: [Svelte](https://svelte.dev)
+- Build Tools: [vite](https://vitejs.dev)

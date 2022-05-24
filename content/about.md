@@ -1,7 +1,15 @@
-## About me
+# About Me
 
-My name is `Ashal Farhan Wadjo`, you can call me Ashal, or Farhan, it depends if you already have a friend named Farhan or Ashal. But I'm comfortable with both.
+## Bio
 
-I was born in Sidoarjo, East Java, Indonesia. My last education is just high school, specifically `Vocational High School`, with `Airframe and Power Plant` Major ✈️ ⚙️.
+Hey, I'm Ashal. A _self-taught_ Frontend Engineer in [OY! Indonesia](https://oyindonesia.com), where I help to build B2B Dashboard. I'm also contributed to bug fixing some open source project that I've been used.
 
-My journey started in an online learning platform, called [freeCodeCamp](https://freecodecamp.org). I learn about basic `Web Development` such as `HTML`, `CSS`, and `JavaScript`. After I completed some of the course in `freeCodeCamp`, my `Mentor` ask me to join an internship program in an agency that he lead.
+## Education
+
+I graduated from a Vocational High School in 2021, with Airframe and Power Plant Major.
+
+## Journey
+
+My journey started in an online learning platform, called [freeCodeCamp](https://freecodecamp.org). There I've learned about basic Web Development such as `HTML`, `CSS`, and `JavaScript`.
+
+> And the rest of my learning phase was in some `internship` programs.

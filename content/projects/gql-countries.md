@@ -6,6 +6,13 @@ thumbnail: /projects/project11_MelRt5dkB.jpg
 technologies:
   - graphql
   - nodejs
+  - apollo-graphql
 ---
 
-This project is just a clone of [REST Countries](https://restcountries.com/) but this time I built with Graphql. The framework that I use is [Apollo](https://www.apollographql.com/). Total time taken for this project is quite fast, because I decided to just fetch the data from `restcountries` so that I don't need to manage any database. But ya, it's kinda bad idea to have data source that depends on the other service.
+## Overview
+
+GQL Countries is a clone of [REST Countries](https://restcountries.com/) but instead of `REST`, this built with `GraphQL` on top of `Node.js`. The functionality is almost the same, with additional features like filtering, and limiting the result. That was my concern to rebuild the API, so that I can retrive the data partially (only the fields that I want to read), and not bloated in the Frontend Side.
+
+## Technologies
+
+- GraphQL Library: [Apollo](https://www.apollographql.com/)
