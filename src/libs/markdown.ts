@@ -1,8 +1,6 @@
 export async function parseMarkdown(content: string) {
   const { inlineCodePlugin, optimizeImagePlugin } = await import('./plugins');
-  // @ts-expect-error this lib doesnt built with ts
   const { default: autoHeadings } = await import('markdown-it-github-headings');
-  // @ts-expect-error this lib doesnt built with ts
   const { default: taskLists } = await import('markdown-it-task-lists');
   const { default: MarkdownIt } = await import('markdown-it');
   const { getHighlighter } = await import('shiki');
