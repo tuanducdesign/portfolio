@@ -33,3 +33,15 @@ export const optimizeImagePlugin: PluginSimple = md => {
     return defaultRender(tokens, idx, options, env, self);
   };
 };
+
+export const externalLink: PluginSimple = md => {
+  const defaultRender = md.renderer.rules.link_open || fallbackRender;
+  md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+    const href = tokens[idx].attrGet('href') ?? '';
+    if (!href.match(/^(#|\/)/)) {
+      tokens[idx].attrSet('target', '_blank');
+      tokens[idx].attrSet('rel', 'noreferrer noopener');
+    }
+    return defaultRender(tokens, idx, options, env, self);
+  };
+};
