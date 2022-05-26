@@ -46,6 +46,7 @@ $ npm i -D ava
 Add `test` script that runs the `ava` binary
 
 ```jsonc
+// package.json
 {
   // ...
   "scripts": {

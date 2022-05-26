@@ -1,6 +1,6 @@
 ---
-title: Github Actions
-description: Setup Github Actions for JavaScript
+title: GitHub Actions
+description: Setup Github Actions in a JavaScript project
 icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg
 tags:
   - javascript
@@ -10,7 +10,23 @@ tags:
   - continous integration
 ---
 
+GitHub will run your action that located in a `.github/workflows` directory relative to the project root.
+
+Create the directory
+
+```bash
+$ mkdir .github
+$ mkdir .github/workflows
+```
+
+Then create the workflow file, this can be anything but should be in a `yml` or `yaml` format
+
+```bash
+$ touch .github/workflows/main.yml
+```
+
 ```yaml
+# .github/workflows/main.yml
 name: Continous Integration
 
 on:
