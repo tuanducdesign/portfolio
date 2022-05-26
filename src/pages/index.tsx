@@ -7,8 +7,7 @@ import {
   Hero,
   PostCard,
 } from '@site/components';
-import { pick } from '@site/helpers';
-import { getBlurPlaceholder } from '@site/utils';
+import { pick } from '@site/utils';
 import type { InferGetStaticPropsType } from 'next';
 
 export default function Home({
@@ -42,17 +41,10 @@ export const getStaticProps = async () => ({
     projects: allProjects.map(project =>
       pick(project, ['description', 'title', 'slug', 'technologies']),
     ),
-    posts: await Promise.all(
-      allPosts
-        .filter(post => post.featured)
-        .map(async post => {
-          const picked = pick(post, ['title', 'slug', 'publishedAt', 'cover']);
-          const placeholder = await getBlurPlaceholder(post.cover.path);
-          return {
-            ...picked,
-            placeholder,
-          };
-        }),
-    ),
+    posts: allPosts
+      .filter(post => post.featured)
+      .map(post =>
+        pick(post, ['title', 'slug', 'publishedAt', 'cover', 'placeholder']),
+      ),
   },
 });

@@ -9,7 +9,7 @@ import {
 } from '@site/components';
 import { buildImageKitURL } from '@site/libs';
 import { allProjects } from '@content';
-import { pick } from '@site/helpers';
+import { pick } from '@site/utils';
 
 export default function ProjectDetail({
   project,

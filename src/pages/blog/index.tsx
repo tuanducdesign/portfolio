@@ -1,8 +1,7 @@
 import { allPosts } from '@content';
 import { Container, Layout, PostCard, Seo } from '@site/components';
-import { pick } from '@site/helpers';
+import { pick } from '@site/utils';
 import { buildImageKitURL } from '@site/libs';
-import { getBlurPlaceholder } from '@site/utils';
 import { useReducedMotion, motion, type Variants } from 'framer-motion';
 import type { InferGetStaticPropsType } from 'next';
 
@@ -65,15 +64,8 @@ export default function BlogPages({
 
 export const getStaticProps = async () => ({
   props: {
-    posts: await Promise.all(
-      allPosts.map(async post => {
-        const picked = pick(post, ['title', 'slug', 'publishedAt', 'cover']);
-        const placeholder = await getBlurPlaceholder(post.cover.path);
-        return {
-          ...picked,
-          placeholder,
-        };
-      }),
+    posts: allPosts.map(post =>
+      pick(post, ['title', 'slug', 'publishedAt', 'cover', 'placeholder']),
     ),
   },
 });

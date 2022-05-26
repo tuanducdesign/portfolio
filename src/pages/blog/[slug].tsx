@@ -6,12 +6,11 @@ import {
   Markdown,
   Seo,
 } from '@site/components';
-import { getImgProps, pick } from '@site/helpers';
+import { getImgProps, pick } from '@site/utils';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import { buildImageKitURL } from '@site/libs';
 import { allPosts } from '@content';
-import { getBlurPlaceholder } from '@site/utils';
 
 // import { profile } from '@site/config';
 // function getTwitterShareLink({ title, slug }: { title: string; slug: string }) {
@@ -23,7 +22,6 @@ import { getBlurPlaceholder } from '@site/utils';
 
 export default function BlogPostPage({
   post,
-  placeholder,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
@@ -63,7 +61,7 @@ export default function BlogPostPage({
             ))}
           </ul>
           <BlurrableImage
-            placeholder={placeholder}
+            placeholder={post.placeholder}
             className="aspect-h-4 aspect-w-3 md:aspect-w-3 md:aspect-h-2 md:-mx-24 my-6"
             img={
               <img
@@ -103,7 +101,6 @@ export const getStaticProps = async ({
   if (!post) {
     throw new Error(`Post with slug ${slug} not found`);
   }
-  const placeholder = await getBlurPlaceholder(post.cover.path);
   return {
     props: {
       post: pick(post, [
@@ -114,8 +111,8 @@ export const getStaticProps = async ({
         'publishedAt',
         'readingTime',
         'tags',
+        'placeholder',
       ]),
-      placeholder,
     },
   };
 };

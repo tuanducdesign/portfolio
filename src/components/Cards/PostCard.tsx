@@ -1,4 +1,4 @@
-import { getImgProps } from '@site/helpers';
+import { getImgProps } from '@site/utils';
 import { Post } from '@content';
 import Link from 'next/link';
 import { BlurrableImage } from '../BlurrableImage';

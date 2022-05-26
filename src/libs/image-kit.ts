@@ -1,4 +1,4 @@
-const IMAGEKIT_BASE_URL = 'https://ik.imagekit.io/gncpb3rwf';
+export const IMAGEKIT_BASE_URL = 'https://ik.imagekit.io/gncpb3rwf';
 
 export type ImageKitTransform = {
   width?: string | number;

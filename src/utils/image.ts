@@ -1,15 +1,50 @@
-import { buildImageKitURL } from '@site/libs';
+import { ImageKitTransform, buildImageKitURL } from '@site/libs';
 
-export async function getBlurPlaceholder(src: string) {
-  const url = buildImageKitURL({
-    src,
-    width: 1000,
-    blur: 10,
-    quality: 10,
-  });
-  const res = await fetch(url);
-  const arrayBuffer = await res.arrayBuffer();
-  const base64 = Buffer.from(arrayBuffer).toString('base64');
-  const mime = res.headers.get('Content-Type') ?? 'image/webp';
-  return `data:${mime};base64,${base64}`;
+export function getImgProps({
+  src,
+  widths,
+  sizes,
+  transform = {},
+}: {
+  /**
+   * Pass the `src` here
+   * - Url can be absolute or relative to the root imagekit endpoint
+   * - `src` will be returned again
+   */
+  src: string;
+  widths: number[];
+  sizes: string[];
+  /**
+   * Used to transform the image, will be passed to `buildImageKitURL`
+   */
+  transform?: ImageKitTransform;
+}) {
+  const averageSize = Math.ceil(
+    widths.reduce((prev, next) => prev + next) / widths.length,
+  );
+  return {
+    sizes: sizes.join(', '),
+    src: buildImageKitURL({
+      src,
+      width: averageSize,
+      quality: 'auto',
+      format: 'auto',
+      ...transform,
+    }),
+    width: averageSize,
+    srcSet: widths
+      .map(width =>
+        [
+          buildImageKitURL({
+            src,
+            width,
+            quality: 'auto',
+            format: 'auto',
+            ...transform,
+          }),
+          `${width}w`,
+        ].join(' '),
+      )
+      .join(', '),
+  };
 }

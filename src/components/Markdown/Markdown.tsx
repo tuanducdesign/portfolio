@@ -7,7 +7,7 @@ export const Markdown = ({
   return (
     <article
       className={clsx(
-        'prose prose-sky dark:prose-invert max-w-full md:max-w-prose prose-a:break-words',
+        'prose prose-sky dark:prose-invert max-w-full md:max-w-prose prose-a:break-words prose-headings:scroll-mt-16',
         className,
       )}
       dangerouslySetInnerHTML={{ __html: content }}

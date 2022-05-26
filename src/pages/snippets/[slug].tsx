@@ -1,6 +1,6 @@
 import { allSnippets } from '@content';
 import { BackButton, Container, Layout, Markdown, Seo } from '@site/components';
-import { pick } from '@site/helpers';
+import { pick } from '@site/utils';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 export default function SnippetPage({

@@ -1,6 +1,6 @@
 import { allSnippets } from '@content';
 import { Container, Layout, Seo } from '@site/components';
-import { pick } from '@site/helpers';
+import { pick } from '@site/utils';
 import { buildImageKitURL } from '@site/libs';
 import type { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
