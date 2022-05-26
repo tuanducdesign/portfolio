@@ -65,7 +65,7 @@ export const Footer = () => {
               href={link.href}
               key={link.href + link.label}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
             >
               {link.label}
             </a>
@@ -78,7 +78,7 @@ export const Footer = () => {
               href={link.href}
               key={link.href + link.label}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
             >
               {link.label}
             </a>
