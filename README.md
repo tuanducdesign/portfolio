@@ -11,14 +11,10 @@
 
 ## Overview
 
-- `content` The content directory for storing the markdown, each sub directory will have `_template` dedicated:
+- `content` The content directory for storing the markdown
   - `content/posts` directory for blog post
   - `content/projects` directory for personal project overview
-  - `content/snippet` directory for personal code snippets
+  - `content/snippets` directory for personal code snippets
 - `src`
   - `config` Site configuration from personal information/profile.
-  - `styles` Just a single `css` that import `tailwindcss` directives
-  - `utils` Utility for `server side`.
-  - `helpers` Helper modules for `client side`.
   - `libs` Wrapper/Abstraction for external lib to this app.
-  - `types` TypeScript type models.
