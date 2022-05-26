@@ -46,5 +46,9 @@ export const buildImageKitURL = ({
     const [w, h] = aspectRatio.split(':');
     params.push(['ar', w, h].join('-'));
   }
-  return `${IMAGEKIT_BASE_URL}/${src}?tr=${params.join(',')}`;
+  let url = `${IMAGEKIT_BASE_URL}/${src}`;
+  if (params.length > 0) {
+    url += `?tr=${params.join(',')}`;
+  }
+  return url;
 };
