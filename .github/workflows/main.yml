@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     paths-ignore:
-      - 'README.md'
+      - '**.md'
 
 jobs:
   build:
@@ -15,8 +15,20 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.13
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+
+      - name: Restore cache 🔍
+        uses: actions/cache@v2
+        id: cache-deps
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies ⬇️
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
 
       - name: Code analysis ⌨️
         run: |

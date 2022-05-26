@@ -28,7 +28,7 @@ export default function SnippetsPage({
       </Seo>
       <Container className="max-w-2xl w-full my-12 px-4">
         <h1 className="font-bold text-4xl">Code Snippets</h1>
-        <p className="text-gray-400 mt-2">
+        <p className="text-neutral mt-2">
           These are collection of code snippets I&apos;ve used and saved.
         </p>
         <div className="grid md:grid-cols-2 gap-8 mt-4">
@@ -47,7 +47,7 @@ export default function SnippetsPage({
                   alt={snippet.meta.tags.join(', ')}
                 />
                 <h3 className="font-bold text-xl">{snippet.meta.title}</h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-neutral">
                   {snippet.meta.description}
                 </p>
               </a>

@@ -32,7 +32,7 @@ export const ThemeIcon = ({ theme = 'dark' }: { theme?: string }) => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <span className="min-h-[24px]" />;
+  if (!mounted) return <span className="h-6 w-6" />;
 
   return (
     <motion.svg

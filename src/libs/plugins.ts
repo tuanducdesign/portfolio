@@ -30,6 +30,7 @@ export const optimizeImagePlugin: PluginSimple = md => {
     tokens[idx].attrSet('width', props.width + '');
     tokens[idx].attrSet('src', props.src);
     tokens[idx].attrSet('sizes', props.sizes);
+    tokens[idx].attrJoin('class', 'rounded-md');
     return defaultRender(tokens, idx, options, env, self);
   };
 };
