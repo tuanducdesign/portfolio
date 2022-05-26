@@ -36,7 +36,7 @@ type UseGeoLocationOptions = {
 export const useGeoLocation = ({
   watch = false,
   ...options
-}: UseGeoLocationOptions) => {
+}: UseGeoLocationOptions = {}) => {
   const [state, setState] = useState<GeoState>({ status: 'idle' });
   const watchId = useRef<number>();
 
