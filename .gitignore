@@ -41,3 +41,6 @@ public/sitemap*.xml
 
 # Lighthouseci stuff
 .lighthouseci
+
+# Contentlayer
+.contentlayer

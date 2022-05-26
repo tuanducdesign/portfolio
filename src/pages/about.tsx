@@ -1,6 +1,5 @@
+import { allPages } from '@content';
 import { Container, Layout, Markdown, Seo } from '@site/components';
-import { parseMarkdown } from '@site/libs';
-import { getFileContent } from '@site/utils';
 import type { InferGetStaticPropsType } from 'next';
 
 export default function AboutPage({
@@ -20,11 +19,11 @@ export default function AboutPage({
 }
 
 export const getStaticProps = async () => {
-  const raw = getFileContent({
-    filename: 'about',
-  });
-  const content = await parseMarkdown(raw);
+  const page = allPages.find(page => page._raw.flattenedPath === 'about');
+  if (!page) {
+    throw new Error("Content for page 'about' not found");
+  }
   return {
-    props: { content },
+    props: { content: page.body.html },
   };
 };

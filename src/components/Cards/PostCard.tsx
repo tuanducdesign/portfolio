@@ -1,5 +1,5 @@
 import { getImgProps } from '@site/helpers';
-import { Post } from '@site/types';
+import { Post } from '@content';
 import Link from 'next/link';
 import { BlurrableImage } from '../BlurrableImage';
 import { Card } from './Card';
@@ -8,38 +8,44 @@ export const dateFormatter = new Intl.DateTimeFormat('en-US', {
   dateStyle: 'long',
 });
 
-export const PostCard = ({ meta }: Pick<Post, 'meta'>) => {
+export const PostCard = ({
+  post,
+}: {
+  post: Pick<Post, 'slug' | 'title' | 'cover' | 'publishedAt'> & {
+    placeholder: string;
+  };
+}) => {
   return (
-    <Link href={'/blog/' + meta.slug} passHref>
+    <Link href={'/blog/' + post.slug} passHref>
       <a>
         <Card>
           <BlurrableImage
-            placeholder={meta.placeholder}
+            placeholder={post.placeholder}
             className="aspect-w-3 aspect-h-4"
             img={
               <img
-                alt={meta.title}
+                alt={post.title}
                 {...getImgProps({
-                  src: meta.cover.path,
-                  widths: [meta.cover.width ?? 420, 840, 1100],
+                  src: post.cover.path,
+                  widths: [post.cover.width ?? 420, 840, 1100],
                   sizes: [
                     '(max-width: 560px) 100vw',
                     '(min-width: 561px) and (max-width: 840px) 45vw',
                     '(min-width: 841px) 30vw',
-                    (meta.cover.width ?? 420) + 'px',
+                    (post.cover.width ?? 420) + 'px',
                   ],
                 })}
-                height={meta.cover.height}
-                width={meta.cover.width}
+                height={post.cover.height}
+                width={post.cover.width}
                 loading="lazy"
                 className="max-w-full w-full object-cover rounded-md"
               />
             }
           />
           <p className="text-neutral font-semibold text-lg my-3">
-            {dateFormatter.format(new Date(meta.publishedAt))}
+            {dateFormatter.format(new Date(post.publishedAt))}
           </p>
-          <h3 className="font-bold text-2xl">{meta.title}</h3>
+          <h3 className="font-bold text-2xl">{post.title}</h3>
           {/* <ul className="flex gap-2"> 
             {meta.tags.map((tag, idx) => (
               <li key={tag + idx} className="p-1">

@@ -1,3 +1,4 @@
+import { allPosts, allProjects } from '@content';
 import {
   Container,
   Seo,
@@ -6,7 +7,8 @@ import {
   Hero,
   PostCard,
 } from '@site/components';
-import { getAllPosts, getAllProjects } from '@site/utils';
+import { pick } from '@site/helpers';
+import { getBlurPlaceholder } from '@site/utils';
 import type { InferGetStaticPropsType } from 'next';
 
 export default function Home({
@@ -21,13 +23,13 @@ export default function Home({
         <h2 className="md:text-3xl font-bold text-2xl">Featured Posts</h2>
         <div className="grid md:grid-cols-3 md:gap-8 grid-cols-1 gap-4 my-6 mb-16">
           {posts.map(post => (
-            <PostCard meta={post.meta} key={post.meta.id} />
+            <PostCard post={post} key={post.title} />
           ))}
         </div>
         <h2 className="md:text-3xl font-bold text-2xl">Personal Projects</h2>
         <div className="grid md:grid-cols-2 md:gap-8 grid-cols-1 gap-4 my-6">
           {projects.map(project => (
-            <ProjectCard project={project} key={project.meta.id} />
+            <ProjectCard project={project} key={project.title} />
           ))}
         </div>
       </Container>
@@ -35,13 +37,22 @@ export default function Home({
   );
 }
 
-export const getStaticProps = async () => {
-  const projects = await getAllProjects();
-  const posts = await getAllPosts();
-  return {
-    props: {
-      projects,
-      posts: posts.filter(post => post.meta.featured),
-    },
-  };
-};
+export const getStaticProps = async () => ({
+  props: {
+    projects: allProjects.map(project =>
+      pick(project, ['description', 'title', 'slug', 'technologies']),
+    ),
+    posts: await Promise.all(
+      allPosts
+        .filter(post => post.featured)
+        .map(async post => {
+          const picked = pick(post, ['title', 'slug', 'publishedAt', 'cover']);
+          const placeholder = await getBlurPlaceholder(post.cover.path);
+          return {
+            ...picked,
+            placeholder,
+          };
+        }),
+    ),
+  },
+});

@@ -1,7 +1,6 @@
+import { allPages } from '@content';
 import { Seo, Layout, Button, Markdown, Container } from '@site/components';
 import { profile } from '@site/config';
-import { parseMarkdown } from '@site/libs';
-import { getFileContent } from '@site/utils';
 import type { InferGetStaticPropsType } from 'next';
 
 export default function HirePage({
@@ -35,11 +34,11 @@ export default function HirePage({
 }
 
 export const getStaticProps = async () => {
-  const raw = getFileContent({
-    filename: 'career',
-  });
-  const content = await parseMarkdown(raw);
+  const page = allPages.find(page => page._raw.flattenedPath === 'career');
+  if (!page) {
+    throw new Error("Content for page 'career' not found");
+  }
   return {
-    props: { content },
+    props: { content: page.body.html },
   };
 };

@@ -1,6 +1,8 @@
+import { allPosts } from '@content';
 import { Container, Layout, PostCard, Seo } from '@site/components';
+import { pick } from '@site/helpers';
 import { buildImageKitURL } from '@site/libs';
-import { getAllPosts } from '@site/utils';
+import { getBlurPlaceholder } from '@site/utils';
 import { useReducedMotion, motion, type Variants } from 'framer-motion';
 import type { InferGetStaticPropsType } from 'next';
 
@@ -52,7 +54,7 @@ export default function BlogPages({
           <h2 className="font-bold text-2xl mb-4">Recent Posts</h2>
           <div className="grid md:grid-cols-3 sm:grid-grid-cols-2  gap-8">
             {posts.map(post => (
-              <PostCard meta={post.meta} key={post.meta.id} />
+              <PostCard post={post} key={post.title} />
             ))}
           </div>
         </div>
@@ -61,18 +63,17 @@ export default function BlogPages({
   );
 }
 
-export async function getStaticProps() {
-  const posts = await getAllPosts();
-  // const mmYYY = new Intl.DateTimeFormat('en-US', {
-  //   year: 'numeric',
-  //   month: 'long',
-  // });
-  // const grouped = posts.reduce((acc, curr) => {
-  //   const mY = mmYYY.format(new Date(curr.meta.publishedAt));
-  //   (acc[mY] || (acc[mY] = [])).push(curr);
-  //   return acc;
-  // }, {} as Record<string, Post[]>);
-  return {
-    props: { posts },
-  };
-}
+export const getStaticProps = async () => ({
+  props: {
+    posts: await Promise.all(
+      allPosts.map(async post => {
+        const picked = pick(post, ['title', 'slug', 'publishedAt', 'cover']);
+        const placeholder = await getBlurPlaceholder(post.cover.path);
+        return {
+          ...picked,
+          placeholder,
+        };
+      }),
+    ),
+  },
+});

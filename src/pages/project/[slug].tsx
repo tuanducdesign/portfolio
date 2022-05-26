@@ -7,8 +7,9 @@ import {
   Markdown,
   BackButton,
 } from '@site/components';
-import { getFiles, getProject } from '@site/utils';
 import { buildImageKitURL } from '@site/libs';
+import { allProjects } from '@content';
+import { pick } from '@site/helpers';
 
 export default function ProjectDetail({
   project,
@@ -16,23 +17,23 @@ export default function ProjectDetail({
   return (
     <Layout>
       <Seo
-        title={project.meta.title}
-        keywords={project.meta.technologies}
-        description={project.meta.title}
-        image={buildImageKitURL({ src: project.meta.thumbnail })}
+        title={project.title}
+        keywords={project.technologies}
+        description={project.title}
+        image={buildImageKitURL({ src: project.thumbnail })}
       />
       <Container className="max-w-prose my-12">
         <BackButton />
-        <h1 className="text-3xl font-bold my-4">{project.meta.title}</h1>
-        <Markdown content={project.content} className="mb-8" />
+        <h1 className="text-3xl font-bold my-4">{project.title}</h1>
+        <Markdown content={project.body.html} className="mb-8" />
         <div className="flex w-full md:gap-x-8 md:gap-y-0 md:flex-row flex-col gap-y-3">
-          {Boolean(project.meta.liveUrl) && (
-            <Button className="flex-auto" as="a" href={project.meta.liveUrl}>
+          {Boolean(project.liveUrl) && (
+            <Button className="flex-auto" as="a" href={project.liveUrl}>
               Demo
             </Button>
           )}
-          {Boolean(project.meta.repoUrl) && (
-            <Button className="flex-auto" as="a" href={project.meta.repoUrl}>
+          {Boolean(project.repoUrl) && (
+            <Button className="flex-auto" as="a" href={project.repoUrl}>
               Source Code
             </Button>
           )}
@@ -42,22 +43,29 @@ export default function ProjectDetail({
   );
 }
 
-export const getStaticPaths = () => {
-  const files = getFiles('projects');
-  return {
-    paths: files.map(slug => ({ params: { slug } })),
-    fallback: false,
-  };
-};
+export const getStaticPaths = () => ({
+  paths: allProjects.map(({ slug }) => ({ params: { slug } })),
+  fallback: false,
+});
 
 export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<{ slug: string }>) => {
   const { slug = '' } = params || {};
-  const project = await getProject({ slug, withContent: true });
+  const project = allProjects.find(project => project.slug === slug);
+  if (!project) {
+    throw new Error(`Project with slug ${slug} not found`);
+  }
   return {
     props: {
-      project,
+      project: pick(project, [
+        'title',
+        'body',
+        'liveUrl',
+        'repoUrl',
+        'technologies',
+        'thumbnail',
+      ]),
     },
   };
 };

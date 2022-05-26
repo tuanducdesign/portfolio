@@ -2,7 +2,7 @@ const { yellow, slate } = require('tailwindcss/colors');
 
 module.exports = {
   darkMode: 'class',
-  content: ['./src/**/*.{jsx,tsx,ts}'],
+  content: ['./src/**/*.{jsx,tsx,ts}', './contentlayer.config.ts'],
   theme: {
     container: {
       center: true,

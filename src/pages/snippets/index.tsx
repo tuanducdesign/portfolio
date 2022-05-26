@@ -1,6 +1,7 @@
+import { allSnippets } from '@content';
 import { Container, Layout, Seo } from '@site/components';
+import { pick } from '@site/helpers';
 import { buildImageKitURL } from '@site/libs';
-import { getAllSnippets } from '@site/utils';
 import type { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 
@@ -34,22 +35,20 @@ export default function SnippetsPage({
         <div className="grid md:grid-cols-2 gap-8 mt-4">
           {snippets.map(snippet => (
             <Link
-              href={'/snippets/' + snippet.meta.slug}
-              key={snippet.meta.id}
+              href={'/snippets/' + snippet.slug}
+              key={snippet.title}
               passHref
             >
               <a className="rounded-lg p-4 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors relative">
                 <img
-                  src={snippet.meta.icon}
+                  src={snippet.icon}
                   className="mb-2 absolute top-2 right-2"
                   width={24}
                   height={24}
-                  alt={snippet.meta.tags.join(', ')}
+                  alt={snippet.tags.join(', ')}
                 />
-                <h3 className="font-bold text-xl">{snippet.meta.title}</h3>
-                <p className="text-sm text-neutral">
-                  {snippet.meta.description}
-                </p>
+                <h3 className="font-bold text-xl">{snippet.title}</h3>
+                <p className="text-sm text-neutral">{snippet.description}</p>
               </a>
             </Link>
           ))}
@@ -59,9 +58,10 @@ export default function SnippetsPage({
   );
 }
 
-export async function getStaticProps() {
-  const snippets = await getAllSnippets();
-  return {
-    props: { snippets },
-  };
-}
+export const getStaticProps = () => ({
+  props: {
+    snippets: allSnippets.map(snippet =>
+      pick(snippet, ['slug', 'icon', 'title', 'tags', 'description']),
+    ),
+  },
+});
