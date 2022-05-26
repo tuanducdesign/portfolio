@@ -14,6 +14,7 @@ import { getHighlighter } from 'shiki';
 import { h } from 'hastscript';
 import { visit } from 'unist-util-visit';
 import { buildImageKitURL, IMAGEKIT_BASE_URL } from './src/libs';
+import { got } from 'got';
 
 const computedFields: ComputedFields = {
   slug: {
@@ -197,10 +198,10 @@ async function getBlurPlaceholder(src: string) {
     width: 1000,
     blur: 10,
     quality: 10,
+    format: 'webp',
   });
-  const res = await fetch(url);
-  const arrayBuffer = await res.arrayBuffer();
-  const base64 = Buffer.from(arrayBuffer).toString('base64');
-  const mime = res.headers.get('Content-Type') ?? 'image/webp';
+  const res = await got.get(url, { responseType: 'buffer' });
+  const base64 = res.body.toString('base64');
+  const mime = res.headers['content-type'] ?? 'image/webp';
   return `data:${mime};base64,${base64}`;
 }
