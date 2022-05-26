@@ -49,7 +49,7 @@ export default function BlogPages({
           </motion.p>
         </motion.div>
         <div className="mb-12">
-          <h1 className="font-bold text-2xl mb-4">Recent Posts</h1>
+          <h2 className="font-bold text-2xl mb-4">Recent Posts</h2>
           <div className="grid md:grid-cols-3 sm:grid-grid-cols-2  gap-8">
             {posts.map(post => (
               <PostCard meta={post.meta} key={post.meta.id} />
