@@ -1,15 +1,13 @@
-name: Main
+name: CI
 
 on:
   push:
     paths-ignore:
-      - '**.md'
-      - '**.yml'
-      - '**.yaml'
+      - 'README.md'
 
 jobs:
   build:
-    name: Static code analyzer and Build
+    name: Static code analyzer, Test, and Build
     runs-on: ubuntu-latest
 
     steps:
@@ -20,11 +18,14 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
 
-      - name: Static code analyze check
+      - name: Code analysis ⌨️
         run: |
           yarn ts:check
           yarn fmt:check
           yarn lint
 
-      - name: Build check
+      - name: Test 🧪
+        run: yarn test --ci
+
+      - name: Build 👷‍♀️
         run: yarn build
