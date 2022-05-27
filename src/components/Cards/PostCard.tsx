@@ -46,14 +46,6 @@ export const PostCard = ({
             {dateFormatter.format(new Date(post.publishedAt))}
           </p>
           <h3 className="font-bold text-2xl">{post.title}</h3>
-          {/* <ul className="flex gap-2"> 
-            {meta.tags.map((tag, idx) => (
-              <li key={tag + idx} className="p-1">
-                <span className="text-secondary dark:text-primary">#</span>
-                <span>{tag}</span>
-              </li>
-            ))}
-          </ul> */}
         </Card>
       </a>
     </Link>
