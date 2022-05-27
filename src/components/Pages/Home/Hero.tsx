@@ -57,9 +57,6 @@ export function Hero() {
           variants={textReveal}
           className="flex md:gap-x-4 md:flex-row gap-y-3 md:gap-y-0 flex-col w-full relative top-4"
         >
-          {/* <Button className="text-xl" as="a" href="#intro">
-            Know More
-          </Button> */}
           <Link href="/hire" passHref>
             <Button className="text-xl" as="a">
               Hire Me
