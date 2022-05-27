@@ -32,8 +32,6 @@ jobs:
 
       - name: Code analysis ⌨️
         run: |
-          yarn contentlayer build
-          yarn ts:check
           yarn fmt:check
           yarn lint
 
