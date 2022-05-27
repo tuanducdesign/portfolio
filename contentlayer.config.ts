@@ -185,7 +185,7 @@ function customCodeBlock() {
       if (parent.tagName !== 'pre') {
         node.properties ??= {};
         node.properties.className =
-          'text-primary dark:bg-gray-800 bg-gray-200 rounded-md p-1 transition-colors';
+          'text-primary dark:bg-gray-800 bg-gray-200 rounded-md py-[1px] px-1 transition-colors';
         return;
       }
     });

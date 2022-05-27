@@ -14,7 +14,13 @@ module.exports = {
             'blockquote > p::before': {
               content: 'none',
             },
-            'code::before, code::after': {
+            'blockquote > p::after': {
+              content: 'none',
+            },
+            'code::before': {
+              content: 'none',
+            },
+            'code::after': {
               content: 'none',
             },
           },
