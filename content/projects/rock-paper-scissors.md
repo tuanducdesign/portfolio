@@ -14,5 +14,5 @@ This is a simple web based rock, papeer scissors game. And a challenge from [Fro
 
 ## Technologies
 
-- Framwwork: [Svelte](https://svelte.dev)
+- Framework: [Svelte](https://svelte.dev)
 - Build Tools: [vite](https://vitejs.dev)
