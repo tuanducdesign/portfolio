@@ -36,7 +36,7 @@ on:
 
 jobs:
   build:
-    name: Static code analyzer, testing and build
+    name: Code analysis, test and build
     # Replace the action runner with any os that github support
     runs-on: ubuntu-latest
 
@@ -45,15 +45,23 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.13
-          cache: 'yarn'
-        # Make sure to install dependencies, and their respective version
-        # according to what is specified in lockfile
-        # (yarn.lock, package-lock.json)
-      - run: yarn install --frozen-lockfile
 
-      - name: Static code analyze ⌚️
+      - name: Restore cache 🔍
+        uses: actions/cache@v2
+        id: cache-deps
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies ⬇️
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Code analysis ⌚️
         run: |
-          yarn ts:check
           yarn fmt:check
           yarn lint
 
@@ -65,6 +73,22 @@ jobs:
       - name: Build 👷‍♀️
         run: yarn build
 ```
+
+## TypeScript
+
+To use this action with TypeScript, just add 1 more commands to run on `Code analysis` step
+
+```diff
+  - name: Code analysis ⌚️
+    run: |
++     yarn ts:check
+      yarn fmt:check
+      yarn lint
+```
+
+> The above additional run script assuming the `ts:check` script will runs type checking, e.g. `tsc --noEmit`.
+
+But it's optional if the `build` script doesn't already cover the type checking step. For [Next.js](https://nextjs.org/) project, the type checking step is already covered in the `build` step as [described here](https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors).
 
 ## References
 
