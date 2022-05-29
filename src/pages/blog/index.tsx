@@ -64,8 +64,10 @@ export default function BlogPages({
 
 export const getStaticProps = async () => ({
   props: {
-    posts: allPosts.map(post =>
-      pick(post, ['title', 'slug', 'publishedAt', 'cover', 'placeholder']),
-    ),
+    posts: allPosts
+      .filter(post => !post.draft)
+      .map(post =>
+        pick(post, ['title', 'slug', 'publishedAt', 'cover', 'placeholder']),
+      ),
   },
 });
