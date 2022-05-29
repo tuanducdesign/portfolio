@@ -17,6 +17,9 @@ module.exports = {
             'blockquote > p::after': {
               content: 'none',
             },
+            'blockquote > p': {
+              color: slate[500],
+            },
             'code::before': {
               content: 'none',
             },
