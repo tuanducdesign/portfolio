@@ -7,10 +7,10 @@ cover:
   path: /posts/josh-hild-0Rl-SWbjMgE-unsplash_mAeeRV6D3.jpg
   width: 4240
   height: 2832
+  credit: https://unsplash.com/photos/0Rl-SWbjMgE
+  author: Josh Hild
 tags:
   - frontend
-  - css
-  - html
 ---
 
 This article to showcase about images based content, check the network tab waterfall to see when the image loads. Verify that all of these images are responsive.

@@ -14,7 +14,6 @@ import { getHighlighter } from 'shiki';
 import { h } from 'hastscript';
 import { visit } from 'unist-util-visit';
 import { buildImageKitURL, IMAGEKIT_BASE_URL } from './src/libs';
-import { got } from 'got';
 
 const computedFields: ComputedFields = {
   slug: {
@@ -29,6 +28,8 @@ const PostCover = defineNestedType(() => ({
     width: { type: 'number', required: true },
     height: { type: 'number', required: true },
     path: { type: 'string', required: true },
+    credit: { type: 'string', required: true },
+    author: { type: 'string', required: true },
   },
 }));
 
@@ -37,7 +38,7 @@ const Post = defineDocumentType(() => ({
   filePathPattern: 'posts/*.md',
   fields: {
     featured: { type: 'boolean', required: true },
-    draft: { type: 'boolean', default: true },
+    draft: { type: 'boolean', default: false },
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
     publishedAt: { type: 'date', required: true },
@@ -200,8 +201,9 @@ async function getBlurPlaceholder(src: string) {
     quality: 10,
     format: 'webp',
   });
-  const res = await got.get(url, { responseType: 'buffer' });
-  const base64 = res.body.toString('base64');
-  const mime = res.headers['content-type'] ?? 'image/webp';
+  const res = await fetch(url);
+  const arrayBuffer = await res.arrayBuffer();
+  const base64 = Buffer.from(arrayBuffer).toString('base64');
+  const mime = res.headers.get('Content-Type') ?? 'image/webp';
   return `data:${mime};base64,${base64}`;
 }

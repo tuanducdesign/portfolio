@@ -20,6 +20,13 @@ import { allPosts } from '@content';
 //   })}`;
 // }
 
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+  day: 'numeric',
+});
+
 export default function BlogPostPage({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -37,7 +44,7 @@ export default function BlogPostPage({
           <h1 className="font-bold text-2xl md:text-4xl">{post.title}</h1>
           <hr />
           <span className="text-neutral font-semibold">
-            {new Date(post.publishedAt).toDateString()}&nbsp;-&nbsp;
+            {dateFormatter.format(new Date(post.publishedAt))}&nbsp;-&nbsp;
             {post.readingTime.text}
           </span>
           <ul className="flex gap-2">
@@ -62,7 +69,7 @@ export default function BlogPostPage({
           </ul>
           <BlurrableImage
             placeholder={post.placeholder}
-            className="aspect-h-4 aspect-w-3 md:aspect-w-3 md:aspect-h-2 md:-mx-24 my-6"
+            className="aspect-h-4 aspect-w-3 md:aspect-w-3 md:aspect-h-2 md:-mx-24 mt-6"
             img={
               <img
                 {...getImgProps({
@@ -78,9 +85,21 @@ export default function BlogPostPage({
                 width={post.cover.width}
                 height={post.cover.height}
                 className="rounded-md object-cover object-center"
+                title={`Photo by ${post.cover.author}`}
               />
             }
           />
+          <p className="text-sm text-neutral text-center italic">
+            Photo by&nbsp;
+            <a
+              href={post.cover.credit}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              {post.cover.author}
+            </a>
+          </p>
         </div>
         <Markdown content={post.body.html} className="mx-auto" />
       </Container>

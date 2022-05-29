@@ -7,6 +7,8 @@ cover:
   path: /posts/deva-darshan-v0zwX1aPlHI-unsplash__1__HADmF4NhF.jpg
   width: 2782
   height: 3477
+  credit: https://unsplash.com/photos/v0zwX1aPlHI
+  author: Deva Darshan
 tags:
   - react
   - typescript
