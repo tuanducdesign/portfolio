@@ -120,7 +120,7 @@ You can read more about them [here](https://developer.mozilla.org/en-US/docs/Web
 
 For this example I think `localStorage` is the best option to save the user preferences.
 
-We need to **_preload_** the selected theme when page load.
+What we need to do is to save the new theme every time we call the `setTheme` function
 
 ```js
 // script.js
@@ -130,72 +130,38 @@ function setTheme(theme = 'light') {
   document.documentElement.setAttribute('data-theme', theme);
   themeButtom.innerText = `Switch to ${theme}`;
 
+  // Save the new theme to the `localStorage`
+  localStorage.setItem('theme', theme);
+}
+```
+
+After we save the new theme, we can load the selected theme from the `localStorage` when page load.
+
+```js
+// script.js
+//... rest of the code
+function setTheme(theme = 'light') {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeButtom.innerText = `Switch to ${theme}`;
   localStorage.setItem('theme', theme);
 }
 
+// We read from the `localStorage`
+// If there's nothing saved, then the fallback will be `"light"`
 const preloadedTheme = localStorage.getItem('theme') || 'light';
-setTheme(preloadedTheme);
 
+// Immediately call `setTheme`
+setTheme(preloadedTheme);
 //... rest of the code
 ```
 
-Here's what we modify:
-
-- We add a new line to the `setTheme` function to save the theme in `localStorage` with the key of `"theme"`.
-- Then we try to read the `localStorage` with the key of `"theme"`, if the value is `falsy` then assign the default to `"light"`, and save that to the `preloadedTheme` variable.
-- Then we immediately call `setTheme` and pass `preloadedTheme` variable as an argument.
+At this point you should be able to toggle between dark and light mode, and when you refresh the page, the theme preference should still persisted.
 
 ## Conclusion
 
-Here's the final version of the code:
-
-```js
-// script.js
-const themeButtom = document.getElementById('theme-button');
-
-function setTheme(theme = 'light') {
-  document.documentElement.setAttribute('data-theme', theme);
-  themeButtom.innerText = `Switch to ${theme}`;
-  localStorage.setItem('theme', theme);
-}
-
-const preloadedTheme = localStorage.getItem('theme') || 'light';
-
-setTheme(preloadedTheme);
-
-themeButtom.addEventListener('click', () => {
-  const currentTheme =
-    document.documentElement.getAttribute('data-theme') || 'light';
-  if (currentTheme === 'light') {
-    setTheme('dark');
-  } else {
-    setTheme('light');
-  }
-});
-```
-
-```css
-/* styles.css */
-html {
-  --bg-color: #fff;
-  --color: #000;
-}
-
-html[data-theme='dark'] {
-  --bg-color: #000;
-  --color: #fff;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--color);
-  transition: color, background-color 500ms;
-}
-```
+I hope this is useful to you!
 
 [Here's a working codesandbox](https://codesandbox.io/s/dark-mode-with-css-and-js-69uv6t)
-
-I hope this is useful to you!
 
 ## Helpful links
 
