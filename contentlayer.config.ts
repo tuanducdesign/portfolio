@@ -117,12 +117,12 @@ export default makeSource(async () => ({
       ],
       customCodeBlock,
       optimizeImageKit,
-      externalLink, // TODO: Reactivate this
+      externalLink,
     ],
   },
 }));
 
-export function externalLink() {
+function externalLink() {
   return (tree: H.Root) => {
     visit(tree, 'element', node => {
       if (node.tagName != 'a') return;
