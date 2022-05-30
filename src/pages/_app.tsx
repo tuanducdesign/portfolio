@@ -5,7 +5,7 @@ import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider attribute="class">
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-0TZP917KRV"
