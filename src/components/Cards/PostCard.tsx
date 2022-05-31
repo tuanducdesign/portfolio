@@ -27,16 +27,15 @@ export const PostCard = ({
                 alt={post.title}
                 {...getImgProps({
                   src: post.cover.path,
-                  widths: [post.cover.width ?? 420, 840, 1100],
+                  widths: [420, 840, 1100, post.cover.width],
                   sizes: [
-                    '(max-width: 560px) 100vw',
-                    '(min-width: 561px) and (max-width: 840px) 45vw',
-                    '(min-width: 841px) 30vw',
-                    (post.cover.width ?? 420) + 'px',
+                    '(max-width: 520px) 90vw',
+                    '(min-width: 521px) and (max-width: 840px) 45vw',
+                    '(min-width: 841px) and (max-width: 1100px) 30vw',
+                    `${post.cover.width}px`,
                   ],
                 })}
                 height={post.cover.height}
-                width={post.cover.width}
                 loading="lazy"
                 className="max-w-full w-full object-cover rounded-md"
               />

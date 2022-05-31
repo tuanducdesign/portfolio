@@ -22,7 +22,7 @@ export function Hero() {
         variants={textReveal}
         className="flex flex-col md:gap-y-4 gap-y-2 items-center relative"
       >
-        <h1 className="md:text-6xl text-4xl font-bold md:text-left text-center w-full">
+        <h1 className="md:text-6xl text-4xl font-bold lg:text-left text-center w-full">
           Hi!&nbsp;
           <motion.span
             transition={{
@@ -47,7 +47,7 @@ export function Hero() {
           initial="initial"
           animate="visible"
           variants={textReveal}
-          className="md:text-2xl font-semibold text-lg text-neutral md:text-left text-center max-w-[720px]"
+          className="md:text-2xl font-semibold text-lg text-neutral lg:text-left text-center max-w-[720px]"
         >
           {profile.highlight}
         </motion.p>
@@ -55,7 +55,7 @@ export function Hero() {
           initial="initial"
           animate="visible"
           variants={textReveal}
-          className="flex md:gap-x-4 md:flex-row gap-y-3 md:gap-y-0 flex-col w-full relative top-4"
+          className="flex gap-4 lg:flex-row flex-col w-full relative top-4"
         >
           <Link href="/hire" passHref>
             <Button className="text-xl" as="a">
