@@ -75,11 +75,11 @@ export default function BlogPostPage({
                 {...getImgProps({
                   src: post.cover.path,
                   sizes: [
-                    '(max-width: 520px) 100vw',
-                    '(min-width: 521px) and (max-width: 764px) 80vw',
-                    (post.cover.width ?? 480) + 'px',
+                    '(max-width: 520px) 90vw',
+                    '(min-width: 521px) and (max-width: 840px) 80vw',
+                    `${post.cover.width}px`,
                   ],
-                  widths: [post.cover.width ?? 480, 840, 1100],
+                  widths: [480, 840, 1100, post.cover.width],
                 })}
                 alt={post.title}
                 width={post.cover.width}

@@ -51,7 +51,7 @@ export default function BlogPages({
         </motion.div>
         <div className="mb-12">
           <h2 className="font-bold text-2xl mb-4">Recent Posts</h2>
-          <div className="grid md:grid-cols-3 sm:grid-grid-cols-2  gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 grid-grid-cols-2  gap-8">
             {posts.map(post => (
               <PostCard post={post} key={post.title} />
             ))}
