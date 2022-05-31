@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { profile, siteMeta } from '@site/config';
 
-interface SeoProps {
+type SeoProps = {
   description?: string;
   title?: string;
   favicon?: string;
@@ -10,7 +10,7 @@ interface SeoProps {
   image?: string;
   keywords?: string[];
   children?: ReactNode;
-}
+};
 
 export const Seo = ({
   description = '',
@@ -34,12 +34,11 @@ export const Seo = ({
         itemProp="description"
         content={description || siteMeta.description}
       />
-      <meta itemProp="image" content={siteMeta.image} />
+      <meta itemProp="image" content={image || siteMeta.image} />
       <meta property="og:site_name" content={siteMeta.title} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:title" content={title || siteMeta.title} />
-      <meta property="og:url" content={canonical} />
       <meta
         property="og:description"
         content={description || siteMeta.description}
@@ -57,7 +56,12 @@ export const Seo = ({
         content={description || siteMeta.description}
       />
       <meta property="twitter:image:src" content={image || siteMeta.image} />
-      {canonical && <link property="canonical" href={canonical} />}
+      {canonical && (
+        <Fragment>
+          <link property="canonical" href={canonical} />
+          <meta property="og:url" content={canonical} />
+        </Fragment>
+      )}
       <link rel="icon" href={favicon || '/favicon.svg'} />
       {children}
     </Head>
