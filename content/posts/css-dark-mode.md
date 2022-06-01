@@ -1,6 +1,6 @@
 ---
-title: Dark Mode with CSS
-description: A guide how to add dark mode in a website with only CSS and JavaScript
+title: Dark Mode without JavaScript framework or library
+description: A guide how to add dark mode in a website with only HTML, CSS and Vanilla JavaScript
 publishedAt: '2022-05-29'
 featured: false
 draft: true
@@ -13,16 +13,33 @@ cover:
 tags:
   - css
   - javascript
+  - html
+  - dark mode
+  - webdev
 ---
 
 If you're wondering like `how can i add dark mode without javascript framework or library?` then the answer is, `Yes, you can!`.
 
+## Color Scheme
+
+Before we dive into the fun part, let make sure that the browser know if our site can render different color scheme (dark, and light) by placing one `meta` tag
+
+```html
+<head>
+  <meta name="color-scheme" content="light dark" />
+  <!-- ... rest of the head -->
+</head>
+```
+
+What is this used for?, if you change system preference of your device to dark, you will notice that some of our native html element style is also changed.
+
 Assuming you have some understanding in `CSS`, and `JavaScript`, let's dive into it.
+
+## Adaptive stylesheet
 
 Create a `style.css`, and copy this code
 
 ```css
-/* styles.css */
 html {
   --bg-color: #fff;
   --color: #000;
@@ -43,11 +60,14 @@ In above snippet, we declare 2 variables `--bg-color` and `--color` and set them
 
 Then we use the variables by applying that to the `body` element.
 
+## Controlling the theme
+
 After stylesheet created, then we can continue to add a button to toggle the theme.
 
 ```html
 <!-- index.html -->
 <head>
+  <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -67,7 +87,8 @@ const themeButtom = document.getElementById('theme-button');
 
 function setTheme(theme = 'light') {
   document.documentElement.setAttribute('data-theme', theme);
-  themeButtom.innerText = `Switch to ${theme}`;
+  const text = theme === 'light' ? 'dark' : 'light';
+  themeButtom.innerText = `Switch to ${text}`;
 }
 
 themeButtom.addEventListener('click', () => {
@@ -83,32 +104,18 @@ themeButtom.addEventListener('click', () => {
 
 > Don't forget to reference this script to the html
 
-In above snippet, we grab the themeButton and store it in a variable called `themeButton`, and we declare a function called `setTheme` to change html's `data-theme` attribute, and our theme button's to change with the new theme.
+In above snippet, we grab the themeButton and store it in a variable called `themeButton`, and we declare a function called `setTheme` to change html's `data-theme` attribute, and our theme button's to change text to the opposite of the selected current theme.
 
 Then we're listening to the button's `click` event, and what we're doing is:
 
 - Get the current theme that is retrieved from the html's `data-theme` attribute, and if the value is `falsy` then assign to the default value to which is `light`.
 - And we check if the current theme is `light`, then we call the `setTheme` function with `"dark"` argument, otherwise pass `"light"`.
 
-Congratulations!, now your site can have different preferences.
+Congratulations!, now you should be able to toggle the theme.
 
 ## Bonus
 
-### Transition
-
-To add transition when user toggle the theme, just add 1 line of code to the `body` element.
-
-```css
-/* styles.css */
-body {
-  background-color: var(--bg-color);
-  color: var(--color);
-
-  transition: color, background-color 500ms;
-}
-```
-
-There I set the transition duration to `500` miliseconds to make it smooth. But you can set the duration how long you want.
+Here's some bonus tips for you.
 
 ### Persisting
 
@@ -128,7 +135,8 @@ What we need to do is to save the new theme every time we call the `setTheme` fu
 
 function setTheme(theme = 'light') {
   document.documentElement.setAttribute('data-theme', theme);
-  themeButtom.innerText = `Switch to ${theme}`;
+  const text = theme === 'light' ? 'dark' : 'light';
+  themeButtom.innerText = `Switch to ${text}`;
 
   // Save the new theme to the `localStorage`
   localStorage.setItem('theme', theme);
@@ -142,7 +150,8 @@ After we save the new theme, we can load the selected theme from the `localStora
 //... rest of the code
 function setTheme(theme = 'light') {
   document.documentElement.setAttribute('data-theme', theme);
-  themeButtom.innerText = `Switch to ${theme}`;
+  const text = theme === 'light' ? 'dark' : 'light';
+  themeButtom.innerText = `Switch to ${text}`;
   localStorage.setItem('theme', theme);
 }
 
@@ -157,6 +166,33 @@ setTheme(preloadedTheme);
 
 At this point you should be able to toggle between dark and light mode, and when you refresh the page, the theme preference should still persisted.
 
+### Prevent flashing
+
+If you try to set the theme to `dark` and reload the page, you should notice some short of flashing. This is because the `script` that has the logic to set the theme from localStorage is executed after the first browser paint.
+
+To solve this, we move the logic to read user preference to the `head` of the html.
+
+```html
+<head>
+  <meta name="color-scheme" content="light dark" />
+  <script>
+    let preloadedTheme = localStorage.getItem('theme');
+    if (preloadedTheme == null) {
+      const isPreferDark = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches;
+      preloadedTheme = isPreferDark ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', preloadedTheme);
+  </script>
+  <!-- ... rest of the head -->
+</head>
+```
+
+Here we are reading from the `localStorage` and check if there's no value from the `localStorage` with the key of `'theme'` (which means this is the first time the user visit our site) then we try to detect their system preference if set to dark by using `window.matchMedia` method, and set the `data-theme` to whatever the system preference is.
+
+And now you shouldn't get that flashing anymore, Cool!
+
 ## Conclusion
 
 I hope this is useful to you!
@@ -166,4 +202,5 @@ I hope this is useful to you!
 ## Helpful links
 
 - CSS Variables https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
-- WTF is `falsy`? https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+- WTF is `falsy` https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+- `window.matchMedia` https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia

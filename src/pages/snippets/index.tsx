@@ -23,6 +23,8 @@ export default function SnippetsPage({
         ]}
         image={buildImageKitURL({
           src: '/projects/project9_-Slq5rX9o.jpg',
+          width: 420,
+          aspectRatio: '4:3',
         })}
       >
         <link href="https://cdn.jsdelivr.net" rel="preconnect" />

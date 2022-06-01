@@ -20,7 +20,11 @@ export default function ProjectDetail({
         title={project.title}
         keywords={project.technologies}
         description={project.title}
-        image={buildImageKitURL({ src: project.thumbnail })}
+        image={buildImageKitURL({
+          src: project.thumbnail,
+          width: 420,
+          aspectRatio: '4:3',
+        })}
       />
       <Container className="max-w-prose my-12">
         <BackButton />

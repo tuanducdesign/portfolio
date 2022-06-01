@@ -28,6 +28,8 @@ export default function BlogPages({
         ]}
         image={buildImageKitURL({
           src: '/misc/glenn-carstens-peters-npxXWgQ33ZQ-unsplash_7H3jgLOx_.jpg',
+          width: 420,
+          aspectRatio: '4:3',
         })}
       />
       <Container className="max-w-4xl mx-auto">

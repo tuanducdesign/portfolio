@@ -3,6 +3,7 @@ title: An article with a lot of images!
 description: Demonstrate CLS issue on the web, by comparing image with width and height and the one with plain image
 publishedAt: '2022-05-19'
 featured: false
+draft: true
 cover:
   path: /posts/josh-hild-0Rl-SWbjMgE-unsplash_mAeeRV6D3.jpg
   width: 4240

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, type Variant } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const hideIcon = {
@@ -6,11 +6,11 @@ const hideIcon = {
   opacity: 0,
 };
 
-const showIcon = {
+const showIcon: Variant = {
   pathLength: 1,
   opacity: 1,
   transition: {
-    pathLength: { type: 'spring', duration: 1, bounce: 0 },
+    pathLength: { type: 'spring', duration: 1, bounce: 0, delay: 0.3 },
     opacity: { duration: 0.8 },
   },
 };
@@ -33,7 +33,6 @@ export const ThemeIcon = ({ theme = 'dark' }: { theme?: string }) => {
   }, []);
 
   if (!mounted) return <span className="h-6 w-6" />;
-
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"

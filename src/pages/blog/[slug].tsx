@@ -35,7 +35,11 @@ export default function BlogPostPage({
       <Seo
         title={post.title}
         description={post.description}
-        image={buildImageKitURL({ src: post.cover.path })}
+        image={buildImageKitURL({
+          src: post.cover.path,
+          width: 420,
+          aspectRatio: '4:3',
+        })}
         keywords={post.tags}
       />
       <Container className="flex justify-center flex-col my-8 max-w-prose">
@@ -47,7 +51,7 @@ export default function BlogPostPage({
             {dateFormatter.format(new Date(post.publishedAt))}&nbsp;-&nbsp;
             {post.readingTime.text}
           </span>
-          <ul className="flex gap-2">
+          <ul className="flex gap-2 flex-wrap">
             {post.tags.map((tag, idx) => (
               <li key={tag + idx} className="p-1">
                 <Link
@@ -82,7 +86,6 @@ export default function BlogPostPage({
                   widths: [480, 840, 1100, post.cover.width],
                 })}
                 alt={post.title}
-                width={post.cover.width}
                 height={post.cover.height}
                 className="rounded-md object-cover object-center"
                 title={`Photo by ${post.cover.author}`}
