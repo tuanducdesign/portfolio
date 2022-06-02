@@ -17,7 +17,7 @@ export default function BlogPages({
     <Layout>
       <Seo
         title="Blog"
-        description="Ashal's personal blog about Coding"
+        description="Ashal's technical blog"
         keywords={[
           'coding',
           'react',
@@ -25,6 +25,7 @@ export default function BlogPages({
           'ashal farhan',
           'blog',
           'nextjs',
+          'webdev',
         ]}
         image={buildImageKitURL({
           src: '/misc/glenn-carstens-peters-npxXWgQ33ZQ-unsplash_7H3jgLOx_.jpg',

@@ -25,18 +25,7 @@ type GeoState =
       error: GeolocationPositionError;
     };
 
-type UseGeoLocationOptions = {
-  /**
-   * Watch the user location
-   * @default false
-   */
-  watch?: boolean;
-} & PositionOptions;
-
-export const useGeoLocation = ({
-  watch = false,
-  ...options
-}: UseGeoLocationOptions = {}) => {
+export const useGeoLocation = (options: PositionOptions = {}) => {
   const [state, setState] = useState<GeoState>({ status: 'idle' });
   const watchId = useRef<number>();
 
@@ -58,15 +47,11 @@ export const useGeoLocation = ({
       }));
     };
 
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-
-    if (watch) {
-      watchId.current = navigator.geolocation.watchPosition(
-        onSuccess,
-        onError,
-        options,
-      );
-    }
+    watchId.current = navigator.geolocation.watchPosition(
+      onSuccess,
+      onError,
+      options,
+    );
 
     return () => {
       if (watchId.current) {
