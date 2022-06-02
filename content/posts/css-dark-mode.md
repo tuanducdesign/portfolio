@@ -1,5 +1,5 @@
 ---
-title: Dark Mode without JavaScript framework or library
+title: Vanilla Dark Mode
 description: A guide how to add dark mode in a website with only HTML, CSS and Vanilla JavaScript
 publishedAt: '2022-05-29'
 featured: false
@@ -104,7 +104,7 @@ themeButtom.addEventListener('click', () => {
 
 > Don't forget to reference this script to the html
 
-In above snippet, we grab the themeButton and store it in a variable called `themeButton`, and we declare a function called `setTheme` to change html's `data-theme` attribute, and our theme button's to change text to the opposite of the selected current theme.
+In above snippet, we grab the themeButton and store it in a variable called `themeButton`, and we declare a function called `setTheme` to change html's `data-theme` attribute, and our theme button's to change text to the opposite of the selected theme.
 
 Then we're listening to the button's `click` event, and what we're doing is:
 
