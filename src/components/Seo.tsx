@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import { Fragment, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { profile, siteMeta } from '@site/config';
+import { useRouter } from 'next/router';
 
 type SeoProps = {
   description?: string;
   title?: string;
   favicon?: string;
-  canonical?: string;
   image?: string;
   keywords?: string[];
   children?: ReactNode;
@@ -16,11 +16,11 @@ export const Seo = ({
   description = '',
   title = '',
   favicon = '',
-  canonical = '',
   image,
   children,
   keywords,
 }: SeoProps) => {
+  const { asPath } = useRouter();
   return (
     <Head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -56,12 +56,8 @@ export const Seo = ({
         content={description || siteMeta.description}
       />
       <meta property="twitter:image:src" content={image || siteMeta.image} />
-      {canonical && (
-        <Fragment>
-          <link property="canonical" href={canonical} />
-          <meta property="og:url" content={canonical} />
-        </Fragment>
-      )}
+      <link property="canonical" href={siteMeta.domain + asPath} />
+      <meta property="og:url" content={siteMeta.domain + asPath} />
       <link rel="icon" href={favicon || '/favicon.svg'} />
       {children}
     </Head>
