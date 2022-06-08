@@ -4,6 +4,11 @@ export default function Document() {
   return (
     <Html lang="en" className="scroll-smooth">
       <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `let preloadedTheme=localStorage.getItem("theme");if(preloadedTheme==null){const isPreferDark=window.matchMedia('(prefers-color-scheme:dark)').matches;preloadedTheme=isPreferDark?'dark':'light';}if(preloadedTheme==="dark"){document.documentElement.classList.add("dark");}document.documentElement.style['color-scheme']=preloadedTheme;`,
+          }}
+        />
         <link rel="preconnect" href="https://ik.imagekit.io" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
       </Head>
