@@ -43,7 +43,7 @@ body {
 }
 ```
 
-In above snippet, we declare 2 variables `--bg-color` and `--color` and set them to white and black. Below that, we delare the same variables with reversed colors. The second selector means: if the html tag has `data-theme` attribute set to `dark`, then modify both variables with the value inside of the `html[data-theme='dark']` block.
+In above snippet, we declare 2 variables `--bg-color` and `--color` and set them to white and black. Below that, we declare the same variables with reversed colors. The second selector means: if the html tag has `data-theme` attribute set to `dark`, then modify both variables with the value inside of the `html[data-theme='dark']` block.
 
 Then we use the variables by applying that to the `body` element.
 
