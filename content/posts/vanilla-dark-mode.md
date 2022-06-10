@@ -43,7 +43,7 @@ body {
 }
 ```
 
-In above snippet, we declare 2 variables `--bg-color` and `--color` and set them to white and black. Below that, we declare the same variables with reversed colors. The second selector means: if the html tag has `data-theme` attribute set to `dark`, then modify both variables with the value inside of the `html[data-theme='dark']` block.
+In above snippet, we declare 2 variables `--bg-color` and `--color` and set them to white and black. Below that, we declare the same variables with reversed colors. The second selector means: if the html document has `data-theme` attribute set to `dark`, then modify both variables with the value inside of the `html[data-theme='dark']` block.
 
 Then we use the variables by applying that to the `body` element.
 
@@ -63,7 +63,7 @@ After stylesheet created, then we can continue to add a button to toggle the the
 </body>
 ```
 
-This button will responsible for toggling the `data-theme` attribute of the html document root.
+This button will responsible for toggling the `data-theme` attribute of the html document.
 
 Now let's take a look what we need to do with JavaScript.
 
@@ -110,7 +110,7 @@ You can read more about them [here](https://developer.mozilla.org/en-US/docs/Web
 
 For this example I think `localStorage` is the best option to save the user preferences.
 
-What we need to do is to save the new theme every time we call the `setTheme` function
+What we need to do is to save the selected theme every time we call the `setTheme` function
 
 ```js
 // script.js
@@ -121,7 +121,7 @@ function setTheme(theme = 'light') {
   const text = theme === 'light' ? 'dark' : 'light';
   themeButtom.innerText = `Switch to ${text}`;
 
-  // Save the new theme to the `localStorage`
+  // Save the selected theme to the `localStorage`
   localStorage.setItem('theme', theme);
 }
 ```
@@ -147,7 +147,7 @@ setTheme(preloadedTheme);
 //... rest of the code
 ```
 
-At this point your site's theme preference should already persisted.
+At this point, your site's theme preference should already be persisted.
 
 ### Prevent flashing
 
@@ -155,7 +155,7 @@ If you try to set the theme to `dark` and reload the page, you should notice som
 
 #### Preload
 
-To solve this, we move the logic to read user preference to the `head` of the html.
+To solve this, we move the logic to read user preference to the `head` of the html document.
 
 ```html
 <head>
@@ -173,7 +173,16 @@ To solve this, we move the logic to read user preference to the `head` of the ht
 </head>
 ```
 
-Here we are reading from the `localStorage` and check if there's no value from the `localStorage` with the key of `'theme'` (which means this is the first time the user visit our site) then we try to detect their system preference if set to dark by using `window.matchMedia` method, and set the `data-theme` to whatever the system preference is.
+Here we are reading from the `localStorage` and check if there's no value from the `localStorage` with the key of `'theme'` (which means this is the first time the user visit our site) then we try to detect their system preference if set to dark by using `window.matchMedia` method, and set the `data-theme` to whatever the system preference is. We are saving this to the `preloadedTheme` variable, and now we can remove the step of reading `localStorage` in our script.
+
+```js
+// Remove below code
+// const preloadedTheme = localStorage.getItem('theme') || 'light';
+
+// The `preloadedTheme` variable is coming from the head of our preload script
+setTheme(preloadedTheme);
+//... rest of the code
+```
 
 #### Color Scheme
 
@@ -188,9 +197,7 @@ What we need to do is to set this property to the root html document whenever us
 //... rest of the code
 function setTheme(theme = 'light') {
   document.documentElement.setAttribute('data-theme', theme);
-
-  document.documentElement.style['color-scheme'] = theme;
-
+  document.documentElement.style['color-scheme'] = theme; // Add this line
   const text = theme === 'light' ? 'dark' : 'light';
   themeButtom.innerText = `Switch to ${text}`;
   localStorage.setItem('theme', theme);
@@ -210,8 +217,7 @@ Then we can also a set this property in the preload script.
       preloadedTheme = isPreferDark ? 'dark' : 'light';
     }
     document.documentElement.setAttribute('data-theme', preloadedTheme);
-
-    document.documentElement.style['color-scheme'] = preloadedTheme;
+    document.documentElement.style['color-scheme'] = preloadedTheme; // Add this line
   </script>
   <!-- ... rest of the head -->
 </head>
