@@ -68,13 +68,7 @@ const Project = defineDocumentType(() => ({
     liveUrl: { type: 'string' },
     repoUrl: { type: 'string', required: true },
     thumbnail: { type: 'string', required: true },
-    technologies: {
-      type: 'list',
-      required: true,
-      of: {
-        type: 'string',
-      },
-    },
+    technologies: { type: 'list', required: true, of: { type: 'string' } },
   },
 }));
 
@@ -136,7 +130,7 @@ function externalLink() {
 }
 
 function optimizeImageKit() {
-  return async (tree: H.Root) => {
+  return (tree: H.Root) => {
     visit(tree, 'element', node => {
       if (node.tagName !== 'img') return;
       node.properties ??= {};
@@ -179,16 +173,20 @@ function optimizeImageKit() {
 }
 
 function customCodeBlock() {
-  return async (tree: H.Root) => {
+  return (tree: H.Root) => {
     visit(tree, 'element', (node, _, parent) => {
       if (node.tagName !== 'code' || !parent) return;
-      if (!('tagName' in parent)) return;
-      if (parent.tagName !== 'pre') {
-        node.properties ??= {};
-        node.properties.className =
-          'text-primary dark:bg-gray-800 bg-gray-200 rounded-md py-[1px] px-1 transition-colors';
-        return;
-      }
+      if (!('tagName' in parent) || parent.tagName === 'pre') return;
+      node.properties ??= {};
+      node.properties.className = [
+        'text-primary',
+        'dark:bg-gray-800',
+        'bg-gray-200',
+        'rounded-md',
+        'py-[1px]',
+        'px-1',
+        'transition-colors',
+      ].join(' ');
     });
   };
 }
