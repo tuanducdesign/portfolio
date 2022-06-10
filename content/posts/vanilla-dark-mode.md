@@ -1,9 +1,9 @@
 ---
 title: Vanilla Dark Mode
 description: A guide how to add dark mode in a website with only HTML, CSS and Vanilla JavaScript
-publishedAt: '2022-05-29'
+publishedAt: '2022-06-10'
 featured: false
-draft: true
+draft: false
 cover:
   path: /posts/mario-azzi-CL6560K5vOo-unsplash_G29pe5Xu6.jpg
   width: 4240
@@ -54,7 +54,6 @@ After stylesheet created, then we can continue to add a button to toggle the the
 ```html
 <!-- index.html -->
 <head>
-  <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
