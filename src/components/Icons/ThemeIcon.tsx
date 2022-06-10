@@ -10,7 +10,7 @@ const showIcon: Variant = {
   pathLength: 1,
   opacity: 1,
   transition: {
-    pathLength: { type: 'spring', duration: 1, bounce: 0, delay: 0.3 },
+    pathLength: { type: 'spring', duration: 1, bounce: 0, delay: 0.5 },
     opacity: { duration: 0.8 },
   },
 };
