@@ -120,9 +120,7 @@ function setTheme(theme = 'light') {
   document.documentElement.setAttribute('data-theme', theme);
   const text = theme === 'light' ? 'dark' : 'light';
   themeButtom.innerText = `Switch to ${text}`;
-
-  // Save the selected theme to the `localStorage`
-  localStorage.setItem('theme', theme);
+  localStorage.setItem('theme', theme); // Add this line
 }
 ```
 
@@ -176,8 +174,8 @@ To solve this, we move the logic to read user preference to the `head` of the ht
 Here we are reading from the `localStorage` and check if there's no value from the `localStorage` with the key of `'theme'` (which means this is the first time the user visit our site) then we try to detect their system preference if set to dark by using `window.matchMedia` method, and set the `data-theme` to whatever the system preference is. We are saving this to the `preloadedTheme` variable, and now we can remove the step of reading `localStorage` in our script.
 
 ```js
-// Remove below code
-// const preloadedTheme = localStorage.getItem('theme') || 'light';
+// script.js
+const preloadedTheme = localStorage.getItem('theme') || 'light'; // Remove this line
 
 // The `preloadedTheme` variable is coming from the head of our preload script
 setTheme(preloadedTheme);
