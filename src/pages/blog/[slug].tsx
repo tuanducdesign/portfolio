@@ -12,14 +12,6 @@ import Link from 'next/link';
 import { buildImageKitURL } from '@site/libs';
 import { allPosts } from '@content';
 
-// import { profile } from '@site/config';
-// function getTwitterShareLink({ title, slug }: { title: string; slug: string }) {
-//   return `https://twitter.com/intent/tweet?${new URLSearchParams({
-//     url: `https://ashal.me/blog/${slug}`,
-//     text: `I just read "${title}" by @${profile.personal.twitter}`,
-//   })}`;
-// }
-
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'long',
   year: 'numeric',

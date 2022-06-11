@@ -34,17 +34,17 @@ export default function SnippetsPage({
         <p className="text-neutral mt-2">
           These are collection of code snippets I&apos;ve used and saved.
         </p>
-        <div className="grid md:grid-cols-2 gap-8 mt-4">
+        <div className="grid md:grid-cols-2 gap-3 mt-4">
           {snippets.map(snippet => (
             <Link
               href={'/snippets/' + snippet.slug}
               key={snippet.title}
               passHref
             >
-              <a className="rounded-lg p-4 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors relative">
+              <a className="rounded-lg p-3 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors relative">
                 <img
                   src={snippet.icon}
-                  className="mb-2 absolute top-2 right-2"
+                  className="mb-2 absolute top-3 right-3"
                   width={24}
                   height={24}
                   alt={snippet.tags.join(', ')}
