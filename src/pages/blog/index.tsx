@@ -69,6 +69,10 @@ export const getStaticProps = async () => ({
   props: {
     posts: allPosts
       .filter(post => !post.draft)
+      .sort(
+        (a, b) =>
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+      )
       .map(post =>
         pick(post, ['title', 'slug', 'publishedAt', 'cover', 'placeholder']),
       ),

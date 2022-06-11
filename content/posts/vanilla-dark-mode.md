@@ -1,7 +1,7 @@
 ---
 title: Vanilla Dark Mode
 description: A guide how to add dark mode in a website with only HTML, CSS and Vanilla JavaScript
-publishedAt: '2022-06-10'
+publishedAt: '2022-06-11'
 featured: false
 draft: false
 cover:
