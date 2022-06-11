@@ -108,7 +108,7 @@ You can read more about them [here](https://developer.mozilla.org/en-US/docs/Web
 
 > In short, `localStorage` will keep the value forever, unless user decided to remove it. On the other hand, `sessionStorage` will remove all of the value if user close the browser.
 
-For this example I think `localStorage` is the best option to save the user preferences.
+For this example I think `localStorage` is the best option to save the theme.
 
 What we need to do is to save the selected theme every time we call the `setTheme` function
 
@@ -124,7 +124,7 @@ function setTheme(theme = 'light') {
 }
 ```
 
-After we save the new theme, we can load the selected theme from the `localStorage` when page load.
+After we save the selected theme, we can load the selected theme from the `localStorage` when the page load.
 
 ```js
 // script.js
@@ -153,7 +153,7 @@ If you try to set the theme to `dark` and reload the page, you should notice som
 
 #### Preload
 
-To solve this, we move the logic to read user preference to the `head` of the html document.
+To solve this, we need to move the logic of reading from `localStorage` to the `head` of the html document.
 
 ```html
 <head>
@@ -171,7 +171,7 @@ To solve this, we move the logic to read user preference to the `head` of the ht
 </head>
 ```
 
-Here we are reading from the `localStorage` and check if there's no value from the `localStorage` with the key of `'theme'` (which means this is the first time the user visit our site) then we try to detect their system preference if set to dark by using `window.matchMedia` method, and set the `data-theme` to whatever the system preference is. We are saving this to the `preloadedTheme` variable, and now we can remove the step of reading `localStorage` in our script.
+Here we are reading from the `localStorage` and check if there's no value from the `localStorage` with the key of `'theme'` (which means this is the first time the user visit our site) then we try to detect their system preference by using `window.matchMedia` method, and set the `data-theme` to whatever the system preference is. We are saving this to the `preloadedTheme` variable, and now we can remove the step of reading `localStorage` in our script.
 
 ```js
 // script.js
@@ -188,7 +188,7 @@ This is the last optimization if your site have a heavy content.
 
 We can utilize the `color-scheme` CSS property so that we can give a hint to the browser about the color scheme of our site. The common value for this property are `dark` and `light`. This property will also change our initial element styling including form controls, and scrollbars.
 
-What we need to do is to set this property to the root html document whenever user change the theme.
+What we need to do is to set this property to the html document whenever the user change the theme.
 
 ```js
 // script.js
@@ -225,7 +225,7 @@ And now you shouldn't get that flashing anymore, Cool!
 
 ### Reacting to system preferences changes
 
-The last bonus is to make our site respond to the system preferences, whenever user change their system preferences, our site will also following whatever the system preferences that they currently chose.
+The last bonus is to make our site respond to the system preferences. Whenever the user change their system preferences, we will make our site also following whatever the system preferences that they currently chose.
 
 ```js
 // script.js
@@ -241,7 +241,7 @@ darkMode.addEventListener('change', e => {
 });
 ```
 
-Here we are listening for change event of the CSS `prefers-color-scheme` media query, then we check if the event matches (which means user's system preference is on the dark mode), if it is then change our site's theme `dark`.
+Here we are listening for change event of the CSS `prefers-color-scheme` media query, then we check if the event matches (which means user's system preference is on the dark mode), then change our site's theme to `dark`.
 
 To test this, you can change the system preference of your device and make sure that your site will also follow whatever the system preference that you chose.
 
