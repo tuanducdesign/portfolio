@@ -4,6 +4,9 @@ on:
   push:
     paths-ignore:
       - '**.md'
+env:
+  CI: true
+  PLAYWRIGHT_BROWSERS_PATH: 0
 
 jobs:
   build:
@@ -22,13 +25,14 @@ jobs:
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: yarn-${{ runner.os }}-v1-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            yarn-${{ runner.os }}-v1-
 
       - name: Install dependencies ⬇️
         if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --frozen-lockfile
 
       - name: Code analysis ⌨️
         run: |
@@ -36,7 +40,46 @@ jobs:
           yarn lint
 
       - name: Test 🧪
-        run: yarn test --ci
+        run: yarn test
 
       - name: Build 👷‍♀️
         run: yarn build
+
+  # e2e-test:
+  #   name: E2E Testing with Playwright
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Wait Vercel Deployment ⌚️
+  #       uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
+  #       id: vercel-deploy
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         max_timeout: 600
+
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 16.13
+
+  #     - name: Restore cache 🔍
+  #       uses: actions/cache@v2
+  #       id: cache-deps
+  #       with:
+  #         path: |
+  #           node_modules
+  #         key: yarn-v1-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           yarn-v1-${{ runner.os }}-
+
+  #     - name: Install dependencies, and browsers ⬇️
+  #       if: steps.cache-deps.outputs.cache-hit != 'true'
+  #       run: |
+  #         yarn install --frozen-lockfile
+  #         npx playwright install
+  #         npx playwright install-deps
+
+  #     - name: E2E Tests 💻
+  #       run: yarn test:e2e
+  #       env:
+  #         BASE_URL: ${{ steps.vercel-deploy.outputs.url }}

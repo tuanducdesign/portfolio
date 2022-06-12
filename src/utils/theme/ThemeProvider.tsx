@@ -7,7 +7,7 @@ export const ThemeProvider = (props: { children: ReactNode }) => {
       const isDark = document.documentElement.classList.contains('dark');
       return isDark ? 'dark' : 'light';
     } catch {
-      return 'dark';
+      return 'light';
     }
   });
 

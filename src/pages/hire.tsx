@@ -12,18 +12,14 @@ export default function HirePage({
       <Container className="max-w-prose mx-auto my-20">
         <Markdown content={content} />
         <div className="grid md:grid-cols-2 gap-4 mt-8">
-          <Button
-            className="flex-auto"
-            as="a"
-            href={`mailto:${profile.personal.email}`}
-          >
+          <Button as="a" href={`mailto:${profile.personal.email}`}>
             Mail Me
           </Button>
           <Button
-            className="flex-auto"
             as="a"
-            href="/resume.pdf"
-            download={`${profile.fullName}-Resume`}
+            href={profile.resumeDownload}
+            target="_blank"
+            rel="noreferrer noopener"
           >
             My Resume
           </Button>

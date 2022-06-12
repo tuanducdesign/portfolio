@@ -22,6 +22,7 @@ export const Header = () => {
           color="unstyled"
           className="flex items-center justify-center !p-2"
           onClick={toggleDarkMode}
+          aria-label="Toggle theme"
         >
           <ThemeIcon theme={theme} />
         </Button>
