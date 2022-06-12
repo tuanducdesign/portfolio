@@ -16,5 +16,5 @@ export const profile = {
   resumeURL:
     'https://drive.google.com/file/d/1yXL1xBnqTe7KpatYfUyBfivHgwyBR1We/view?usp=sharing',
   resumeDownload:
-    'https://drive.google.com/uc?export=download&amp;id=1yXL1xBnqTe7KpatYfUyBfivHgwyBR1We',
+    'https://drive.google.com/uc?export=download&id=1yXL1xBnqTe7KpatYfUyBfivHgwyBR1We',
 };
