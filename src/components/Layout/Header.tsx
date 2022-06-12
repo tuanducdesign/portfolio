@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Container } from '../Container';
 import { BrandIcon, ThemeIcon } from '../Icons';
 import { Button } from '../Button';
-import { useTheme } from '@site/context';
+import { useTheme } from '@site/utils';
 
 export const Header = () => {
   const { theme, toggle: toggleDarkMode } = useTheme();
