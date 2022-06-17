@@ -15,10 +15,6 @@ const internalLinks = [
     href: '/blog',
     label: 'Blog',
   },
-  {
-    href: '/snippets',
-    label: 'Snippets',
-  },
 ];
 
 const profileLinks = [

@@ -1,13 +1,7 @@
 ---
-title: GitHub Actions
-description: Setup Github Actions in a JavaScript project
-icon: https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg
-tags:
-  - javascript
-  - testing
-  - formatting
-  - linter
-  - continous integration
+title: How to add a simple GitHub Actions to a JavaScript project
+publishedAt: '2022-05-27'
+draft: false
 ---
 
 GitHub will run your action that located in a `.github/workflows` directory relative to the project root.
@@ -74,7 +68,7 @@ jobs:
         run: yarn build
 ```
 
-## TypeScript
+### TypeScript
 
 To use this action with TypeScript, just add 1 more commands to run on `Code analysis` step
 
@@ -90,6 +84,6 @@ To use this action with TypeScript, just add 1 more commands to run on `Code ana
 
 But it's optional if the `build` script doesn't already cover the type checking step. For [Next.js](https://nextjs.org/) project, the type checking step is already covered in the `build` step as [described here](https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors).
 
-## References
+### References
 
 - Runner Option https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job#choosing-github-hosted-runners

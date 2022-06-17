@@ -13,7 +13,6 @@ cover:
 tags:
   - css
   - javascript
-  - html
   - dark mode
   - webdev
 ---

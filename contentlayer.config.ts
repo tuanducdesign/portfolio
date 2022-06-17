@@ -33,6 +33,17 @@ const PostCover = defineNestedType(() => ({
   },
 }));
 
+const Tutorial = defineDocumentType(() => ({
+  name: 'Tutorial',
+  filePathPattern: 'tutorials/*.md',
+  fields: {
+    draft: { type: 'boolean', default: false },
+    publishedAt: { type: 'date', required: true },
+    title: { type: 'string', required: true },
+  },
+  computedFields,
+}));
+
 const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: 'posts/*.md',
@@ -72,18 +83,6 @@ const Project = defineDocumentType(() => ({
   },
 }));
 
-const Snippet = defineDocumentType(() => ({
-  name: 'Snippet',
-  computedFields,
-  filePathPattern: 'snippets/*.md',
-  fields: {
-    title: { type: 'string', required: true },
-    description: { type: 'string', required: true },
-    icon: { type: 'string', required: true },
-    tags: { type: 'list', required: true, of: { type: 'string' } },
-  },
-}));
-
 const Pages = defineDocumentType(() => ({
   name: 'Pages',
   fields: {},
@@ -92,7 +91,7 @@ const Pages = defineDocumentType(() => ({
 
 export default makeSource(async () => ({
   contentDirPath: 'content',
-  documentTypes: [Post, Project, Snippet, Pages],
+  documentTypes: [Post, Project, Pages, Tutorial],
   onMissingOrIncompatibleData: 'fail',
   onExtraFieldData: 'fail',
   markdown: {
@@ -109,7 +108,7 @@ export default makeSource(async () => ({
         rehypeShiki,
         { highlighter: await getHighlighter({ theme: 'one-dark-pro' }) },
       ],
-      customCodeBlock,
+      inlineCode,
       optimizeImageKit,
       externalLink,
     ],
@@ -172,7 +171,7 @@ function optimizeImageKit() {
   };
 }
 
-function customCodeBlock() {
+function inlineCode() {
   return (tree: H.Root) => {
     visit(tree, 'element', (node, _, parent) => {
       if (node.tagName !== 'code' || !parent) return;

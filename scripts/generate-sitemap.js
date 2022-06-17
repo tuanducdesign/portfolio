@@ -8,7 +8,7 @@ main();
 
 function main() {
   const base = path.join(process.cwd(), '.next/server/pages');
-  const subpaths = ['', '/blog', '/project', '/snippets'];
+  const subpaths = ['', '/blog', '/project', '/tutorials'];
   const segments = subpaths.map(sub => {
     const files = fs
       .readdirSync(path.join(base, sub))
