@@ -16,5 +16,13 @@
     ],
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@next/next/no-img-element": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": ["scripts/*.ts"],
+      "rules": {
+        "no-console": 0
+      }
+    }
+  ]
 }
