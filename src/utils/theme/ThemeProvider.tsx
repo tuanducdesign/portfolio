@@ -26,12 +26,12 @@ export const ThemeProvider = (props: { children: ReactNode }) => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
-    const handlePreferColorSchemeChange = (e: MediaQueryListEvent) => {
+    const handleChange = (e: MediaQueryListEvent) => {
       setTheme(e.matches ? 'dark' : 'light');
     };
-    darkMode.addEventListener('change', handlePreferColorSchemeChange);
+    darkMode.addEventListener('change', handleChange);
     return () => {
-      darkMode.removeEventListener('change', handlePreferColorSchemeChange);
+      darkMode.removeEventListener('change', handleChange);
     };
   }, []);
 
