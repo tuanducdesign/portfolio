@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.stroke-dash-1 {
+  stroke-dasharray: 1px 1px;
+}
+
+.stroke-dash-0 {
+  stroke-dasharray: 0px 1px;
+}
+
+.theme-icon-transition {
+  transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in-out;
+}

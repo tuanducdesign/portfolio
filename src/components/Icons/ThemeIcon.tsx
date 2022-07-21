@@ -1,31 +1,29 @@
-import { motion, type Variant } from 'framer-motion';
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import type { Theme } from '@site/utils';
 
-const hideIcon = {
-  pathLength: 0,
-  opacity: 0,
+const sunClasses = {
+  dark: 'stroke-dash-0 opacity-0',
+  light: 'stroke-dash-1 opacity-1',
 };
 
-const showIcon: Variant = {
-  pathLength: 1,
-  opacity: 1,
-  transition: {
-    pathLength: { type: 'spring', duration: 1, bounce: 0, delay: 0.5 },
-    opacity: { duration: 0.8 },
-  },
+const moonClasses = {
+  dark: 'stroke-dash-1 opacity-1',
+  light: 'stroke-dash-0 opacity-0',
 };
 
-const moonVariants = {
-  light: hideIcon,
-  dark: showIcon,
-};
+const sunLines = [
+  { x1: '12', y1: '1', x2: '12', y2: '3' },
+  { x1: '12', y1: '21', x2: '12', y2: '23' },
+  { x1: '4.22', y1: '4.22', x2: '5.64', y2: '5.64' },
+  { x1: '18.36', y1: '18.36', x2: '19.78', y2: '19.78' },
+  { x1: '1', y1: '12', x2: '3', y2: '12' },
+  { x1: '21', y1: '12', x2: '23', y2: '12' },
+  { x1: '4.22', y1: '19.78', x2: '5.64', y2: '18.36' },
+  { x1: '18.36', y1: '5.64', x2: '19.78', y2: '4.22' },
+];
 
-const sunVariants = {
-  light: showIcon,
-  dark: hideIcon,
-};
-
-export const ThemeIcon = ({ theme = 'dark' }: { theme?: string }) => {
+export const ThemeIcon = ({ theme }: { theme: Theme }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -34,7 +32,7 @@ export const ThemeIcon = ({ theme = 'dark' }: { theme?: string }) => {
 
   if (!mounted) return <span className="h-6 w-6" />;
   return (
-    <motion.svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -45,78 +43,29 @@ export const ThemeIcon = ({ theme = 'dark' }: { theme?: string }) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="stroke-current"
-      initial={false}
-      animate={theme in sunVariants ? theme : 'dark'}
     >
       {/* Moon */}
-      <motion.path
-        variants={moonVariants}
+      <path
+        pathLength="1"
         d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-        custom={1}
-      ></motion.path>
+        className={clsx('theme-icon-transition', moonClasses[theme])}
+      />
       {/* SUN */}
-      <motion.circle
-        variants={sunVariants}
+      <circle
+        pathLength="1"
+        className={clsx('theme-icon-transition', sunClasses[theme])}
         cx="12"
         cy="12"
         r="5"
-      ></motion.circle>
-      <motion.line
-        variants={sunVariants}
-        x1="12"
-        y1="1"
-        x2="12"
-        y2="3"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="12"
-        y1="21"
-        x2="12"
-        y2="23"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="4.22"
-        y1="4.22"
-        x2="5.64"
-        y2="5.64"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="18.36"
-        y1="18.36"
-        x2="19.78"
-        y2="19.78"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="1"
-        y1="12"
-        x2="3"
-        y2="12"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="21"
-        y1="12"
-        x2="23"
-        y2="12"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="4.22"
-        y1="19.78"
-        x2="5.64"
-        y2="18.36"
-      ></motion.line>
-      <motion.line
-        variants={sunVariants}
-        x1="18.36"
-        y1="5.64"
-        x2="19.78"
-        y2="4.22"
-      ></motion.line>
-    </motion.svg>
+      />
+      {sunLines.map((l, i) => (
+        <line
+          key={i}
+          pathLength="1"
+          className={clsx('theme-icon-transition', sunClasses[theme])}
+          {...l}
+        />
+      ))}
+    </svg>
   );
 };
