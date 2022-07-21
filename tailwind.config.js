@@ -2,12 +2,39 @@ const { yellow, slate } = require('tailwindcss/colors');
 
 module.exports = {
   darkMode: 'class',
-  content: ['./src/**/*.{jsx,tsx,ts}', './contentlayer.config.ts'],
+  content: ['./src/**/*.{tsx,ts}', './contentlayer.config.ts'],
   theme: {
     container: {
       center: true,
     },
     extend: {
+      animation: {
+        'fade-up': 'fade-up 500ms ease',
+        'waving-hand': 'waving-hand-2 2.1s linear',
+      },
+      keyframes: {
+        'fade-up': {
+          from: {
+            transform: 'translate(0, 25px)',
+            opacity: 0,
+          },
+          to: {
+            transform: 'translate(0, 0)',
+            opacity: 1,
+          },
+        },
+        'waving-hand-2': {
+          '0%, 70%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '10%, 30%, 50%': {
+            transform: 'rotate(24deg)',
+          },
+          '20%, 40%, 60%': {
+            transform: 'rotate(-8deg)',
+          },
+        },
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -34,7 +61,6 @@ module.exports = {
         'light-primary': '#FBFBFB',
         primary: '#60A5FA',
         secondary: yellow[500],
-        // Neutral color: description, footer.
         neutral: slate[500],
         'neutral-light': slate[400],
       },
