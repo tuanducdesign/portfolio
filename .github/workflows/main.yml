@@ -17,21 +17,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Get global cache dir 🫙
-        id: yarn-global-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          cache: 'yarn'
 
       - name: Restore cache 🔍
         uses: actions/cache@v3
         id: cache-deps
         with:
-          path: |
-            ${{ steps.yarn-global-cache.outputs.dir }}
-            node_modules
+          path: node_modules
           key: yarn-${{ runner.os }}-${{ env.CACHE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             yarn-${{ runner.os }}-${{ env.CACHE_VERSION }}-
