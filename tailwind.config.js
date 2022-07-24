@@ -1,5 +1,6 @@
 const { yellow, slate } = require('tailwindcss/colors');
 
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{tsx,ts}', './contentlayer.config.ts'],
