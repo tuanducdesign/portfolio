@@ -9,7 +9,7 @@ draft: false
 Let's say we have an instance of axios that we configure the base URL so that every time we want to hit our API, we just need to specify the path of the url.
 
 ```js
-// http.ts
+// src/http.js
 import axios from 'axios';
 
 const http = axios.create({
@@ -33,15 +33,14 @@ const http = axios.create({
 http.interceptors.response.use(
   response => response,
   error => {
+    let message = 'Unknown Error';
     if (axios.isAxiosError(error)) {
-      const message = error.response?.data.error || error.message;
-      toast.error(message);
-      return Promise.reject(error);
+      message = error.response?.data.error || error.response?.data.message;
     }
-    if (error instanceof Error) {
-      toast.error(error.message);
-      return Promise.reject(error);
+    if (error instanceof TypeError) {
+      message = error.message;
     }
+    toast.error(message);
     return Promise.reject(error);
   },
 );
@@ -67,20 +66,20 @@ export const getUserProfile = () => {
 Then what we need to do is to modify our interceptor to respect with that property:
 
 ```js
+// src/http.js
+
 http.interceptors.response.use(
   response => response,
   error => {
+    let message = 'Unknown Error';
     if (axios.isAxiosError(error)) {
-      if (error.config.disableToast) {
-        return Promise.reject(error);
-      }
-      const message = error.response?.data.error || error.message;
-      toast.error(message);
-      return Promise.reject(error);
+      message = error.response?.data.error || error.response?.data.message;
     }
-    if (error instanceof Error) {
-      toast.error(error.message);
-      return Promise.reject(error);
+    if (error instanceof TypeError) {
+      message = error.message;
+    }
+    if (!error.config.disableToast) {
+      toast.error(message);
     }
     return Promise.reject(error);
   },
@@ -89,7 +88,7 @@ http.interceptors.response.use(
 
 ### TypeScript
 
-If you're using TypeScript, then you will notice that in `client.ts`, we're not allowed to call `axios.request` with `disableToast` property. And the same error goes to our interceptor, it will look something like this.
+If you're using TypeScript, then you will notice that in `src/clients/user.js`, we're not allowed to call `axios.request` with `disableToast` property. And the same error goes to our interceptor, it will look something like this.
 
 > Property 'disableToast' does not exist on type `AxiosRequestConfig<any>`.(2339)
 
