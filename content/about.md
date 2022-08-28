@@ -6,7 +6,7 @@ Hey, I'm Ashal. A _self-taught_ Frontend Engineer in [OY! Indonesia](https://oyi
 
 ## Education
 
-I graduated from a Vocational High School in 2021, with Airframe and Power Plant Major.
+I graduated from a Vocational High School in 2020, with Airframe and Power Plant Major.
 
 ## Journey
 
