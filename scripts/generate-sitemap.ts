@@ -27,7 +27,7 @@ async function main() {
       parser: 'html',
     }),
   );
-  console.log('☑️  Successfully generate sitemap to:', target);
+  console.log('✔ Successfully generate sitemap to:', target);
 }
 
 function createUrlTag(page: string) {

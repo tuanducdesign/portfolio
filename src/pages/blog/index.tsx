@@ -51,7 +51,7 @@ export default function BlogPages({
           </div>
         </div>
         <div className="mb-12">
-          <h2 className="font-bold text-2xl mb-4">How to&apos;s</h2>
+          <h2 className="font-bold text-2xl mb-4">Tutorials</h2>
           <div className="space-y-2">
             {tutorials.map(post => (
               <Link
