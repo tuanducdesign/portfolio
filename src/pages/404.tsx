@@ -9,8 +9,8 @@ export default function NotFoundPage() {
         <h1 className="text-9xl">404</h1>
         <h2 className="text-xl mb-4">Page not found</h2>
         <p className="mb-8">This page not found (deleted or never exists).</p>
-        <Link passHref href="/">
-          <Button as="a">Take Me Home</Button>
+        <Link href="/">
+          <Button>Take Me Home</Button>
         </Link>
       </Container>
     </Layout>

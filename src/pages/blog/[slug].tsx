@@ -53,12 +53,9 @@ export default function BlogPostPage({
                       tags: tag,
                     },
                   }}
-                  passHref
                 >
-                  <a>
-                    <span className="text-secondary dark:text-primary">#</span>
-                    <span>{tag}</span>
-                  </a>
+                  <span className="text-secondary dark:text-primary">#</span>
+                  <span>{tag}</span>
                 </Link>
               </li>
             ))}

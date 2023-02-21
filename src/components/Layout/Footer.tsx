@@ -49,8 +49,12 @@ export const Footer = () => {
       <Container className="max-w-2xl w-full grid md:grid-cols-3 gap-4 px-6 md:p-4 mt-8 text-slate-500">
         <div className="flex flex-col gap-4">
           {internalLinks.map(link => (
-            <Link href={link.href} key={link.href + link.label} passHref>
-              <a className="hover:text-slate-400">{link.label}</a>
+            <Link
+              href={link.href}
+              key={link.href + link.label}
+              className="hover:text-slate-400"
+            >
+              {link.label}
             </Link>
           ))}
         </div>

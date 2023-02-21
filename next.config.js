@@ -6,10 +6,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const config = withContentlayer({
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true,
-  },
 });
 
 module.exports = withBundleAnalyzer(config);

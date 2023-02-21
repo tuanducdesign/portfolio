@@ -9,13 +9,12 @@ export const Header = () => {
   return (
     <header className="flex sticky top-0 z-50 backdrop-blur-sm border-b border-b-slate-700 h-14">
       <Container className="flex justify-between items-center px-2 md:px-0">
-        <Link href="/" passHref>
-          <a
-            className="font-bold text-3xl italic text-dark-primary dark:text-light-primary inline-flex items-center"
-            title="Home"
-          >
-            <BrandIcon />
-          </a>
+        <Link
+          href="/"
+          className="font-bold text-3xl italic text-dark-primary dark:text-light-primary inline-flex items-center"
+          title="Home"
+        >
+          <BrandIcon />
         </Link>
         <Button
           title="Switch Theme"

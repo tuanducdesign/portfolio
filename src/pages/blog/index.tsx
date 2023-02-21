@@ -55,21 +55,19 @@ export default function BlogPages({
           <div className="space-y-2">
             {tutorials.map(post => (
               <Link
+                className="flex justify-between group sm:flex-row flex-col"
                 key={post.title}
-                passHref
                 href={{
                   pathname: '/tutorials/[slug]',
                   query: { slug: post.slug },
                 }}
               >
-                <a className="flex justify-between group sm:flex-row flex-col">
-                  <h3 className="group-hover:underline underline-offset-2 font-semibold">
-                    {post.title}
-                  </h3>
-                  <span className="text-neutral">
-                    {dateFormatter.format(new Date(post.publishedAt))}
-                  </span>
-                </a>
+                <h3 className="group-hover:underline underline-offset-2 font-semibold">
+                  {post.title}
+                </h3>
+                <span className="text-neutral">
+                  {dateFormatter.format(new Date(post.publishedAt))}
+                </span>
               </Link>
             ))}
           </div>

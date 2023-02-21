@@ -20,15 +20,11 @@ export function Hero() {
           {profile.highlight}
         </p>
         <div className="flex gap-4 lg:flex-row flex-col w-full relative top-4 motion-safe:animate-fade-up">
-          <Link href="/hire" passHref>
-            <Button className="text-xl" as="a">
-              Hire Me
-            </Button>
+          <Link href="/hire">
+            <Button className="text-xl w-full">Hire Me</Button>
           </Link>
-          <Link href="/blog" passHref>
-            <Button className="text-xl" as="a">
-              Blog
-            </Button>
+          <Link href="/blog">
+            <Button className="text-xl w-full">Blog</Button>
           </Link>
         </div>
       </div>
